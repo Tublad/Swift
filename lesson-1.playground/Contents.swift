@@ -1,5 +1,7 @@
 import Foundation
 
+// __author__ Шварцкопф Евгений Андреевич
+
 // 1 задание: Решить квадратное уровнение
 
 // 1 вариант
@@ -52,10 +54,10 @@ rightTriangle(d: 4, c: 7)
 var period = 5
 
 func contribution(sum: Double, percent: Double) {
-    let pr =  percent / 100
-    var sumMax = sum + pr
+    let percentSum =  percent / 100
+    var sumMax = sum + percentSum
     for _ in 0...period {
-        let prAge = sumMax * pr
+        let prAge = sumMax * percentSum
         sumMax += prAge
         print(Int(sumMax))
    }
