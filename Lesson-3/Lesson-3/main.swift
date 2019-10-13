@@ -6,6 +6,8 @@
 
 import Foundation
 
+// Легковая машина Car
+
 enum WindowsCar {
     case open
     case close
@@ -162,16 +164,142 @@ mercedes.activeDoorCar(stage: .open)
 mercedes.activeEngineCar(stage: .start)
 mercedes.activeTrunkVolume(stage: .immorse)
 
+// Грузовая машина Truck
 
+enum WindowTruck {
+    case open
+    case close
+}
+enum EngineTruck {
+    case start
+    case finish
+}
+enum TruckTrunk {
+    case immorse
+    case unload
+}
 
+struct Truck {
+    var marka: String
+    var yearOld: String
+    var trunks: Int
+    private let fullBoot = 1000
+    
+    var trunkImmorse: Int {
+        get {
+            return trunks
+        }
+        set {
+            if newValue < 0 || newValue > fullBoot {
+                trunks = 0
+            }
+            trunks = trunks + newValue
+            print("In Truck \(TruckTrunk.immorse) at \(newValue) and all volume trunk \(trunks)")
+        }
+    }
+    var trunkUnload: Int  {
+        get {
+            return trunks
+        }
+        set {
+            if newValue < 0 || newValue > fullBoot {
+                trunks = 0
+            } else if newValue > trunks {
+                trunks = newValue - trunks
+            } else {
+                trunks = trunks - newValue
+            }
+            print("In Truck \(TruckTrunk.unload) at \(newValue) and all volume trunk \(trunks)")
+        }
+    }
+    
+    var doorAction: WindowTruck {
+        willSet {
+            if newValue == .open {
+                print("In truck is open windows")
+            } else {
+                print("In truck is close windows")
+            }
+        }
+        didSet {
+            if oldValue == .close {
+                print("In truck in close windows")
+            } else {
+                print("In truck in open windows")
+            }
+        }
+    }
+    
+    var engineAction: EngineTruck {
+        willSet {
+            if newValue == .start {
+                print("Truck is start work engine and ready go out")
+            } else {
+                print("Truck is finish work engine and stop at now")
+            }
+        }
+    }
+    
+    mutating func stageEngine(stage: EngineTruck) {
+        switch stage {
+        case .start:
+            self.engineAction = .start
+            print(engineAction)
+        case .finish:
+            self.engineAction = .finish
+            print(engineAction)
+        }
+    }
+    mutating func stageDoor(stage: WindowTruck) {
+        switch stage {
+        case .open:
+            self.doorAction = .open
+            print(doorAction)
+        case .close:
+            self.doorAction = .close
+            print(doorAction)
+        }
+    }
+    
+    init(marka: String, yearOld: String, trunks: Int) {
+        self.marka = marka
+        self.yearOld = yearOld
+        self.trunks = trunks
+        self.doorAction = .close
+        self.engineAction = .finish
+    }
+    init(marka: String, yearOld: String) {
+        self.marka = marka
+        self.yearOld = yearOld
+        self.trunks = 0
+        self.doorAction = .open
+        self.engineAction = .start
+    }
+}
 
+var volvo = Truck(marka: "Volvo", yearOld: "21.09.2001 y.o.", trunks: 500)
+var daf = Truck(marka: "Daf", yearOld: "19.01.2008", trunks: 250)
+var scanio = Truck(marka: "Scanio", yearOld: "10.10.2019")
 
+volvo.stageEngine(stage: .finish)
+volvo.stageDoor(stage: .open)
+volvo.trunkImmorse = 400
+volvo.trunkUnload = 100
+print(volvo.marka)
+print(volvo.yearOld)
+print(volvo.trunks)
+print(volvo.doorAction)
+print(volvo.engineAction)
 
-
-
-
-
-
+daf.stageDoor(stage: .open)
+daf.engineAction = .start
+daf.trunkImmorse = 500
+print(daf.trunks)
+print(daf.marka)
+print(daf.yearOld)
+print(daf.trunks)
+print(daf.engineAction)
+print(daf.doorAction)
 
 
 
