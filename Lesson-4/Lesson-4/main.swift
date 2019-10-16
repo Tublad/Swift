@@ -63,9 +63,11 @@ class SportCar: Car {
         nitrousOxide == .included ?
             print("Included NO in car") : print("Not included NO in car")
     }
+    
     override func presentCar() {
         print("Sport car is \(mark)! Maximum speed \(maxSpeed) and volume \(volume)")
     }
+    
     init(mark: String, yearOfIssue: String, numberOfPeople: Int, engine: CarEngine, volume: String, maxSpeed: String, nitrousOxide: NitrousOxide) {
         self.volume = volume
         self.maxSpeed = maxSpeed
@@ -74,6 +76,7 @@ class SportCar: Car {
         
         SportCar.greateSportCar += 1
     }
+    
     static func greateSportCars(){
         print("Great sport car - \(greateSportCar)")
     }
@@ -98,8 +101,8 @@ class TruckCar: Car {
         print("Truck car - \(mark). His work a point 'A' in point 'B',distance = \(distance) and volume cargo = \(trunk)")
     }
     
-     init(mark: String, yearOfIssue: String, numberOfPeople: Int, engine: CarEngine, trunk: String,
-                  distance: String) {
+    init(mark: String, yearOfIssue: String, numberOfPeople: Int, engine: CarEngine, trunk: String,
+         distance: String) {
         self.trunk = trunk
         self.distance = distance
         self.cargo = .immorse
@@ -124,7 +127,8 @@ print(opel.yearOfIssue)
 
 var lamborgini = SportCar(mark: "Lamborgini", yearOfIssue: "01.11.2019", numberOfPeople: 2, engine: .start,
                           volume: "6 litr", maxSpeed: "378 km/h", nitrousOxide: .included)
-var bugati = SportCar(mark: "Bugati", yearOfIssue: "01.12.2018", numberOfPeople: 2, engine: .start, volume: "8 litr",                          maxSpeed: "459 km/h", nitrousOxide: .included)
+var bugati = SportCar(mark: "Bugati", yearOfIssue: "01.12.2018", numberOfPeople: 2, engine: .start,
+                      volume: "8 litr",maxSpeed: "459 km/h", nitrousOxide: .included)
 
 lamborgini.engine = .finish
 lamborgini.nitrousOxide = .notIncluded
@@ -137,8 +141,10 @@ print(lamborgini.numberOfPeople)
 
 SportCar.greateSportCars()
 
-var volvo = TruckCar(mark: "Volvo", yearOfIssue: "08.07.2013", numberOfPeople: 3, engine: .start, trunk: "4,000 kg",                          distance: "5,000 km")
-var kamaz = TruckCar(mark: "Kamaz", yearOfIssue: "02.04.2004", numberOfPeople: 3, engine: .finish, trunk: "2,000 kg",                         distance: "3,000 km")
+var volvo = TruckCar(mark: "Volvo", yearOfIssue: "08.07.2013", numberOfPeople: 3, engine: .start,
+                     trunk: "4,000 kg",distance: "5,000 km")
+var kamaz = TruckCar(mark: "Kamaz", yearOfIssue: "02.04.2004", numberOfPeople: 3, engine: .finish,
+                     trunk: "2,000 kg",distance: "3,000 km")
 
 kamaz.engine = .finish
 kamaz.stageCargoTrack(stage: .immorse)
