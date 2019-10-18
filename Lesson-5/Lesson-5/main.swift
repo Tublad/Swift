@@ -99,7 +99,7 @@ class SportCar: Car {
 extension SportCar: CustomStringConvertible {
     
     var description: String {
-        return "Sport Car - \(mark) : \(yearOfIssue) years old. Fabricator - \(fabricator). Her maximum gas-tank is \(gasTank) litrs! Racing for 100 km is \(racing) and maximum speed \(maxSpeed)"
+        return "Sport Car - \(mark) : \(yearOfIssue) years old. Fabricator - \(fabricator).\n Her maximum gas-tank is \(gasTank) litrs! Racing for 100 km is \(racing) and maximum speed \(maxSpeed)"
     }
 }
 
@@ -166,7 +166,7 @@ class TruckCar: Car {
 extension TruckCar: CustomStringConvertible {
     
     var description: String {
-        return "Truck Car - \(mark): \(yearOfIssue). Fabricator - \(fabricator). His maximum gas-tank \(gasTank) litrs. Frequent transportation distance \(distance) and maximum immorsion \(trunk)"
+        return "Truck Car - \(mark): \(yearOfIssue). Fabricator - \(fabricator).\n His maximum gas-tank \(gasTank) litrs. Frequent transportation distance \(distance) and maximum immorsion \(trunk)"
     }
 }
 
