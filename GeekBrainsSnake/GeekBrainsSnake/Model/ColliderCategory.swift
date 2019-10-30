@@ -1,9 +1,11 @@
-//
-//  ColliderCategory.swift
-//  GeekBrainsSnake
-//
-//  Created by Евгений Шварцкопф on 30/10/2019.
-//  Copyright © 2019 Евгений Шварцкопф. All rights reserved.
-//
 
-import Foundation
+
+
+struct ColliderCategories {
+    static let Snake: UInt32 = 0x1 << 0
+    static let SnakeHead: UInt32 = 0x1 << 1
+    static let Apple: UInt32 = 0x1 << 2
+    static let EdgeBody: UInt32 = 0x1 << 3
+}
+
+
