@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +10,109 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Social_Network" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eYb-9O-qds">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cwO-bb-u2c">
+                                        <rect key="frame" x="107" y="214" width="200" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="4N5-4F-7Zp"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Qh-fW-jOa">
+                                        <rect key="frame" x="107" y="335" width="200" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="Lcf-fW-g0f"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Awc-4P-a5e">
+                                        <rect key="frame" x="141" y="100" width="132" height="27"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="Авторизация">
+                                                <attributes>
+                                                    <font key="NSFont" size="24" name="Times-Roman"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J79-lw-zXh">
+                                        <rect key="frame" x="185" y="157" width="44" height="27"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="Имя">
+                                                <attributes>
+                                                    <font key="NSFont" size="24" name="Times-Roman"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fSS-BF-Tnk">
+                                        <rect key="frame" x="169.5" y="278" width="75" height="27"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="Пароль">
+                                                <attributes>
+                                                    <font key="NSFont" size="24" name="Times-Roman"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mMw-2h-7OR">
+                                        <rect key="frame" x="185" y="529" width="44" height="30"/>
+                                        <state key="normal" title="Войти"/>
+                                        <connections>
+                                            <action selector="pressButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7dk-DY-fcg"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="cwO-bb-u2c" firstAttribute="top" secondItem="J79-lw-zXh" secondAttribute="bottom" constant="30" id="44k-Wm-MI5"/>
+                                    <constraint firstItem="0Qh-fW-jOa" firstAttribute="top" secondItem="fSS-BF-Tnk" secondAttribute="bottom" constant="30" id="Syr-3b-8UZ"/>
+                                    <constraint firstItem="mMw-2h-7OR" firstAttribute="top" secondItem="0Qh-fW-jOa" secondAttribute="bottom" constant="160" id="V7E-fQ-W5o"/>
+                                    <constraint firstItem="J79-lw-zXh" firstAttribute="top" secondItem="Awc-4P-a5e" secondAttribute="bottom" constant="30" id="Yvp-oA-DDF"/>
+                                    <constraint firstAttribute="bottom" secondItem="mMw-2h-7OR" secondAttribute="bottom" constant="10" id="iDh-yh-mM4"/>
+                                    <constraint firstItem="Awc-4P-a5e" firstAttribute="top" secondItem="eYb-9O-qds" secondAttribute="top" constant="100" id="lre-Yd-dh1"/>
+                                    <constraint firstItem="fSS-BF-Tnk" firstAttribute="top" secondItem="cwO-bb-u2c" secondAttribute="bottom" constant="30" id="uqC-Ba-w8u"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="TWV-uE-2Te"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="MhS-34-kCK"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="cwO-bb-u2c" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="3gB-Bh-5u7"/>
+                            <constraint firstItem="J79-lw-zXh" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="7N3-L5-K05"/>
+                            <constraint firstItem="mMw-2h-7OR" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="B8Q-zl-QHA"/>
+                            <constraint firstItem="eYb-9O-qds" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Fcv-UQ-bSz"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="eYb-9O-qds" secondAttribute="trailing" id="HRx-9S-8OW"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="eYb-9O-qds" secondAttribute="bottom" id="HiM-uF-HMd"/>
+                            <constraint firstItem="eYb-9O-qds" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="MHh-87-vFN"/>
+                            <constraint firstItem="fSS-BF-Tnk" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="NQT-z3-wTQ"/>
+                            <constraint firstItem="0Qh-fW-jOa" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Om3-fr-YHz"/>
+                            <constraint firstItem="Awc-4P-a5e" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="qq5-ZT-VKu"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="login" destination="cwO-bb-u2c" id="KVT-T9-8Z6"/>
+                        <outlet property="password" destination="0Qh-fW-jOa" id="Zxo-Rh-EJB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="112.5"/>
         </scene>
     </scenes>
 </document>
