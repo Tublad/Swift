@@ -13,6 +13,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var login: UITextField!
     @IBOutlet weak var password: UITextField!
     
+    private let rightLogin = "Evgen"
+    private let rightPassword = "12345"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,6 +37,10 @@ class ViewController: UIViewController {
         }
         guard passwordInput.count > 0 && passwordInput.count < 20 else {
             return
+        }
+        
+        if loginInput == rightLogin && passwordInput == rightPassword {
+            performSegue(withIdentifier: "firstCase", sender: nil)
         }
         
         print("Hello \(loginInput) and your password \(passwordInput)")
