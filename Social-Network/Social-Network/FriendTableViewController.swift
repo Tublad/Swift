@@ -7,106 +7,33 @@
 //
 
 import UIKit
-class People: NSObject {
-    var name: String
-    var lastName: String
-    
-    init(name: String, lastName: String){
-        self.name = name
-        self.lastName = lastName
-        super.init()
-    }
-}
-
-let friendData = [People(name: "Егор", lastName: "Абрамов"),
-    People(name: "Максим", lastName: "Иванов"),
-    People(name: "Александр", lastName: "Бойко"),
-    People(name: "Евгений", lastName: "Шварцкопф"),
-    People(name: "Олег", lastName: "Запевалов"),
-    People(name: "Мурат", lastName: "Конырбаев")]
-
-var friendList: [People] = friendData
 
 class FriendTableViewController: UITableViewController {
+    
+    
+    var friendList = [Friends(firstName: "Max", lastName: "Maximov", age: "25", country: "Omsk", education: "Middle education", status: "Готов поболтать"), Friends(firstName: "Egor", lastName: "Ivanov", age: "30", country: "Moscow", education: "Higher edication", status: "Пока жизнь легка и хороша..."), Friends(firstName: "Oleg", lastName: "Mironov", age: "21", country: "Omsk", education: "Middle special education", status: "Хочу начать учиться программированию,\n подскажите хорошие курсы...?!"), Friends(firstName: "Marina", lastName: "Ovina", age: "23", country: "Saint Petersburg", education: " - ", status: "Уехала в другой город, буду только 25.12.2019"), Friends(firstName: "Dima", lastName: "Ystinov", age: "24", country: "Moscow", education: "Higher edication", status: "Отошел"),Friends(firstName: "Ludmila", lastName: "Petrova", age: "25", country: "Tomsk", education: "Middle education", status: "Жду того самого момента...!"), Friends(firstName: "Ivan", lastName: "Ivanov", age: "30", country: "Moscow", education: "Higher edication", status: "Номер сменил, не теряйте, если что звонить на \n 8 908 143 2241!"), Friends(firstName: "Olesi", lastName: "Mironova", age: "21", country: "Omsk", education: "Middle special education", status: "Сейчас в городе Москва, подскажите куда лучше всего сходить?"), Friends(firstName: "Ura", lastName: "Lovinov", age: "23", country: "Saint Petersburg", education: " - ", status: ""), Friends(firstName: "Mila", lastName: "Antilopina", age: "24", country: "Moscow", education: "Higher edication", status: "Ушла в себя, не беспокойте!"),Friends(firstName: "Artyr", lastName: "Maximovin", age: "25", country: "Omsk", education: "Middle education", status: "Хмммммм....."), Friends(firstName: "Irina", lastName: "Ivanova", age: "30", country: "Moscow", education: "Higher edication", status: "Только не давно переехала в новый город, \n кто нибудь может мне провести Экскурсию?))"), Friends(firstName: "Mira", lastName: "Moronova", age: "21", country: "Omsk", education: "Middle special education", status: "Все хорошо, кому интересно это вообще =)"), Friends(firstName: "Maria", lastName: "Ovinava", age: "23", country: "Saint Petersburg", education: " - ", status: "Блогер"), Friends(firstName: "Annet", lastName: "Antis", age: "24", country: "Moscow", education: "Higher edication", status: "Готова знакомится")]
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
-
+   
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return friendList.count
     }
-
-    
+   
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FriendCell", for: indexPath) as! UITableViewCell
-        
-        let friend = friendList[indexPath.row] as People
-        cell.textLabel?.text = friend.name
-        cell.detailTextLabel?.text = friend.lastName
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "FriendCell", for: indexPath) as! FriendCell
+        cell.firstName.text = friendList[indexPath.row].firstName
+        cell.lastName.text = friendList[indexPath.row].lastName
         return cell
     }
     
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let userName = friendList[indexPath.row]
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(identifier: "ProfileFriendCollectionViewController") as! ProfileFriendCollectionViewController
+        vc.user = userName
+        self.navigationController?.pushViewController(vc, animated: true)
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
