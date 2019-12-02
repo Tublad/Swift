@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -357,7 +356,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.21998739240000001" green="0.38327541949999999" blue="0.6818255782" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GlobalGroupCell" rowHeight="100" id="HOX-D3-OR5" customClass="GlobalGroupCell" customModule="Social_Network" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="gray" indentationWidth="10" reuseIdentifier="GlobalGroupCell" rowHeight="100" id="HOX-D3-OR5" customClass="GlobalGroupCell" customModule="Social_Network" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HOX-D3-OR5" id="5iY-B9-KSg">
@@ -467,11 +466,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="FriendCell" rowHeight="85" id="feA-ii-9sq" customClass="FriendCell" customModule="Social_Network" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="gray" indentationWidth="10" reuseIdentifier="FriendCell" rowHeight="85" id="feA-ii-9sq" customClass="FriendCell" customModule="Social_Network" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="85"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="feA-ii-9sq" id="NqL-gv-w2Y">
-                                    <rect key="frame" x="0.0" y="0.0" width="383" height="85"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="85"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PhotoProfile" translatesAutoresizingMaskIntoConstraints="NO" id="wLJ-kG-uyf">
@@ -544,13 +543,12 @@
         <scene sceneID="DII-Rt-9X8">
             <objects>
                 <collectionViewController storyboardIdentifier="ProfileFriendCollectionViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="xpV-Hi-qLI" customClass="ProfileFriendCollectionViewController" customModule="Social_Network" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Ewq-9A-Nuh">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" id="Ewq-9A-Nuh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="FsU-QZ-TAt">
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="P3l-Jh-TjW">
                             <size key="itemSize" width="400" height="300"/>
-                            <size key="estimatedItemSize" width="400" height="300"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -559,11 +557,11 @@
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ProfileFriendCell" id="fbU-ws-R53" customClass="ProfileFriendCell" customModule="Social_Network" customModuleProvider="target">
                                 <rect key="frame" x="7" y="0.0" width="400" height="300"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="YlZ-Y2-sYy">
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                     <rect key="frame" x="0.0" y="0.0" width="400" height="300"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PhotoProfile" translatesAutoresizingMaskIntoConstraints="NO" id="kUw-j6-9Ql">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="PhotoProfile" translatesAutoresizingMaskIntoConstraints="NO" id="kUw-j6-9Ql">
                                             <rect key="frame" x="15" y="15" width="185" height="185"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="kUw-j6-9Ql" secondAttribute="height" multiplier="1:1" id="Ao6-fp-m4r"/>
@@ -643,26 +641,24 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" red="0.21998739240000001" green="0.38327541949999999" blue="0.6818255782" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <constraints>
-                                        <constraint firstItem="GWI-Ae-0XG" firstAttribute="leading" secondItem="kUw-j6-9Ql" secondAttribute="trailing" constant="20" id="5qL-hV-NcI"/>
-                                        <constraint firstItem="sgl-Wz-16W" firstAttribute="leading" secondItem="YlZ-Y2-sYy" secondAttribute="leading" constant="28" id="7fL-qH-ZoF"/>
-                                        <constraint firstItem="sgl-Wz-16W" firstAttribute="top" secondItem="kUw-j6-9Ql" secondAttribute="bottom" constant="23" id="AQl-NK-nIk"/>
-                                        <constraint firstItem="1x2-bT-TH3" firstAttribute="leading" secondItem="kUw-j6-9Ql" secondAttribute="trailing" constant="20" id="E6H-ka-Pah"/>
-                                        <constraint firstItem="de9-WI-LL0" firstAttribute="leading" secondItem="kUw-j6-9Ql" secondAttribute="trailing" constant="20" id="F1S-mF-2Gd"/>
-                                        <constraint firstItem="kEF-XZ-eaW" firstAttribute="top" secondItem="GWI-Ae-0XG" secondAttribute="bottom" constant="15" id="RlM-HA-SfQ"/>
-                                        <constraint firstItem="VX6-9D-VV0" firstAttribute="leading" secondItem="kUw-j6-9Ql" secondAttribute="trailing" constant="20" id="UuD-1v-nyl"/>
-                                        <constraint firstItem="kUw-j6-9Ql" firstAttribute="top" secondItem="YlZ-Y2-sYy" secondAttribute="top" constant="15" id="XIp-Xx-buD"/>
-                                        <constraint firstItem="kEF-XZ-eaW" firstAttribute="leading" secondItem="kUw-j6-9Ql" secondAttribute="trailing" constant="20" id="XbU-Jf-ZnJ"/>
-                                        <constraint firstAttribute="trailing" secondItem="kUw-j6-9Ql" secondAttribute="trailing" constant="200" id="aMA-ib-Q1s"/>
-                                        <constraint firstItem="VX6-9D-VV0" firstAttribute="top" secondItem="1x2-bT-TH3" secondAttribute="bottom" constant="15" id="ejp-TX-lRX"/>
-                                        <constraint firstItem="1x2-bT-TH3" firstAttribute="top" secondItem="de9-WI-LL0" secondAttribute="bottom" constant="15" id="mNG-HA-8Uc"/>
-                                        <constraint firstItem="GWI-Ae-0XG" firstAttribute="top" secondItem="YlZ-Y2-sYy" secondAttribute="top" constant="15" id="o9G-7f-U0h"/>
-                                        <constraint firstItem="kUw-j6-9Ql" firstAttribute="leading" secondItem="YlZ-Y2-sYy" secondAttribute="leading" constant="15" id="oxF-Sc-Zbz"/>
-                                        <constraint firstItem="de9-WI-LL0" firstAttribute="top" secondItem="kEF-XZ-eaW" secondAttribute="bottom" constant="15" id="ybf-is-8X9"/>
-                                    </constraints>
-                                    <viewLayoutGuide key="safeArea" id="jRb-hb-DRE"/>
-                                </collectionViewCellContentView>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="GWI-Ae-0XG" firstAttribute="leading" secondItem="kUw-j6-9Ql" secondAttribute="trailing" constant="20" id="5qL-hV-NcI"/>
+                                    <constraint firstItem="sgl-Wz-16W" firstAttribute="leading" secondItem="fbU-ws-R53" secondAttribute="leading" constant="28" id="7fL-qH-ZoF"/>
+                                    <constraint firstItem="sgl-Wz-16W" firstAttribute="top" secondItem="kUw-j6-9Ql" secondAttribute="bottom" constant="23" id="AQl-NK-nIk"/>
+                                    <constraint firstItem="1x2-bT-TH3" firstAttribute="leading" secondItem="kUw-j6-9Ql" secondAttribute="trailing" constant="20" id="E6H-ka-Pah"/>
+                                    <constraint firstItem="de9-WI-LL0" firstAttribute="leading" secondItem="kUw-j6-9Ql" secondAttribute="trailing" constant="20" id="F1S-mF-2Gd"/>
+                                    <constraint firstItem="kEF-XZ-eaW" firstAttribute="top" secondItem="GWI-Ae-0XG" secondAttribute="bottom" constant="15" id="RlM-HA-SfQ"/>
+                                    <constraint firstItem="VX6-9D-VV0" firstAttribute="leading" secondItem="kUw-j6-9Ql" secondAttribute="trailing" constant="20" id="UuD-1v-nyl"/>
+                                    <constraint firstItem="kUw-j6-9Ql" firstAttribute="top" secondItem="fbU-ws-R53" secondAttribute="top" constant="15" id="XIp-Xx-buD"/>
+                                    <constraint firstItem="kEF-XZ-eaW" firstAttribute="leading" secondItem="kUw-j6-9Ql" secondAttribute="trailing" constant="20" id="XbU-Jf-ZnJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="kUw-j6-9Ql" secondAttribute="trailing" constant="200" id="aMA-ib-Q1s"/>
+                                    <constraint firstItem="VX6-9D-VV0" firstAttribute="top" secondItem="1x2-bT-TH3" secondAttribute="bottom" constant="15" id="ejp-TX-lRX"/>
+                                    <constraint firstItem="1x2-bT-TH3" firstAttribute="top" secondItem="de9-WI-LL0" secondAttribute="bottom" constant="15" id="mNG-HA-8Uc"/>
+                                    <constraint firstItem="GWI-Ae-0XG" firstAttribute="top" secondItem="fbU-ws-R53" secondAttribute="top" constant="15" id="o9G-7f-U0h"/>
+                                    <constraint firstItem="kUw-j6-9Ql" firstAttribute="leading" secondItem="fbU-ws-R53" secondAttribute="leading" constant="15" id="oxF-Sc-Zbz"/>
+                                    <constraint firstItem="de9-WI-LL0" firstAttribute="top" secondItem="kEF-XZ-eaW" secondAttribute="bottom" constant="15" id="ybf-is-8X9"/>
+                                </constraints>
                                 <size key="customSize" width="400" height="300"/>
                                 <connections>
                                     <outlet property="PhotoProfile" destination="kUw-j6-9Ql" id="gPS-TY-1fw"/>
