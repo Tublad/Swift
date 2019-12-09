@@ -16,19 +16,19 @@ class CustomPhoto: UIView {
     
     func addImage() {
         image = UIImageView(frame: frame)
-        addSubview(image)
         image.image = UIImage(named: "myPhoto")
-        image.backgroundColor = .black
+        addSubview(image)
     }
     override func layoutSubviews() {
-        image.frame = self.frame
+        image.frame = bounds
         layer.backgroundColor = UIColor.clear.cgColor
-        layer.shadowColor = UIColor.black.cgColor
-        layer.shadowOffset = CGSize(width: 0, height: 1.0)
-        layer.shadowOpacity = 1
-        layer.shadowRadius = 10
+        //    layer.shadowColor = UIColor.gray.cgColor
+        //    layer.shadowOffset = CGSize(width: 0, height: 1.0)
+        //    layer.shadowOpacity = 1.0
+        //    layer.shadowRadius = 10
+        // убрал тень, так как она сейчас не в теме ))
         
-        image.layer.cornerRadius = self.frame.size.width / 2
+        image.layer.cornerRadius = bounds.size.width / 2
         image.layer.masksToBounds = true
     }
 }

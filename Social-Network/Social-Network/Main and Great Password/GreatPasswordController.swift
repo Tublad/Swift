@@ -1,46 +1,52 @@
-//
 
 import UIKit
 
-class GreatPasswordController: UIViewController {
-    @IBOutlet weak var headLabel: UILabel!
+class GreatPasswordViewController: UIViewController {
     @IBOutlet weak var newName: UITextField!
     @IBOutlet weak var newPassword: UITextField!
     @IBOutlet weak var repeatPassword: UITextField!
     
-    var logins: String?
-    var passwords: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        let hideAction = UITapGestureRecognizer(target: self, action: #selector(hideKeyBoard))
+        view.addGestureRecognizer(hideAction)
     }
     
-    @IBAction func pressentGreatButton(_ sender: Any) {
+    @objc func hideKeyBoard() {
+        view.endEditing(true)
+    }
+    
+    @IBAction func newGreatAccount(_ sender: Any) {
         guard let newLogin = newName.text,
-            let newPas = newPassword.text,
-            let repeatPas = repeatPassword.text else {
+            let newPassword = newPassword.text,
+            let repeatPassword = repeatPassword.text else {
                 return
         }
-        guard newLogin.count > 0 && newPas.count > 0 && repeatPas.count > 0, newLogin.count < 15 && newPas.count < 20 && repeatPas.count < 20 else {
+        guard newLogin.count > 0 && newLogin.count < 15 else {
             return
         }
-        guard newPas == repeatPas else {
+        guard newPassword.count > 0 && newPassword.count < 20 else {
             return
         }
-        if logins != newLogin && passwords != newPas {
+        if newPassword == repeatPassword {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateViewController(identifier: "ViewController") as! ViewController
-            vc.rightLogin = newLogin
-            vc.rightPassword = newPas
-           self.navigationController?.pushViewController(vc, animated: true)
-            view.reloadInputViews()
+            guard let mainViewController = storyboard.instantiateViewController(identifier: "ViewController") as? ViewController else {
+                return
+            }
+            mainViewController.rightLogin = newLogin
+            mainViewController.rightPassword = newPassword
+            self.navigationController?.pushViewController(mainViewController, animated: true)
+            mainViewController.reloadInputViews()
+            
         } else {
-            let alert = UIAlertController(title: "Ошибка", message: "Проверьте введеный пароль, он должен совпадеть с первой записью пароля", preferredStyle: .alert)
-            let action = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+            let alert = UIAlertController(title: "Ошибка", message: "Пароль не идентичен, проверьте написание", preferredStyle: .alert)
+            let action = UIAlertAction(title: "Ок", style: .cancel, handler: nil)
             alert.addAction(action)
             present(alert, animated: true, completion: nil)
         }
     }
-
+    
 }
+
+
