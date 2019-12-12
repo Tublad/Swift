@@ -9,12 +9,21 @@ class ProfileFriendCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        updateNavigationBar()
+    }
+    
+    func updateNavigationBar() {
+        let backButton = UIBarButtonItem()
+        backButton.title = ""
+        navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
+        
     }
     
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 1
     }
+    
     @IBAction func likedButton(_ sender: Any) {
         guard let liked = (sender as? LiKeButton) else {
             return

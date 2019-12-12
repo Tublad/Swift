@@ -3,7 +3,6 @@ import UIKit
 
 class GroupTableViewController: UITableViewController {
     
-    
     var groupList: [Group] = [Group(name: "Сообщества Developed iOS", content: "Образовательный", participant: "2 312 105 участников", imageGroup: "PhotoGroup"),
                               Group(name: "PlayStation Store Official Group", content: "Видеоигры", participant: "201 123 участиков", imageGroup: "PhotoGroup"),
                               Group(name: "Паблик +100500", content: "Развлекательный", participant: "1 000 123 участников", imageGroup: "PhotoGroup"),
@@ -17,10 +16,11 @@ class GroupTableViewController: UITableViewController {
                               Group(name: "Game park | Гейм парк", content: "Открытая группа", participant: "142 612 участников", imageGroup: "PhotoGroup"),
                               Group(name: "Dota 2 HS", content: "Видеоигры", participant: "3 123 412 участников", imageGroup: "PhotoGroup")]
     
-    
+    var customRefreshController = UIRefreshControl()
     
     private let searchController = UISearchController(searchResultsController: nil)
     private var filteredGroup = [Group]()
+    
     private var searchBarIsEmpty: Bool {
         guard let text = searchController.searchBar.text else {
             return false
@@ -35,13 +35,30 @@ class GroupTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        addSearchBarControl()
+        addRefreshController()
+    }
+    
+    func addSearchBarControl() {
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Поиск"
         navigationItem.searchController = searchController
         definesPresentationContext = true
+        searchController.searchBar.searchTextField.textColor = .white
     }
     
+    func addRefreshController() {
+        customRefreshController.tintColor = .white
+        customRefreshController.addTarget(self, action: #selector(refreshTable), for: .valueChanged)
+        tableView.addSubview(customRefreshController)
+    }
+    
+    @objc func refreshTable() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            self.customRefreshController.endRefreshing()
+        }
+    }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -94,18 +111,26 @@ class GroupTableViewController: UITableViewController {
         }
     }
     
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            if isFiltering {
-                filteredGroup.remove(at: indexPath.row)
-                tableView.deleteRows(at: [indexPath], with: .fade)
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let deleteAction = UITableViewRowAction(style: .default, title: "Удалить") { (action,index)  in
+            if self.isFiltering {
+                let group = self.filteredGroup.remove(at: indexPath.row)
+                var indexes = 0
+                for element in self.groupList {
+                    if element.name == group.name {
+                        self.groupList.remove(at: indexes)
+                        break
+                    }
+                    indexes += 1
+                }
             } else {
-                groupList.remove(at: indexPath.row)
-                tableView.deleteRows(at: [indexPath], with: .fade)
+                self.groupList.remove(at: indexPath.row)
             }
+            tableView.deleteRows(at: [indexPath], with: .fade)
         }
-        
+        return [deleteAction]
     }
+    
 }
 
 extension GroupTableViewController: UISearchResultsUpdating {

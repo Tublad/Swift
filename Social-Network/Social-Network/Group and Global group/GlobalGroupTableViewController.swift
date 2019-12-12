@@ -3,6 +3,7 @@ import UIKit
 
 class GlobalGroupTableViewController: UITableViewController {
     
+    var customRefreshController = UIRefreshControl()
     
     var globalGroupList: [Group] = [Group(name: "M.Game", content: "Открытая группа", participant: "65 865 участников", imageGroup: "PhotoGroup"),
                                     Group(name: "myPlayStation", content: "Видеоигры", participant: "87 782 подписчика", imageGroup: "PhotoGroup"),
@@ -25,14 +26,31 @@ class GlobalGroupTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        addSearchBarControl()
+        addRefreshController()
+    }
+    
+    func addSearchBarControl() {
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Поиск"
         navigationItem.searchController = searchController
         definesPresentationContext = true
+        searchController.searchBar.searchTextField.textColor = .white
     }
     
+    func addRefreshController() {
+        customRefreshController.tintColor = .white
+        customRefreshController.addTarget(self, action: #selector(refreshTable), for: .valueChanged)
+        tableView.addSubview(customRefreshController)
+    }
+    
+    @objc func refreshTable() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            self.customRefreshController.endRefreshing()
+        }
+    }
+      
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1

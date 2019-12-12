@@ -37,6 +37,10 @@ class GreatPasswordViewController: UIViewController {
             mainViewController.rightLogin = newLogin
             mainViewController.rightPassword = newPassword
             self.navigationController?.pushViewController(mainViewController, animated: true)
+            let backButton = UIBarButtonItem()
+            backButton.title = ""
+            backButton.tintColor = .clear
+            mainViewController.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
             mainViewController.reloadInputViews()
             
         } else {
@@ -47,6 +51,8 @@ class GreatPasswordViewController: UIViewController {
         }
     }
     
+    @IBAction func comeBackButton(_ sender: Any) {
+       performSegue(withIdentifier: "comeBackCase", sender: nil)
+    }
 }
-
 

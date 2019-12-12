@@ -47,12 +47,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func greatAccountButton(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        guard let greatPasswordViewController = storyboard.instantiateViewController(identifier: "GreatPasswordViewController") as? GreatPasswordViewController else {
-            return
-        }
-        
-        self.navigationController?.pushViewController(greatPasswordViewController, animated: true)
+        performSegue(withIdentifier: "greatPasswordCase", sender: nil)
     }
     
 }

@@ -8,16 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		A9334D1A238FA3F100FE75F3 /* ProfileFriendCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9334D19238FA3F100FE75F3 /* ProfileFriendCollectionViewController.swift */; };
+		A94E7C4D23A217EF00D0DB89 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94E7C4C23A217EF00D0DB89 /* MessageViewController.swift */; };
+		A94E7C5123A218AD00D0DB89 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94E7C4F23A218AD00D0DB89 /* MessageCell.swift */; };
+		A94E7C5223A218AD00D0DB89 /* MessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A94E7C5023A218AD00D0DB89 /* MessageCell.xib */; };
+		A94E7C5423A21EF800D0DB89 /* MessageScreenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94E7C5323A21EF800D0DB89 /* MessageScreenCell.swift */; };
+		A94E7C5623A224FB00D0DB89 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94E7C5523A224FB00D0DB89 /* Message.swift */; };
+		A94E7C5A23A249F000D0DB89 /* PrivateMessagesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94E7C5923A249F000D0DB89 /* PrivateMessagesTableViewController.swift */; };
+		A94E7C6023A2563000D0DB89 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94E7C5E23A2563000D0DB89 /* NewsCell.swift */; };
+		A94E7C6123A2563000D0DB89 /* NewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A94E7C5F23A2563000D0DB89 /* NewsCell.xib */; };
+		A94E7C6323A26D0700D0DB89 /* NewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94E7C6223A26D0700D0DB89 /* NewViewController.swift */; };
+		A94E7C6523A2806B00D0DB89 /* CustomRepostButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94E7C6423A2806B00D0DB89 /* CustomRepostButton.swift */; };
+		A94E7C6723A280EB00D0DB89 /* CustomCommentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94E7C6623A280EB00D0DB89 /* CustomCommentButton.swift */; };
 		A9AD11D723980ADD00F28D0E /* CustomPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AD11D623980ADD00F28D0E /* CustomPhoto.swift */; };
 		A9AD11DF239BF69F00F28D0E /* CustomLikeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AD11DE239BF69F00F28D0E /* CustomLikeButton.swift */; };
-		A9AD11E3239D2E3600F28D0E /* MyProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AD11E2239D2E3600F28D0E /* MyProfileTableViewCell.swift */; };
 		A9AD11E8239E832F00F28D0E /* FriendTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D5D32F238E966C00581A9B /* FriendTableViewController.swift */; };
 		A9AD11EC239E8C8700F28D0E /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AD11EB239E8C8700F28D0E /* Profile.swift */; };
 		A9AD11EE239E8CA200F28D0E /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AD11ED239E8CA200F28D0E /* Group.swift */; };
 		A9AD11F0239E8CC200F28D0E /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AD11EF239E8CC200F28D0E /* Friend.swift */; };
 		A9AD66C52392E6410059A046 /* GlobalGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AD66C42392E6410059A046 /* GlobalGroupCell.swift */; };
 		A9AD66C723939DFA0059A046 /* GreatPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AD66C623939DFA0059A046 /* GreatPasswordController.swift */; };
-		A9C729A52397ACCD00363C2D /* MyProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C729A42397ACCD00363C2D /* MyProfileTableViewController.swift */; };
 		A9C8EEDF23894F3500276B94 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C8EEDE23894F3500276B94 /* AppDelegate.swift */; };
 		A9C8EEE123894F3500276B94 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C8EEE023894F3500276B94 /* SceneDelegate.swift */; };
 		A9C8EEE323894F3500276B94 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C8EEE223894F3500276B94 /* ViewController.swift */; };
@@ -33,15 +42,24 @@
 
 /* Begin PBXFileReference section */
 		A9334D19238FA3F100FE75F3 /* ProfileFriendCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFriendCollectionViewController.swift; sourceTree = "<group>"; };
+		A94E7C4C23A217EF00D0DB89 /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
+		A94E7C4F23A218AD00D0DB89 /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
+		A94E7C5023A218AD00D0DB89 /* MessageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageCell.xib; sourceTree = "<group>"; };
+		A94E7C5323A21EF800D0DB89 /* MessageScreenCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageScreenCell.swift; sourceTree = "<group>"; };
+		A94E7C5523A224FB00D0DB89 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		A94E7C5923A249F000D0DB89 /* PrivateMessagesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateMessagesTableViewController.swift; sourceTree = "<group>"; };
+		A94E7C5E23A2563000D0DB89 /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
+		A94E7C5F23A2563000D0DB89 /* NewsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsCell.xib; sourceTree = "<group>"; };
+		A94E7C6223A26D0700D0DB89 /* NewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewViewController.swift; sourceTree = "<group>"; };
+		A94E7C6423A2806B00D0DB89 /* CustomRepostButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRepostButton.swift; sourceTree = "<group>"; };
+		A94E7C6623A280EB00D0DB89 /* CustomCommentButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCommentButton.swift; sourceTree = "<group>"; };
 		A9AD11D623980ADD00F28D0E /* CustomPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPhoto.swift; sourceTree = "<group>"; };
 		A9AD11DE239BF69F00F28D0E /* CustomLikeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLikeButton.swift; sourceTree = "<group>"; };
-		A9AD11E2239D2E3600F28D0E /* MyProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileTableViewCell.swift; sourceTree = "<group>"; };
 		A9AD11EB239E8C8700F28D0E /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		A9AD11ED239E8CA200F28D0E /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		A9AD11EF239E8CC200F28D0E /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		A9AD66C42392E6410059A046 /* GlobalGroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalGroupCell.swift; sourceTree = "<group>"; };
 		A9AD66C623939DFA0059A046 /* GreatPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreatPasswordController.swift; sourceTree = "<group>"; };
-		A9C729A42397ACCD00363C2D /* MyProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileTableViewController.swift; sourceTree = "<group>"; };
 		A9C8EEDB23894F3500276B94 /* Social-Network.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Social-Network.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9C8EEDE23894F3500276B94 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A9C8EEE023894F3500276B94 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,11 +87,51 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A94E7C4A23A2162B00D0DB89 /* Message screen */ = {
+			isa = PBXGroup;
+			children = (
+				A94E7C4E23A2186800D0DB89 /* Cells */,
+				A94E7C4C23A217EF00D0DB89 /* MessageViewController.swift */,
+				A94E7C5323A21EF800D0DB89 /* MessageScreenCell.swift */,
+				A94E7C5923A249F000D0DB89 /* PrivateMessagesTableViewController.swift */,
+			);
+			path = "Message screen";
+			sourceTree = "<group>";
+		};
+		A94E7C4B23A2165400D0DB89 /* News feed screen */ = {
+			isa = PBXGroup;
+			children = (
+				A94E7C5D23A255FF00D0DB89 /* New Cell */,
+				A94E7C6223A26D0700D0DB89 /* NewViewController.swift */,
+			);
+			path = "News feed screen";
+			sourceTree = "<group>";
+		};
+		A94E7C4E23A2186800D0DB89 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				A94E7C4F23A218AD00D0DB89 /* MessageCell.swift */,
+				A94E7C5023A218AD00D0DB89 /* MessageCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		A94E7C5D23A255FF00D0DB89 /* New Cell */ = {
+			isa = PBXGroup;
+			children = (
+				A94E7C5E23A2563000D0DB89 /* NewsCell.swift */,
+				A94E7C5F23A2563000D0DB89 /* NewsCell.xib */,
+			);
+			path = "New Cell";
+			sourceTree = "<group>";
+		};
 		A9AD11D32397F81A00F28D0E /* UICustom */ = {
 			isa = PBXGroup;
 			children = (
 				A9AD11D623980ADD00F28D0E /* CustomPhoto.swift */,
 				A9AD11DE239BF69F00F28D0E /* CustomLikeButton.swift */,
+				A94E7C6423A2806B00D0DB89 /* CustomRepostButton.swift */,
+				A94E7C6623A280EB00D0DB89 /* CustomCommentButton.swift */,
 			);
 			path = UICustom;
 			sourceTree = "<group>";
@@ -84,6 +142,7 @@
 				A9AD11EB239E8C8700F28D0E /* Profile.swift */,
 				A9AD11ED239E8CA200F28D0E /* Group.swift */,
 				A9AD11EF239E8CC200F28D0E /* Friend.swift */,
+				A94E7C5523A224FB00D0DB89 /* Message.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -122,8 +181,6 @@
 		A9C729A32397ACA700363C2D /* My profile */ = {
 			isa = PBXGroup;
 			children = (
-				A9C729A42397ACCD00363C2D /* MyProfileTableViewController.swift */,
-				A9AD11E2239D2E3600F28D0E /* MyProfileTableViewCell.swift */,
 			);
 			path = "My profile";
 			sourceTree = "<group>";
@@ -153,6 +210,8 @@
 				A9C729A02397ABCA00363C2D /* Friends and Profile friend */,
 				A9C729A12397ABFA00363C2D /* Group and Global group */,
 				A9C729A22397AC3F00363C2D /* Main and Great Password */,
+				A94E7C4B23A2165400D0DB89 /* News feed screen */,
+				A94E7C4A23A2162B00D0DB89 /* Message screen */,
 				A9C8EEDE23894F3500276B94 /* AppDelegate.swift */,
 				A9C8EEE023894F3500276B94 /* SceneDelegate.swift */,
 				A9C8EEE423894F3500276B94 /* Main.storyboard */,
@@ -222,6 +281,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9C8EEEB23894F3700276B94 /* LaunchScreen.storyboard in Resources */,
+				A94E7C5223A218AD00D0DB89 /* MessageCell.xib in Resources */,
+				A94E7C6123A2563000D0DB89 /* NewsCell.xib in Resources */,
 				A9C8EEE823894F3700276B94 /* Assets.xcassets in Resources */,
 				A9C8EEE623894F3500276B94 /* Main.storyboard in Resources */,
 			);
@@ -237,22 +298,29 @@
 				A9AD11EC239E8C8700F28D0E /* Profile.swift in Sources */,
 				A9AD66C52392E6410059A046 /* GlobalGroupCell.swift in Sources */,
 				A9AD11D723980ADD00F28D0E /* CustomPhoto.swift in Sources */,
+				A94E7C6323A26D0700D0DB89 /* NewViewController.swift in Sources */,
 				A9C8EEE323894F3500276B94 /* ViewController.swift in Sources */,
 				A9334D1A238FA3F100FE75F3 /* ProfileFriendCollectionViewController.swift in Sources */,
 				A9D5D332238E968300581A9B /* GroupTableViewController.swift in Sources */,
-				A9AD11E3239D2E3600F28D0E /* MyProfileTableViewCell.swift in Sources */,
+				A94E7C5623A224FB00D0DB89 /* Message.swift in Sources */,
+				A94E7C6723A280EB00D0DB89 /* CustomCommentButton.swift in Sources */,
 				A9C8EEDF23894F3500276B94 /* AppDelegate.swift in Sources */,
 				A9D5D334238EB02B00581A9B /* GlobalGroupTableViewController.swift in Sources */,
 				A9AD11EE239E8CA200F28D0E /* Group.swift in Sources */,
 				A9C8EEE123894F3500276B94 /* SceneDelegate.swift in Sources */,
+				A94E7C5123A218AD00D0DB89 /* MessageCell.swift in Sources */,
+				A94E7C6523A2806B00D0DB89 /* CustomRepostButton.swift in Sources */,
+				A94E7C5423A21EF800D0DB89 /* MessageScreenCell.swift in Sources */,
+				A94E7C4D23A217EF00D0DB89 /* MessageViewController.swift in Sources */,
 				A9AD66C723939DFA0059A046 /* GreatPasswordController.swift in Sources */,
+				A94E7C5A23A249F000D0DB89 /* PrivateMessagesTableViewController.swift in Sources */,
 				A9DE6DE523928FCD00EFAA81 /* ProfileFriendCell.swift in Sources */,
 				A9AD11F0239E8CC200F28D0E /* Friend.swift in Sources */,
 				A9AD11DF239BF69F00F28D0E /* CustomLikeButton.swift in Sources */,
 				A9AD11E8239E832F00F28D0E /* FriendTableViewController.swift in Sources */,
 				A9DE6DDE239270C800EFAA81 /* GroupCell.swift in Sources */,
+				A94E7C6023A2563000D0DB89 /* NewsCell.swift in Sources */,
 				A9DE6DE323928BB600EFAA81 /* FriendCell.swift in Sources */,
-				A9C729A52397ACCD00363C2D /* MyProfileTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,6 +467,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VN9M394Q5K;
 				INFOPLIST_FILE = "Social-Network/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -417,6 +486,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VN9M394Q5K;
 				INFOPLIST_FILE = "Social-Network/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
