@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A925749B23A68B54004DD913 /* AnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A925749A23A68B54004DD913 /* AnimationViewController.swift */; };
 		A9334D1A238FA3F100FE75F3 /* ProfileFriendCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9334D19238FA3F100FE75F3 /* ProfileFriendCollectionViewController.swift */; };
 		A94E7C4D23A217EF00D0DB89 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94E7C4C23A217EF00D0DB89 /* MessageViewController.swift */; };
 		A94E7C5123A218AD00D0DB89 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94E7C4F23A218AD00D0DB89 /* MessageCell.swift */; };
@@ -41,6 +42,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A925749A23A68B54004DD913 /* AnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationViewController.swift; sourceTree = "<group>"; };
 		A9334D19238FA3F100FE75F3 /* ProfileFriendCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFriendCollectionViewController.swift; sourceTree = "<group>"; };
 		A94E7C4C23A217EF00D0DB89 /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		A94E7C4F23A218AD00D0DB89 /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
@@ -87,6 +89,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A925749923A68B2A004DD913 /* animation */ = {
+			isa = PBXGroup;
+			children = (
+				A925749A23A68B54004DD913 /* AnimationViewController.swift */,
+			);
+			path = animation;
+			sourceTree = "<group>";
+		};
 		A94E7C4A23A2162B00D0DB89 /* Message screen */ = {
 			isa = PBXGroup;
 			children = (
@@ -204,6 +214,7 @@
 		A9C8EEDD23894F3500276B94 /* Social-Network */ = {
 			isa = PBXGroup;
 			children = (
+				A925749923A68B2A004DD913 /* animation */,
 				A9AD11EA239E8C7100F28D0E /* Model */,
 				A9AD11D32397F81A00F28D0E /* UICustom */,
 				A9C729A32397ACA700363C2D /* My profile */,
@@ -317,6 +328,7 @@
 				A9DE6DE523928FCD00EFAA81 /* ProfileFriendCell.swift in Sources */,
 				A9AD11F0239E8CC200F28D0E /* Friend.swift in Sources */,
 				A9AD11DF239BF69F00F28D0E /* CustomLikeButton.swift in Sources */,
+				A925749B23A68B54004DD913 /* AnimationViewController.swift in Sources */,
 				A9AD11E8239E832F00F28D0E /* FriendTableViewController.swift in Sources */,
 				A9DE6DDE239270C800EFAA81 /* GroupCell.swift in Sources */,
 				A94E7C6023A2563000D0DB89 /* NewsCell.swift in Sources */,

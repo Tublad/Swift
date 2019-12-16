@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yZH-TK-Ys9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
@@ -255,6 +255,15 @@
                                                 <constraint firstAttribute="width" secondItem="7Aa-xO-7rn" secondAttribute="height" multiplier="1:1" id="Tex-5W-1Jh"/>
                                             </constraints>
                                         </imageView>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0mZ-07-ISC">
+                                            <rect key="frame" x="40" y="20" width="334" height="50"/>
+                                            <state key="normal">
+                                                <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="nextAnimationView:" destination="yuz-41-gee" eventType="touchDown" id="QJG-Pr-pUY"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="STw-y1-3n5" firstAttribute="leading" secondItem="dJN-FG-e21" secondAttribute="trailing" constant="15" id="8m7-XL-GY3"/>
@@ -274,11 +283,18 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="0mZ-07-ISC" firstAttribute="top" secondItem="fDJ-x2-e4N" secondAttribute="top" constant="20" id="3gX-AV-L1e"/>
+                                    <constraint firstItem="0mZ-07-ISC" firstAttribute="leading" secondItem="fDJ-x2-e4N" secondAttribute="leading" constant="40" id="D3k-6r-6Vc"/>
+                                    <constraint firstAttribute="bottom" secondItem="0mZ-07-ISC" secondAttribute="bottom" constant="20" id="TNB-Zf-nd2"/>
+                                    <constraint firstAttribute="trailing" secondItem="0mZ-07-ISC" secondAttribute="trailing" constant="40" id="nnp-7r-OKb"/>
+                                </constraints>
                                 <connections>
                                     <outlet property="fullNameChat" destination="dJN-FG-e21" id="KTg-Un-4l6"/>
                                     <outlet property="imageChat" destination="veO-aT-AI3" id="qDl-pr-b9z"/>
                                     <outlet property="imageUsers" destination="y1Z-Cm-e4O" id="UeH-7y-1Vc"/>
                                     <outlet property="isOnlineImage" destination="7Aa-xO-7rn" id="7FF-ON-eBU"/>
+                                    <outlet property="nextView" destination="0mZ-07-ISC" id="mFh-ot-Hb3"/>
                                     <outlet property="textUser" destination="1kf-lV-fC0" id="5xm-Jx-HiN"/>
                                     <outlet property="timeMessage" destination="STw-y1-3n5" id="f9v-6d-OLx"/>
                                 </connections>
@@ -290,6 +306,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Сообщения" id="Gs9-wM-jed"/>
+                    <connections>
+                        <segue destination="QFe-id-6af" kind="show" identifier="animationView" id="u46-Mk-NVd"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UoH-AK-ZYJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -466,7 +485,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="GlobalGroupTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="wal-sn-UuB" customClass="GlobalGroupTableViewController" customModule="Social_Network" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="d8a-sk-we3">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="separatorColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -564,6 +583,76 @@
                 <exit id="VR1-DZ-A6L" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2447.826086956522" y="-350.22321428571428"/>
+        </scene>
+        <!--Animation View Controller-->
+        <scene sceneID="zzH-Oz-glG">
+            <objects>
+                <viewController storyboardIdentifier="AnimationViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="QFe-id-6af" customClass="AnimationViewController" customModule="Social_Network" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lKm-Ln-ork">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7hw-Cp-1Ro">
+                                <rect key="frame" x="184" y="337.5" width="50" height="50"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="SOj-KN-9HL"/>
+                                    <constraint firstAttribute="width" constant="50" id="dmZ-ei-xbL"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bkR-Th-hnR" customClass="CustomAnimation" customModule="Social_Network" customModuleProvider="target">
+                                <rect key="frame" x="70" y="337.5" width="50" height="50"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="6zR-8P-PgG"/>
+                                    <constraint firstAttribute="width" constant="50" id="aaS-Mf-HEd"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tin-hV-F69">
+                                <rect key="frame" x="294" y="337.5" width="50" height="50"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="3hq-ZJ-goS"/>
+                                    <constraint firstAttribute="width" constant="50" id="CZg-dr-RYO"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Tin-hV-F69" firstAttribute="centerY" secondItem="7hw-Cp-1Ro" secondAttribute="centerY" id="6xM-We-wqc"/>
+                            <constraint firstItem="7hw-Cp-1Ro" firstAttribute="centerY" secondItem="NTx-0h-wJB" secondAttribute="centerY" id="G9T-dK-8Dd"/>
+                            <constraint firstItem="bkR-Th-hnR" firstAttribute="centerY" secondItem="7hw-Cp-1Ro" secondAttribute="centerY" id="VFu-vm-nta"/>
+                            <constraint firstItem="bkR-Th-hnR" firstAttribute="leading" secondItem="NTx-0h-wJB" secondAttribute="leading" constant="70" id="Xgw-21-ORJ"/>
+                            <constraint firstItem="NTx-0h-wJB" firstAttribute="trailing" secondItem="Tin-hV-F69" secondAttribute="trailing" constant="70" id="rZp-Hn-NpT"/>
+                            <constraint firstItem="Tin-hV-F69" firstAttribute="leading" secondItem="7hw-Cp-1Ro" secondAttribute="trailing" constant="60" id="uQx-gc-ufY"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="NTx-0h-wJB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Sbe-bn-DND"/>
+                    <connections>
+                        <outlet property="animationLoadingView" destination="bkR-Th-hnR" id="k2F-he-fu5"/>
+                        <outlet property="animationSecondLoad" destination="7hw-Cp-1Ro" id="hZg-pV-sIa"/>
+                        <outlet property="animationThreeLoad" destination="Tin-hV-F69" id="hWW-YM-akl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gHQ-VU-3hh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1013.0434782608696" y="-1503.3482142857142"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="li1-ZH-CwF">
@@ -895,7 +984,7 @@
                                             </constraints>
                                             <state key="normal" title="Button"/>
                                             <connections>
-                                                <action selector="likedButton:" destination="xpV-Hi-qLI" eventType="touchDown" id="d3k-Fg-M4D"/>
+                                                <action selector="likedButton:" destination="fbU-ws-R53" eventType="touchDown" id="5GH-6t-hRH"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -935,6 +1024,6 @@
         <image name="vkLogo" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="BVz-vN-kfg"/>
+        <segue reference="iuR-pt-RnN"/>
     </inferredMetricsTieBreakers>
 </document>

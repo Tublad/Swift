@@ -30,7 +30,6 @@ class FriendTableViewController: UITableViewController {
          Friends(firstName: "Никита", lastName: "Гусельников", imageFriend: "image4", isOnline: false, message: Message(textUser: "Сегодня туса будет! Давай подтягивайся =) Тебя только не хватает!! Подьезжай на улицу Красный путь 127 кв 60 ;) ", time: "Вчера")),
          Friends(firstName: "Никита", lastName: "Попов", imageFriend: "image3", isOnline: true, message:  Message(textUser: "Пока", time: "Вчера"))]
     
-    
     var friendSection = [Section<Friends>]()
     
     override func viewDidLoad() {
@@ -76,6 +75,7 @@ class FriendTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let userName = friendList[indexPath.row]
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
         guard let ProfileFriendCollectionView = storyboard.instantiateViewController(identifier: "ProfileFriendCollectionViewController") as? ProfileFriendCollectionViewController else {
             return 
         }
@@ -83,6 +83,7 @@ class FriendTableViewController: UITableViewController {
         ProfileFriendCollectionView.user = userName
         self.navigationController?.pushViewController(ProfileFriendCollectionView, animated: true)
     }
+    
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return friendSection[section].title
@@ -97,6 +98,7 @@ class FriendTableViewController: UITableViewController {
         guard let header = view as? UITableViewHeaderFooterView else {
             return
         }
+        
         header.textLabel?.textColor = UIColor.darkGray
         header.textLabel?.font = UIFont.systemFont(ofSize: 14, weight: .medium)
     }
@@ -111,7 +113,6 @@ class FriendTableViewController: UITableViewController {
         }
         return [deleteAction]
     }
-    
 }
 
 extension FriendTableViewController: UISearchBarDelegate {

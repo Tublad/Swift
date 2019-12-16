@@ -81,6 +81,11 @@ class MessageViewController: UITableViewController {
         return cell
     }
     
+    @IBAction func nextAnimationView(_ sender: Any) {
+        performSegue(withIdentifier: "animationView", sender: nil)
+    }
+    
+    
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let deleteAction = UITableViewRowAction(style: .default, title: "Удалить") { (action,index)  in
             if self.isFiltering {

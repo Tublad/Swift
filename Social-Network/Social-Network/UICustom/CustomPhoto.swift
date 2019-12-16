@@ -14,6 +14,10 @@ class CustomPhoto: UIView {
         addImage()
     }
     
+    func animationView() {
+        
+    }
+    
     func addImage() {
         image = UIImageView(frame: frame)
         image.image = UIImage(named: "myPhoto")

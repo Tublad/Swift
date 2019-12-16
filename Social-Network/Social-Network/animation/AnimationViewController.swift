@@ -1,30 +1,40 @@
-//
-//  AnimationViewController.swift
-//  Social-Network
-//
-//  Created by Евгений Шварцкопф on 15.12.2019.
-//  Copyright © 2019 Евгений Шварцкопф. All rights reserved.
-//
 
 import UIKit
 
 class AnimationViewController: UIViewController {
 
+    @IBOutlet weak var animationLoadingView: UIView!
+    @IBOutlet weak var animationSecondLoad: UIView!
+    @IBOutlet weak var animationThreeLoad: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+       animationPressent()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func animationPressent() {
+        UIView.animate(withDuration: 0.25, delay: 0, options: [], animations: {
+            self.animationThreeLoad.alpha = 0.5
+            self.animationThreeLoad.alpha = 0
+            self.animationSecondLoad.alpha = 0
+            self.animationLoadingView.alpha = 0
+            self.animationLoadingView.alpha = 1
+        }, completion: { _ in
+            UIView.animate(withDuration: 0.25, delay: 0, options: [], animations: {
+                self.animationLoadingView.alpha = 0.5
+                self.animationLoadingView.alpha = 0
+                self.animationThreeLoad.alpha = 0
+                self.animationSecondLoad.alpha = 0
+                self.animationSecondLoad.alpha = 1
+            }, completion: { _ in
+                UIView.animate(withDuration: 0.25, delay: 0, options: [], animations: {
+                    self.animationSecondLoad.alpha = 0.5
+                    self.animationSecondLoad.alpha = 0
+                    self.animationLoadingView.alpha = 0
+                    self.animationThreeLoad.alpha = 0
+                    self.animationThreeLoad.alpha = 1
+                }, completion: { _ in self.animationPressent()})
+            })
+        })
     }
-    */
-
 }

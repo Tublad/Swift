@@ -39,6 +39,7 @@ class GroupTableViewController: UITableViewController {
         addRefreshController()
     }
     
+    
     func addSearchBarControl() {
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
@@ -75,6 +76,7 @@ class GroupTableViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "GroupCell", for: indexPath) as? GroupCell else {
             return UITableViewCell()
         }
+        
         var group: Group
         if isFiltering {
             group = filteredGroup[indexPath.row]
@@ -130,6 +132,7 @@ class GroupTableViewController: UITableViewController {
         }
         return [deleteAction]
     }
+    
     
 }
 

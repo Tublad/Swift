@@ -38,6 +38,7 @@ class NewsViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
        return news.count
     }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        guard let cell = tableView.dequeueReusableCell(withIdentifier: "simpleNewsCell", for: indexPath) as? NewsCell  else {
             return UITableViewCell()
@@ -47,8 +48,7 @@ class NewsViewController: UITableViewController {
         cell.time.text = news[indexPath.row].message.time
         cell.aboutOfNews.text = news[indexPath.row].message.textUser
         cell.groupImage.image = UIImage(named: news[indexPath.row].imageFriend)
-        cell.newsImage.image = UIImage(named: news[indexPath.row].imageFriend)
-        
+        cell.newsImage.image = UIImage(named: news[indexPath.row].imageFriend)        
         return cell
     }
     
