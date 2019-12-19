@@ -10,16 +10,25 @@ class ProfileFriendCell: UICollectionViewCell {
             return
         }
         liked.like()
-        animationLike()
     }
-    
-    func animationLike() {
-        UIView.animate(withDuration: 0.1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: [], animations: {
-            self.like.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
-        }, completion: { _ in
-            UIView.animate(withDuration: 0.1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: [], animations: {
-                self.like.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-            })})
+   
+    func animationOnline() {
+        let customLayer = CAShapeLayer()
+        
+        customLayer.path = CGPath.init(roundedRect: friendPhoto.frame, cornerWidth: 3, cornerHeight: 30 , transform: nil)
+         
+        let followPathAnimation = CAKeyframeAnimation(keyPath: "position")
+        followPathAnimation.path = customLayer.path
+        followPathAnimation.duration = 5.0
+        followPathAnimation.repeatCount = .infinity
+        
+        
+        let onlineLayer = CAShapeLayer()
+        onlineLayer.bounds = CGRect(x: 0, y: 0, width: 15, height: 30)
+        onlineLayer.contents = UIImage(named: "onlineFriend")?.cgImage
+        friendPhoto.layer.addSublayer(onlineLayer)
+        
+        onlineLayer.add(followPathAnimation, forKey: nil)
     }
     
 }

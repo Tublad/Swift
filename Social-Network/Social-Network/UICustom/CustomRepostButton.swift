@@ -47,6 +47,7 @@ class RepostButton: UIButton {
         setTitle(String(describing: repostCount), for: .normal)
         setTitleColor(UIColor.gray, for: .normal)
         tintColor = .gray
+        animationRepost()
     }
     
     private func disableReposted() {
@@ -55,6 +56,17 @@ class RepostButton: UIButton {
         setTitle(String(describing: repostCount), for: .normal)
         setTitleColor(UIColor.gray, for: .normal)
         tintColor = .gray
+        animationRepost()
+    }
+    
+    private func animationRepost() {
+        let animation = CASpringAnimation(keyPath: "transform.scale")
+        animation.fromValue = 1.2
+        animation.toValue = 1
+        animation.stiffness = 400
+        animation.mass = 1
+        animation.duration = 2
+        layer.add(animation, forKey: nil)
     }
     
 }

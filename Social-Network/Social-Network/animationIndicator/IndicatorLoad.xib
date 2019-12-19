@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IndicatorLoad" customModule="Social_Network" customModuleProvider="target">
+            <connections>
+                <outlet property="indicatorFirst" destination="bdq-Dy-RbD" id="TE5-Tu-glH"/>
+                <outlet property="indicatorSecond" destination="Q9G-2G-0F7" id="LJK-Wh-fut"/>
+                <outlet property="indicatorThird" destination="eDZ-Iu-zyt" id="Q7z-bG-zO8"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="405"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="koU-mc-RI2">
+                    <rect key="frame" x="0.0" y="44" width="414" height="361"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bdq-Dy-RbD" customClass="CustomIndicator" customModule="Social_Network" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="125" width="111.5" height="111"/>
+                            <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="bdq-Dy-RbD" secondAttribute="height" multiplier="1:1" id="aX0-xQ-2o5"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <nil key="value"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q9G-2G-0F7" customClass="CustomIndicator" customModule="Social_Network" customModuleProvider="target">
+                            <rect key="frame" x="151.5" y="125" width="111" height="111"/>
+                            <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="Q9G-2G-0F7" secondAttribute="height" multiplier="1:1" id="6yQ-vQ-hwE"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eDZ-Iu-zyt" customClass="CustomIndicator" customModule="Social_Network" customModuleProvider="target">
+                            <rect key="frame" x="302.5" y="125" width="111.5" height="111"/>
+                            <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="eDZ-Iu-zyt" secondAttribute="height" multiplier="1:1" id="uiy-OO-FpZ"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="koU-mc-RI2" secondAttribute="trailing" id="03i-Xd-D0f"/>
+                <constraint firstItem="koU-mc-RI2" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="TFm-tX-cZs"/>
+                <constraint firstItem="koU-mc-RI2" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="jcD-5i-QNt"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="koU-mc-RI2" secondAttribute="bottom" id="k6T-Zw-sgX"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="137.68115942028987" y="-58.59375"/>
+        </view>
+    </objects>
+</document>

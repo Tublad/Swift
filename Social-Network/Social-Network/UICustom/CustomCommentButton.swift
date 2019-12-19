@@ -48,6 +48,7 @@ class CommintButton: UIButton {
         setTitle(String(describing: commentCount), for: .normal)
         setTitleColor(UIColor.gray, for: .normal)
         tintColor = .gray
+        animationComment()
     }
     
     private func disableCommented() {
@@ -56,6 +57,17 @@ class CommintButton: UIButton {
         setTitle(String(describing: commentCount), for: .normal)
         setTitleColor(UIColor.gray, for: .normal)
         tintColor = .gray
+        animationComment()
+    }
+    
+    private func animationComment() {
+        let animation = CASpringAnimation(keyPath: "transform.scale")
+        animation.fromValue = 1.2
+        animation.toValue = 1
+        animation.stiffness = 400
+        animation.mass = 1
+        animation.duration = 2
+        layer.add(animation, forKey: nil)
     }
     
 }

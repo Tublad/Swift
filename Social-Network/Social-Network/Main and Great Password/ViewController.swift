@@ -5,25 +5,56 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var login: UITextField!
     @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var logoImage: UIImageView!
+    @IBOutlet weak var joinButton: UIButton!
+    @IBOutlet weak var greatButton: UIButton!
     
+    var propertyAnimator: UIViewPropertyAnimator!
     
     var rightLogin = "Евген"
     var rightPassword = "12345"
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        addKeyBoard()
         
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(panRecognize(_:)))
+        view.addGestureRecognizer(panGesture)
+    }
+    
+    @objc func panRecognize(_ recognize: UIPanGestureRecognizer) {
+        switch recognize.state {
+        case .began:
+            propertyAnimator = UIViewPropertyAnimator(duration: 1.0, dampingRatio: 1.0, animations: {
+                self.logoImage.transform = CGAffineTransform(scaleX: 1.8, y: 1.8)
+            })
+        case .changed:
+            let translation = recognize.translation(in: self.view)
+            propertyAnimator.fractionComplete = translation.y / 100
+        case .ended:
+            propertyAnimator.stopAnimation(true)
+            propertyAnimator.addAnimations {
+                self.logoImage.transform = .identity
+            }
+            propertyAnimator.startAnimation()
+        default:
+            break
+        }
+    }
+    
+    func addKeyBoard() {
         let hideAction = UITapGestureRecognizer(target: self, action: #selector(hideKeyBoard))
         view.addGestureRecognizer(hideAction)
         reloadInputViews()
     }
     
-    
     @objc func hideKeyBoard() {
         view.endEditing(true)
     }
     
+    
     @IBAction func pressent(_ sender: Any) {
+        
         guard let loginInput = login.text,
             let passwordInput = password.text else {
                 return

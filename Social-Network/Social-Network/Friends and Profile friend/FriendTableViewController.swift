@@ -46,6 +46,8 @@ class FriendTableViewController: UITableViewController {
         
     }
     
+    
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return friendSection.count
     }
@@ -61,9 +63,11 @@ class FriendTableViewController: UITableViewController {
         
         cell.nameFriend.text = friendSection[indexPath.section].item[indexPath.row].firstName + " " + friendSection[indexPath.section].item[indexPath.row].lastName
         cell.photoFriend.image = UIImage(named: friendSection[indexPath.section].item[indexPath.row].imageFriend)
+        
         var image: String
         if friendSection[indexPath.section].item[indexPath.row].isOnline == true {
             image = "onlineFriend"
+            cell.animationImage()
         } else {
             image = " "
         }

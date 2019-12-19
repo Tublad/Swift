@@ -129,7 +129,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="HUW-nb-JZi"/>
                     <connections>
+                        <outlet property="greatButton" destination="JMl-EC-evs" id="WgL-I0-94N"/>
+                        <outlet property="joinButton" destination="4iI-ka-esF" id="zl1-x4-mQP"/>
                         <outlet property="login" destination="5a4-LB-xZ6" id="IS0-Hu-W1m"/>
+                        <outlet property="logoImage" destination="RJG-zC-RL4" id="1oY-rD-yfP"/>
                         <outlet property="password" destination="vsO-bV-ki8" id="Q6z-qi-pbu"/>
                         <segue destination="14G-dU-hGY" kind="presentation" identifier="firstCase" modalPresentationStyle="fullScreen" id="LRI-1l-Kvb"/>
                         <segue destination="LmQ-zQ-09S" kind="presentation" identifier="greatPasswordCase" modalPresentationStyle="fullScreen" id="kaV-N3-W0k"/>
@@ -306,9 +309,6 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Сообщения" id="Gs9-wM-jed"/>
-                    <connections>
-                        <segue destination="QFe-id-6af" kind="show" identifier="animationView" id="u46-Mk-NVd"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UoH-AK-ZYJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -584,76 +584,6 @@
             </objects>
             <point key="canvasLocation" x="2447.826086956522" y="-350.22321428571428"/>
         </scene>
-        <!--Animation View Controller-->
-        <scene sceneID="zzH-Oz-glG">
-            <objects>
-                <viewController storyboardIdentifier="AnimationViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="QFe-id-6af" customClass="AnimationViewController" customModule="Social_Network" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="lKm-Ln-ork">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7hw-Cp-1Ro">
-                                <rect key="frame" x="184" y="337.5" width="50" height="50"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="SOj-KN-9HL"/>
-                                    <constraint firstAttribute="width" constant="50" id="dmZ-ei-xbL"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <integer key="value" value="25"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bkR-Th-hnR" customClass="CustomAnimation" customModule="Social_Network" customModuleProvider="target">
-                                <rect key="frame" x="70" y="337.5" width="50" height="50"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="6zR-8P-PgG"/>
-                                    <constraint firstAttribute="width" constant="50" id="aaS-Mf-HEd"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <integer key="value" value="25"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tin-hV-F69">
-                                <rect key="frame" x="294" y="337.5" width="50" height="50"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="3hq-ZJ-goS"/>
-                                    <constraint firstAttribute="width" constant="50" id="CZg-dr-RYO"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <integer key="value" value="25"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="Tin-hV-F69" firstAttribute="centerY" secondItem="7hw-Cp-1Ro" secondAttribute="centerY" id="6xM-We-wqc"/>
-                            <constraint firstItem="7hw-Cp-1Ro" firstAttribute="centerY" secondItem="NTx-0h-wJB" secondAttribute="centerY" id="G9T-dK-8Dd"/>
-                            <constraint firstItem="bkR-Th-hnR" firstAttribute="centerY" secondItem="7hw-Cp-1Ro" secondAttribute="centerY" id="VFu-vm-nta"/>
-                            <constraint firstItem="bkR-Th-hnR" firstAttribute="leading" secondItem="NTx-0h-wJB" secondAttribute="leading" constant="70" id="Xgw-21-ORJ"/>
-                            <constraint firstItem="NTx-0h-wJB" firstAttribute="trailing" secondItem="Tin-hV-F69" secondAttribute="trailing" constant="70" id="rZp-Hn-NpT"/>
-                            <constraint firstItem="Tin-hV-F69" firstAttribute="leading" secondItem="7hw-Cp-1Ro" secondAttribute="trailing" constant="60" id="uQx-gc-ufY"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="NTx-0h-wJB"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="Sbe-bn-DND"/>
-                    <connections>
-                        <outlet property="animationLoadingView" destination="bkR-Th-hnR" id="k2F-he-fu5"/>
-                        <outlet property="animationSecondLoad" destination="7hw-Cp-1Ro" id="hZg-pV-sIa"/>
-                        <outlet property="animationThreeLoad" destination="Tin-hV-F69" id="hWW-YM-akl"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gHQ-VU-3hh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1013.0434782608696" y="-1503.3482142857142"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="li1-ZH-CwF">
             <objects>
@@ -670,7 +600,8 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="oWR-0A-wEr">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                     </navigationBar>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="EEG-Kh-gd3">
@@ -712,7 +643,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IIo-ga-hgK">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ваше имя" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lUr-NC-xkE">
                                         <rect key="frame" x="15" y="304" width="384" height="34"/>
@@ -798,6 +729,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="greatAccButton" destination="2YM-tC-rNc" id="DBb-oE-Epd"/>
+                        <outlet property="logoImage" destination="E9M-6q-xMO" id="2En-gC-UJh"/>
+                        <outlet property="nameViewLabel" destination="ZIy-yJ-8Ia" id="0yx-hx-Xki"/>
                         <outlet property="newName" destination="lUr-NC-xkE" id="W3h-9T-iRD"/>
                         <outlet property="newPassword" destination="3sR-E5-rVi" id="6XF-f1-VDX"/>
                         <outlet property="repeatPassword" destination="CxW-nH-BzE" id="JYH-SQ-Xyd"/>
@@ -972,6 +906,7 @@
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OKY-kz-cjM">
                                             <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="OKY-kz-cjM" secondAttribute="height" multiplier="1:1" id="ykq-Gw-yQ6"/>
                                             </constraints>

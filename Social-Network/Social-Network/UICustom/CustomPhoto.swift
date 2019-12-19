@@ -3,7 +3,6 @@ import UIKit
 class CustomPhoto: UIView {
     var image: UIImageView!
     
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         addImage()
@@ -14,15 +13,12 @@ class CustomPhoto: UIView {
         addImage()
     }
     
-    func animationView() {
-        
-    }
-    
     func addImage() {
         image = UIImageView(frame: frame)
-        image.image = UIImage(named: "myPhoto")
+        image.image = UIImage(named: "onlineFriend")
         addSubview(image)
     }
+    
     override func layoutSubviews() {
         image.frame = bounds
         layer.backgroundColor = UIColor.clear.cgColor
@@ -35,5 +31,6 @@ class CustomPhoto: UIView {
         image.layer.cornerRadius = bounds.size.width / 2
         image.layer.masksToBounds = true
     }
+    
 }
 

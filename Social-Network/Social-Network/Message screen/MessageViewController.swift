@@ -82,7 +82,7 @@ class MessageViewController: UITableViewController {
     }
     
     @IBAction func nextAnimationView(_ sender: Any) {
-        performSegue(withIdentifier: "animationView", sender: nil)
+        
     }
     
     
