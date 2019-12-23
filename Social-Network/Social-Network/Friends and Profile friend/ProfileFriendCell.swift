@@ -12,7 +12,7 @@ class ProfileFriendCell: UICollectionViewCell {
         liked.like()
     }
    
-    func animationOnline() {
+    /*  func animationOnline() {
         let customLayer = CAShapeLayer()
         
         customLayer.path = CGPath.init(roundedRect: friendPhoto.frame, cornerWidth: 3, cornerHeight: 30 , transform: nil)
@@ -29,6 +29,6 @@ class ProfileFriendCell: UICollectionViewCell {
         friendPhoto.layer.addSublayer(onlineLayer)
         
         onlineLayer.add(followPathAnimation, forKey: nil)
-    }
+    } */
     
 }

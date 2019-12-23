@@ -17,6 +17,7 @@ class GroupTableViewController: UITableViewController {
                               Group(name: "Dota 2 HS", content: "Видеоигры", participant: "3 123 412 участников", imageGroup: "PhotoGroup")]
     
     var customRefreshController = UIRefreshControl()
+    var standartAnimator = AnimatedTransition()
     
     private let searchController = UISearchController(searchResultsController: nil)
     private var filteredGroup = [Group]()
@@ -26,6 +27,15 @@ class GroupTableViewController: UITableViewController {
             return false
         }
         return text.isEmpty
+    }
+    
+    @IBAction func backButton(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let mainView = storyboard.instantiateViewController(identifier: "ViewController")
+        mainView.modalPresentationStyle = .custom
+        mainView.modalPresentationCapturesStatusBarAppearance = true
+        mainView.transitioningDelegate = self.standartAnimator
+        present(mainView, animated: true, completion: nil)
     }
     
     private var isFiltering: Bool {
@@ -61,6 +71,45 @@ class GroupTableViewController: UITableViewController {
         }
     }
     
+    
+    @IBAction func addGroup(segue: UIStoryboardSegue) {
+        if segue.identifier == "addGroup" {
+            guard let globalGroupController = segue.source as? GlobalGroupTableViewController else {
+                return
+            }
+            if let indexPath = globalGroupController.tableView.indexPathForSelectedRow {
+                
+                let group: Group = globalGroupController.globalGroupList[indexPath.row]
+                if !groupList.contains(where: { (element) -> Bool in
+                    if group.name == element.name {
+                        return true
+                    } else {
+                        return false
+                    }}){
+                    groupList.append(group)
+                    tableView.reloadData()
+                }
+            }
+        }
+    }
+}
+
+extension GroupTableViewController: UISearchResultsUpdating {
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        filterContentForSearchText(searchController.searchBar.text!, indexPath: IndexPath.init())
+    }
+    
+    private func filterContentForSearchText(_ searchText: String, indexPath: IndexPath) {
+        filteredGroup = groupList.filter({ (group: Group) -> Bool in
+            return group.name.lowercased().contains(searchText.lowercased())
+        })
+        tableView.reloadData()
+    }
+}
+
+extension GroupTableViewController { // dataSource
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -91,27 +140,10 @@ class GroupTableViewController: UITableViewController {
         
         return cell
     }
-    
-    @IBAction func addGroup(segue: UIStoryboardSegue) {
-        if segue.identifier == "addGroup" {
-            guard let globalGroupController = segue.source as? GlobalGroupTableViewController else {
-                return
-            }
-            if let indexPath = globalGroupController.tableView.indexPathForSelectedRow {
-                
-                let group: Group = globalGroupController.globalGroupList[indexPath.row]
-                if !groupList.contains(where: { (element) -> Bool in
-                    if group.name == element.name {
-                        return true
-                    } else {
-                        return false
-                    }}){
-                    groupList.append(group)
-                    tableView.reloadData()
-                }
-            }
-        }
-    }
+       
+}
+
+extension GroupTableViewController { //delegate
     
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let deleteAction = UITableViewRowAction(style: .default, title: "Удалить") { (action,index)  in
@@ -131,21 +163,5 @@ class GroupTableViewController: UITableViewController {
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
         return [deleteAction]
-    }
-    
-    
-}
-
-extension GroupTableViewController: UISearchResultsUpdating {
-    
-    func updateSearchResults(for searchController: UISearchController) {
-        filterContentForSearchText(searchController.searchBar.text!, indexPath: IndexPath.init())
-    }
-    
-    private func filterContentForSearchText(_ searchText: String, indexPath: IndexPath) {
-        filteredGroup = groupList.filter({ (group: Group) -> Bool in
-            return group.name.lowercased().contains(searchText.lowercased())
-        })
-        tableView.reloadData()
     }
 }

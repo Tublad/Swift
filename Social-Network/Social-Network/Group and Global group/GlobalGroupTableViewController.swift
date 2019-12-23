@@ -50,8 +50,23 @@ class GlobalGroupTableViewController: UITableViewController {
             self.customRefreshController.endRefreshing()
         }
     }
-      
+}
+
+extension GlobalGroupTableViewController : UISearchResultsUpdating {
     
+    func updateSearchResults(for searchController: UISearchController) {
+        filterContentForSearchText(searchController.searchBar.text!, indexPath: IndexPath.init())
+    }
+    
+    private func filterContentForSearchText(_ searchText: String, indexPath: IndexPath) {
+        filteredGroup = globalGroupList.filter({ (global: Group) -> Bool in
+            return global.name.lowercased().contains(searchText.lowercased())
+        })
+        tableView.reloadData()
+    }
+}
+
+extension GlobalGroupTableViewController { // dataSource
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -73,26 +88,12 @@ class GlobalGroupTableViewController: UITableViewController {
             global = globalGroupList[indexPath.row]
         }
         
-        
         cell.globalGroupName.text = global.name
         cell.globalContent.text = global.content
         cell.participantGlobal.text = global.participant
         cell.imageGlobal.image = UIImage(named: global.imageGroup )
         return cell
     }
+       
     
-}
-
-extension GlobalGroupTableViewController : UISearchResultsUpdating {
-    
-    func updateSearchResults(for searchController: UISearchController) {
-        filterContentForSearchText(searchController.searchBar.text!, indexPath: IndexPath.init())
-    }
-    
-    private func filterContentForSearchText(_ searchText: String, indexPath: IndexPath) {
-        filteredGroup = globalGroupList.filter({ (global: Group) -> Bool in
-            return global.name.lowercased().contains(searchText.lowercased())
-        })
-        tableView.reloadData()
-    }
 }

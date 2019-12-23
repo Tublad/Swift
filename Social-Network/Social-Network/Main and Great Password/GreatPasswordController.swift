@@ -1,7 +1,7 @@
 
 import UIKit
 
-class GreatPasswordViewController: UIViewController {
+class GreatPasswordViewController: UIViewController, UINavigationControllerDelegate {
     
     @IBOutlet weak var newName: UITextField!
     @IBOutlet weak var newPassword: UITextField!
@@ -10,8 +10,9 @@ class GreatPasswordViewController: UIViewController {
     @IBOutlet weak var greatAccButton: UIButton!
     @IBOutlet weak var logoImage: UIImageView!
     
-    var propertyAnimator: UIViewPropertyAnimator!
     
+    let standartAnimator = AnimatedTransition()
+    var transitionInteraction: UIPercentDrivenInteractiveTransition?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,29 +20,40 @@ class GreatPasswordViewController: UIViewController {
         addKeyBoard()
         installViewAlpha()
         animationImageAlpha()
-        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(panRecognize(_:)))
-        view.addGestureRecognizer(panGesture)
+        
+        let edgeRecognizer = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(edgeRecognizer(_:)))
+        view.addGestureRecognizer(edgeRecognizer)
+        edgeRecognizer.edges = .left
+        
+        navigationController?.delegate = self
     }
     
+    // а тут и вовсе не получилось использовать интерактивную анимацию, пытался пытался и почему то не вышло, наверно плохо понял, либо уже запутался (
     
-    @objc func panRecognize(_ recognize: UIPanGestureRecognizer) {
-        switch recognize.state {
+    @objc func edgeRecognizer(_ gesture: UIScreenEdgePanGestureRecognizer) {
+        let transition = gesture.translation(in: gesture.view)
+        let percentComplete = transition.x / gesture.view!.bounds.size.width
+        
+        switch gesture.state {
         case .began:
-            propertyAnimator = UIViewPropertyAnimator(duration: 1.0, dampingRatio: 1.0, animations: {
-                self.logoImage.transform = CGAffineTransform(scaleX: 1.8, y: 1.8)
-            })
+            transitionInteraction = UIPercentDrivenInteractiveTransition()
+            navigationController?.popViewController(animated: true)
         case .changed:
-            let translation = recognize.translation(in: self.view)
-            propertyAnimator.fractionComplete = translation.y / 100
+            transitionInteraction?.update(percentComplete)
         case .ended:
-            propertyAnimator.stopAnimation(true)
-            propertyAnimator.addAnimations {
-                self.logoImage.transform = .identity
+            let vecolity = gesture.velocity(in: gesture.view)
+            if vecolity.x > 0 || percentComplete > 0.5 {
+                transitionInteraction?.finish()
+            } else {
+                transitionInteraction?.cancel()
             }
-            propertyAnimator.startAnimation()
-        default:
-            break
+            transitionInteraction = nil
+        default: break
         }
+    }
+    
+    func navigationController(_ navigationController: UINavigationController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+        return transitionInteraction
     }
     
     func addKeyBoard() {
@@ -115,12 +127,11 @@ class GreatPasswordViewController: UIViewController {
             }
             mainViewController.rightLogin = newLogin
             mainViewController.rightPassword = newPassword
-            self.navigationController?.pushViewController(mainViewController, animated: false)
-            let backButton = UIBarButtonItem()
-            backButton.title = " "
-            backButton.tintColor = .clear
-        mainViewController.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
-            mainViewController.reloadInputViews()
+            
+            mainViewController.modalPresentationStyle = .custom
+            mainViewController.modalPresentationCapturesStatusBarAppearance = true
+            mainViewController.transitioningDelegate = self.standartAnimator
+            present(mainViewController, animated: true, completion: nil)
             
         } else {
             let alert = UIAlertController(title: "Ошибка", message: "Пароль не идентичен, проверьте написание", preferredStyle: .alert)
@@ -131,7 +142,11 @@ class GreatPasswordViewController: UIViewController {
     }
     
     @IBAction func comeBackButton(_ sender: Any) {
-       performSegue(withIdentifier: "comeBackCase", sender: nil)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let mainView = storyboard.instantiateViewController(identifier: "ViewController")
+        mainView.modalPresentationStyle = .custom
+        mainView.modalPresentationCapturesStatusBarAppearance = true
+        mainView.transitioningDelegate = self.standartAnimator
+        present(mainView, animated: true, completion: nil)
     }
 }
-

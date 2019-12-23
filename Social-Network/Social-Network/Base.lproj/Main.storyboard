@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
+        <!--Custom Navigation Controller Animation-->
         <scene sceneID="5wy-s0-5YZ">
             <objects>
-                <navigationController navigationBarHidden="YES" id="yZH-TK-Ys9" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="MainView" navigationBarHidden="YES" id="yZH-TK-Ys9" customClass="CustomNavigationControllerAnimation" customModule="Social_Network" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0NV-s7-nQ7">
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
@@ -145,7 +145,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="pfg-Vj-yfU">
             <objects>
-                <tabBarController id="14G-dU-hGY" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabBar" id="14G-dU-hGY" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="ly5-Ys-BwX"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Fgq-SO-32B">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
@@ -168,7 +168,7 @@
         <!--Private Messages Table View Controller-->
         <scene sceneID="bUh-HW-rf6">
             <objects>
-                <tableViewController id="aRT-aD-FSc" customClass="PrivateMessagesTableViewController" customModule="Social_Network" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="PrivateMessage" id="aRT-aD-FSc" customClass="PrivateMessagesTableViewController" customModule="Social_Network" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="hgx-Mv-DrS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -259,7 +259,7 @@
                                             </constraints>
                                         </imageView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0mZ-07-ISC">
-                                            <rect key="frame" x="40" y="20" width="334" height="50"/>
+                                            <rect key="frame" x="100" y="10" width="214" height="30"/>
                                             <state key="normal">
                                                 <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </state>
@@ -287,10 +287,10 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="0mZ-07-ISC" firstAttribute="top" secondItem="fDJ-x2-e4N" secondAttribute="top" constant="20" id="3gX-AV-L1e"/>
-                                    <constraint firstItem="0mZ-07-ISC" firstAttribute="leading" secondItem="fDJ-x2-e4N" secondAttribute="leading" constant="40" id="D3k-6r-6Vc"/>
-                                    <constraint firstAttribute="bottom" secondItem="0mZ-07-ISC" secondAttribute="bottom" constant="20" id="TNB-Zf-nd2"/>
-                                    <constraint firstAttribute="trailing" secondItem="0mZ-07-ISC" secondAttribute="trailing" constant="40" id="nnp-7r-OKb"/>
+                                    <constraint firstItem="0mZ-07-ISC" firstAttribute="top" secondItem="fDJ-x2-e4N" secondAttribute="top" constant="10" id="3gX-AV-L1e"/>
+                                    <constraint firstItem="0mZ-07-ISC" firstAttribute="leading" secondItem="fDJ-x2-e4N" secondAttribute="leading" constant="100" id="D3k-6r-6Vc"/>
+                                    <constraint firstAttribute="bottom" secondItem="0mZ-07-ISC" secondAttribute="bottom" constant="50" id="TNB-Zf-nd2"/>
+                                    <constraint firstAttribute="trailing" secondItem="0mZ-07-ISC" secondAttribute="trailing" constant="100" id="nnp-7r-OKb"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="fullNameChat" destination="dJN-FG-e21" id="KTg-Un-4l6"/>
@@ -309,6 +309,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Сообщения" id="Gs9-wM-jed"/>
+                    <connections>
+                        <segue destination="aRT-aD-FSc" kind="presentation" identifier="Private" modalPresentationStyle="fullScreen" id="uMw-uL-fZY"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UoH-AK-ZYJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -465,7 +468,7 @@
                         <barButtonItem key="leftBarButtonItem" title="Назад" id="m2U-JS-DxS">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" id="BVz-vN-kfg"/>
+                                <action selector="backButton:" destination="4Zw-gp-9nm" id="35d-Y8-LcR"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Поиск" style="plain" id="VSl-1a-odJ">
@@ -475,6 +478,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="yZH-TK-Ys9" kind="presentation" modalPresentationStyle="fullScreen" id="OyT-p3-4EO"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CEd-a0-4Re" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -587,7 +593,7 @@
         <!--Navigation Controller-->
         <scene sceneID="li1-ZH-CwF">
             <objects>
-                <navigationController id="LmQ-zQ-09S" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="greatPasswordNav" id="LmQ-zQ-09S" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="V57-hf-LWs">
                         <nil key="title"/>
                         <barButtonItem key="leftBarButtonItem" title="Назад" springLoaded="YES" style="plain" id="4hr-vR-XlO">
@@ -724,7 +730,6 @@
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="comeBackButton:" destination="nIm-y6-BQW" id="Myc-Gw-vCc"/>
-                                <segue destination="BYZ-38-t0r" kind="presentation" identifier="comeBackCase" modalPresentationStyle="fullScreen" id="iV9-6Q-69L"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -735,6 +740,7 @@
                         <outlet property="newName" destination="lUr-NC-xkE" id="W3h-9T-iRD"/>
                         <outlet property="newPassword" destination="3sR-E5-rVi" id="6XF-f1-VDX"/>
                         <outlet property="repeatPassword" destination="CxW-nH-BzE" id="JYH-SQ-Xyd"/>
+                        <segue destination="yZH-TK-Ys9" kind="presentation" modalPresentationStyle="fullScreen" id="O51-dx-SQh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ONZ-Jg-GiR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -848,12 +854,13 @@
                         <barButtonItem key="leftBarButtonItem" title="Назад" id="pXH-Sj-gvd">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" id="iuR-pt-RnN"/>
+                                <action selector="backButton:" destination="nSQ-Ap-Rde" id="3rw-zv-idi"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="searchBar" destination="RiQ-0D-k0O" id="EOu-F7-Pno"/>
+                        <segue destination="yZH-TK-Ys9" kind="presentation" modalPresentationStyle="fullScreen" id="fpp-ms-OiA"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fwb-8Y-N2H" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -959,6 +966,6 @@
         <image name="vkLogo" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="iuR-pt-RnN"/>
+        <segue reference="O51-dx-SQh"/>
     </inferredMetricsTieBreakers>
 </document>

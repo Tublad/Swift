@@ -33,7 +33,6 @@ class ProfileFriendCollectionViewController: UICollectionViewController {
             return UICollectionViewCell()
         }
         guard let image = user?.imageFriend else { return UICollectionViewCell() }
-        cell.animationOnline()
         cell.friendPhoto.image = UIImage(named: image)
         return cell
     }
