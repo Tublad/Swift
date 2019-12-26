@@ -8,9 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		A9334D1A238FA3F100FE75F3 /* ProfileFriendCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9334D19238FA3F100FE75F3 /* ProfileFriendCollectionViewController.swift */; };
-		A94A5FF423AA28550058842C /* IndicatorLoad.xib in Resources */ = {isa = PBXBuildFile; fileRef = A94A5FF323AA28550058842C /* IndicatorLoad.xib */; };
-		A94A5FF823AB5A530058842C /* IndicatorLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94A5FF723AB5A530058842C /* IndicatorLoad.swift */; };
-		A94A5FFA23AB65860058842C /* CustomIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94A5FF923AB65860058842C /* CustomIndicator.swift */; };
 		A94E7C4D23A217EF00D0DB89 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94E7C4C23A217EF00D0DB89 /* MessageViewController.swift */; };
 		A94E7C5123A218AD00D0DB89 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94E7C4F23A218AD00D0DB89 /* MessageCell.swift */; };
 		A94E7C5223A218AD00D0DB89 /* MessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A94E7C5023A218AD00D0DB89 /* MessageCell.xib */; };
@@ -30,6 +27,9 @@
 		A9AD11F0239E8CC200F28D0E /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AD11EF239E8CC200F28D0E /* Friend.swift */; };
 		A9AD66C52392E6410059A046 /* GlobalGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AD66C42392E6410059A046 /* GlobalGroupCell.swift */; };
 		A9AD66C723939DFA0059A046 /* GreatPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AD66C623939DFA0059A046 /* GreatPasswordController.swift */; };
+		A9BE209623B4BC9300BD8C57 /* CustomIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BE209523B4BC9300BD8C57 /* CustomIndicator.swift */; };
+		A9BE209923B4BED900BD8C57 /* Indicator.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9BE209823B4BED900BD8C57 /* Indicator.xib */; };
+		A9BE209B23B4C15A00BD8C57 /* IndicatorLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BE209A23B4C15A00BD8C57 /* IndicatorLoad.swift */; };
 		A9C8EEDF23894F3500276B94 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C8EEDE23894F3500276B94 /* AppDelegate.swift */; };
 		A9C8EEE123894F3500276B94 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C8EEE023894F3500276B94 /* SceneDelegate.swift */; };
 		A9C8EEE323894F3500276B94 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C8EEE223894F3500276B94 /* ViewController.swift */; };
@@ -45,9 +45,6 @@
 
 /* Begin PBXFileReference section */
 		A9334D19238FA3F100FE75F3 /* ProfileFriendCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFriendCollectionViewController.swift; sourceTree = "<group>"; };
-		A94A5FF323AA28550058842C /* IndicatorLoad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IndicatorLoad.xib; sourceTree = "<group>"; };
-		A94A5FF723AB5A530058842C /* IndicatorLoad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorLoad.swift; sourceTree = "<group>"; };
-		A94A5FF923AB65860058842C /* CustomIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomIndicator.swift; sourceTree = "<group>"; };
 		A94E7C4C23A217EF00D0DB89 /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		A94E7C4F23A218AD00D0DB89 /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		A94E7C5023A218AD00D0DB89 /* MessageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageCell.xib; sourceTree = "<group>"; };
@@ -66,6 +63,9 @@
 		A9AD11EF239E8CC200F28D0E /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		A9AD66C42392E6410059A046 /* GlobalGroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalGroupCell.swift; sourceTree = "<group>"; };
 		A9AD66C623939DFA0059A046 /* GreatPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreatPasswordController.swift; sourceTree = "<group>"; };
+		A9BE209523B4BC9300BD8C57 /* CustomIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomIndicator.swift; sourceTree = "<group>"; };
+		A9BE209823B4BED900BD8C57 /* Indicator.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Indicator.xib; sourceTree = "<group>"; };
+		A9BE209A23B4C15A00BD8C57 /* IndicatorLoad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorLoad.swift; sourceTree = "<group>"; };
 		A9C8EEDB23894F3500276B94 /* Social-Network.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Social-Network.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9C8EEDE23894F3500276B94 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A9C8EEE023894F3500276B94 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -93,15 +93,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A925749923A68B2A004DD913 /* animationIndicator */ = {
-			isa = PBXGroup;
-			children = (
-				A94A5FF323AA28550058842C /* IndicatorLoad.xib */,
-				A94A5FF723AB5A530058842C /* IndicatorLoad.swift */,
-			);
-			path = animationIndicator;
-			sourceTree = "<group>";
-		};
 		A94E7C4A23A2162B00D0DB89 /* Message screen */ = {
 			isa = PBXGroup;
 			children = (
@@ -147,7 +138,6 @@
 				A9AD11DE239BF69F00F28D0E /* CustomLikeButton.swift */,
 				A94E7C6423A2806B00D0DB89 /* CustomRepostButton.swift */,
 				A94E7C6623A280EB00D0DB89 /* CustomCommentButton.swift */,
-				A94A5FF923AB65860058842C /* CustomIndicator.swift */,
 			);
 			path = UICustom;
 			sourceTree = "<group>";
@@ -161,6 +151,16 @@
 				A94E7C5523A224FB00D0DB89 /* Message.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		A9BE209723B4BCA800BD8C57 /* Indicator */ = {
+			isa = PBXGroup;
+			children = (
+				A9BE209523B4BC9300BD8C57 /* CustomIndicator.swift */,
+				A9BE209823B4BED900BD8C57 /* Indicator.xib */,
+				A9BE209A23B4C15A00BD8C57 /* IndicatorLoad.swift */,
+			);
+			path = Indicator;
 			sourceTree = "<group>";
 		};
 		A9C729A02397ABCA00363C2D /* Friends and Profile friend */ = {
@@ -220,7 +220,7 @@
 		A9C8EEDD23894F3500276B94 /* Social-Network */ = {
 			isa = PBXGroup;
 			children = (
-				A925749923A68B2A004DD913 /* animationIndicator */,
+				A9BE209723B4BCA800BD8C57 /* Indicator */,
 				A9AD11EA239E8C7100F28D0E /* Model */,
 				A9AD11D32397F81A00F28D0E /* UICustom */,
 				A9C729A32397ACA700363C2D /* My profile */,
@@ -300,7 +300,7 @@
 				A9C8EEEB23894F3700276B94 /* LaunchScreen.storyboard in Resources */,
 				A94E7C5223A218AD00D0DB89 /* MessageCell.xib in Resources */,
 				A94E7C6123A2563000D0DB89 /* NewsCell.xib in Resources */,
-				A94A5FF423AA28550058842C /* IndicatorLoad.xib in Resources */,
+				A9BE209923B4BED900BD8C57 /* Indicator.xib in Resources */,
 				A9C8EEE823894F3700276B94 /* Assets.xcassets in Resources */,
 				A9C8EEE623894F3500276B94 /* Main.storyboard in Resources */,
 			);
@@ -316,12 +316,11 @@
 				A9AD11EC239E8C8700F28D0E /* Profile.swift in Sources */,
 				A9AD66C52392E6410059A046 /* GlobalGroupCell.swift in Sources */,
 				A9AD11D723980ADD00F28D0E /* CustomPhoto.swift in Sources */,
-				A94A5FF823AB5A530058842C /* IndicatorLoad.swift in Sources */,
-				A94A5FFA23AB65860058842C /* CustomIndicator.swift in Sources */,
 				A94E7C6323A26D0700D0DB89 /* NewViewController.swift in Sources */,
 				A9C8EEE323894F3500276B94 /* ViewController.swift in Sources */,
 				A9334D1A238FA3F100FE75F3 /* ProfileFriendCollectionViewController.swift in Sources */,
 				A9D5D332238E968300581A9B /* GroupTableViewController.swift in Sources */,
+				A9BE209B23B4C15A00BD8C57 /* IndicatorLoad.swift in Sources */,
 				A94E7C5623A224FB00D0DB89 /* Message.swift in Sources */,
 				A94E7C6723A280EB00D0DB89 /* CustomCommentButton.swift in Sources */,
 				A9C8EEDF23894F3500276B94 /* AppDelegate.swift in Sources */,
@@ -331,6 +330,7 @@
 				A94E7C5123A218AD00D0DB89 /* MessageCell.swift in Sources */,
 				A94E7C6523A2806B00D0DB89 /* CustomRepostButton.swift in Sources */,
 				A94E7C5423A21EF800D0DB89 /* MessageScreenCell.swift in Sources */,
+				A9BE209623B4BC9300BD8C57 /* CustomIndicator.swift in Sources */,
 				A94E7C4D23A217EF00D0DB89 /* MessageViewController.swift in Sources */,
 				A9AD66C723939DFA0059A046 /* GreatPasswordController.swift in Sources */,
 				A94E7C5A23A249F000D0DB89 /* PrivateMessagesTableViewController.swift in Sources */,

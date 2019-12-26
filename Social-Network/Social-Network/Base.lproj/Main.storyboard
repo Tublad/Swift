@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yZH-TK-Ys9">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
@@ -7,13 +7,15 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Custom Navigation Controller Animation-->
+        <!--Navigation Controller-->
         <scene sceneID="5wy-s0-5YZ">
             <objects>
-                <navigationController storyboardIdentifier="MainView" navigationBarHidden="YES" id="yZH-TK-Ys9" customClass="CustomNavigationControllerAnimation" customModule="Social_Network" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0NV-s7-nQ7">
+                <navigationController id="yZH-TK-Ys9" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="0NV-s7-nQ7">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                        <color key="barTintColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                     </navigationBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="bFj-w9-v2a"/>
@@ -28,24 +30,24 @@
             <objects>
                 <viewController storyboardIdentifier="ViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="ViewController" customModule="Social_Network" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" restorationIdentifier="ViewController" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f1g-d6-fPo">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ваше имя или почта" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5a4-LB-xZ6">
-                                        <rect key="frame" x="15" y="365" width="384" height="34"/>
+                                        <rect key="frame" x="15" y="315" width="384" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ваш пароль" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vsO-bV-ki8">
-                                        <rect key="frame" x="15" y="443" width="384" height="34"/>
+                                        <rect key="frame" x="15" y="393" width="384" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4iI-ka-esF">
-                                        <rect key="frame" x="157" y="529" width="100" height="30"/>
+                                        <rect key="frame" x="157" y="479" width="100" height="30"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="v0J-aL-mfO"/>
@@ -71,7 +73,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JMl-EC-evs">
-                                        <rect key="frame" x="139.5" y="588" width="135" height="30"/>
+                                        <rect key="frame" x="139.5" y="538" width="135" height="30"/>
                                         <state key="normal">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Создать профиль?">
@@ -88,7 +90,7 @@
                                         </connections>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vkLogo" translatesAutoresizingMaskIntoConstraints="NO" id="RJG-zC-RL4">
-                                        <rect key="frame" x="132" y="100" width="150" height="150"/>
+                                        <rect key="frame" x="132" y="50" width="150" height="150"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="150" id="Msr-ss-eWC"/>
                                             <constraint firstAttribute="width" secondItem="RJG-zC-RL4" secondAttribute="height" multiplier="1:1" id="bWp-FR-Ay0"/>
@@ -106,7 +108,7 @@
                                     <constraint firstItem="vsO-bV-ki8" firstAttribute="leading" secondItem="cIQ-hw-sPJ" secondAttribute="leading" constant="15" id="uWZ-l2-xbP"/>
                                     <constraint firstItem="5a4-LB-xZ6" firstAttribute="top" secondItem="RJG-zC-RL4" secondAttribute="bottom" constant="115" id="wue-Q2-LtL"/>
                                     <constraint firstItem="M1N-Hf-bcZ" firstAttribute="trailing" secondItem="vsO-bV-ki8" secondAttribute="trailing" constant="15" id="ySX-dA-fio"/>
-                                    <constraint firstItem="RJG-zC-RL4" firstAttribute="top" secondItem="f1g-d6-fPo" secondAttribute="top" constant="100" id="ySi-RC-vRF"/>
+                                    <constraint firstItem="RJG-zC-RL4" firstAttribute="top" secondItem="f1g-d6-fPo" secondAttribute="top" constant="50" id="ySi-RC-vRF"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="cIQ-hw-sPJ"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="M1N-Hf-bcZ"/>
@@ -127,12 +129,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="HUW-nb-JZi"/>
+                    <navigationItem key="navigationItem" leftItemsSupplementBackButton="YES" id="HUW-nb-JZi"/>
                     <connections>
-                        <outlet property="greatButton" destination="JMl-EC-evs" id="WgL-I0-94N"/>
-                        <outlet property="joinButton" destination="4iI-ka-esF" id="zl1-x4-mQP"/>
                         <outlet property="login" destination="5a4-LB-xZ6" id="IS0-Hu-W1m"/>
-                        <outlet property="logoImage" destination="RJG-zC-RL4" id="1oY-rD-yfP"/>
                         <outlet property="password" destination="vsO-bV-ki8" id="Q6z-qi-pbu"/>
                         <segue destination="14G-dU-hGY" kind="presentation" identifier="firstCase" modalPresentationStyle="fullScreen" id="LRI-1l-Kvb"/>
                         <segue destination="LmQ-zQ-09S" kind="presentation" identifier="greatPasswordCase" modalPresentationStyle="fullScreen" id="kaV-N3-W0k"/>
@@ -145,7 +144,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="pfg-Vj-yfU">
             <objects>
-                <tabBarController storyboardIdentifier="tabBar" id="14G-dU-hGY" sceneMemberID="viewController">
+                <tabBarController restorationIdentifier="TabBarViewController" storyboardIdentifier="TabBarViewController" id="14G-dU-hGY" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="ly5-Ys-BwX"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Fgq-SO-32B">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
@@ -168,7 +167,7 @@
         <!--Private Messages Table View Controller-->
         <scene sceneID="bUh-HW-rf6">
             <objects>
-                <tableViewController storyboardIdentifier="PrivateMessage" id="aRT-aD-FSc" customClass="PrivateMessagesTableViewController" customModule="Social_Network" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="aRT-aD-FSc" customClass="PrivateMessagesTableViewController" customModule="Social_Network" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="hgx-Mv-DrS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -258,15 +257,6 @@
                                                 <constraint firstAttribute="width" secondItem="7Aa-xO-7rn" secondAttribute="height" multiplier="1:1" id="Tex-5W-1Jh"/>
                                             </constraints>
                                         </imageView>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0mZ-07-ISC">
-                                            <rect key="frame" x="100" y="10" width="214" height="30"/>
-                                            <state key="normal">
-                                                <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="nextAnimationView:" destination="yuz-41-gee" eventType="touchDown" id="QJG-Pr-pUY"/>
-                                            </connections>
-                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="STw-y1-3n5" firstAttribute="leading" secondItem="dJN-FG-e21" secondAttribute="trailing" constant="15" id="8m7-XL-GY3"/>
@@ -286,18 +276,11 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstItem="0mZ-07-ISC" firstAttribute="top" secondItem="fDJ-x2-e4N" secondAttribute="top" constant="10" id="3gX-AV-L1e"/>
-                                    <constraint firstItem="0mZ-07-ISC" firstAttribute="leading" secondItem="fDJ-x2-e4N" secondAttribute="leading" constant="100" id="D3k-6r-6Vc"/>
-                                    <constraint firstAttribute="bottom" secondItem="0mZ-07-ISC" secondAttribute="bottom" constant="50" id="TNB-Zf-nd2"/>
-                                    <constraint firstAttribute="trailing" secondItem="0mZ-07-ISC" secondAttribute="trailing" constant="100" id="nnp-7r-OKb"/>
-                                </constraints>
                                 <connections>
                                     <outlet property="fullNameChat" destination="dJN-FG-e21" id="KTg-Un-4l6"/>
                                     <outlet property="imageChat" destination="veO-aT-AI3" id="qDl-pr-b9z"/>
                                     <outlet property="imageUsers" destination="y1Z-Cm-e4O" id="UeH-7y-1Vc"/>
                                     <outlet property="isOnlineImage" destination="7Aa-xO-7rn" id="7FF-ON-eBU"/>
-                                    <outlet property="nextView" destination="0mZ-07-ISC" id="mFh-ot-Hb3"/>
                                     <outlet property="textUser" destination="1kf-lV-fC0" id="5xm-Jx-HiN"/>
                                     <outlet property="timeMessage" destination="STw-y1-3n5" id="f9v-6d-OLx"/>
                                 </connections>
@@ -309,19 +292,16 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Сообщения" id="Gs9-wM-jed"/>
-                    <connections>
-                        <segue destination="aRT-aD-FSc" kind="presentation" identifier="Private" modalPresentationStyle="fullScreen" id="uMw-uL-fZY"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UoH-AK-ZYJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-136.23188405797103" y="-1503.3482142857142"/>
         </scene>
-        <!--Сообщение-->
+        <!--Navigation Controller-->
         <scene sceneID="wIm-g8-XyO">
             <objects>
                 <navigationController id="fNr-I2-etV" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Сообщение" image="message" catalog="system" id="oYe-KM-AXt"/>
+                    <tabBarItem key="tabBarItem" title="" image="message" catalog="system" id="oYe-KM-AXt"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="wVK-zA-ueS">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -342,11 +322,11 @@
             </objects>
             <point key="canvasLocation" x="-136" y="-774"/>
         </scene>
-        <!--Группы-->
+        <!--Navigation Controller-->
         <scene sceneID="StE-KQ-PHl">
             <objects>
                 <navigationController id="YMF-zn-Kbb" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Группы" image="person.3.fill" catalog="system" id="uC7-ld-qcp"/>
+                    <tabBarItem key="tabBarItem" title="" image="person.3" catalog="system" id="uC7-ld-qcp"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="xKv-zq-6Vu">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -464,13 +444,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Список групп" id="6Dm-c0-Qp9">
-                        <barButtonItem key="backBarButtonItem" title="Ваши группы" id="m5Z-of-aUr"/>
-                        <barButtonItem key="leftBarButtonItem" title="Назад" id="m2U-JS-DxS">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <action selector="backButton:" destination="4Zw-gp-9nm" id="35d-Y8-LcR"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="backBarButtonItem" id="m5Z-of-aUr"/>
                         <barButtonItem key="rightBarButtonItem" title="Поиск" style="plain" id="VSl-1a-odJ">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
@@ -478,9 +452,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <segue destination="yZH-TK-Ys9" kind="presentation" modalPresentationStyle="fullScreen" id="OyT-p3-4EO"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CEd-a0-4Re" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -593,8 +564,8 @@
         <!--Navigation Controller-->
         <scene sceneID="li1-ZH-CwF">
             <objects>
-                <navigationController storyboardIdentifier="greatPasswordNav" id="LmQ-zQ-09S" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="V57-hf-LWs">
+                <navigationController id="LmQ-zQ-09S" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" leftItemsSupplementBackButton="YES" id="V57-hf-LWs">
                         <nil key="title"/>
                         <barButtonItem key="leftBarButtonItem" title="Назад" springLoaded="YES" style="plain" id="4hr-vR-XlO">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -606,8 +577,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="oWR-0A-wEr">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                         <color key="barTintColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                     </navigationBar>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="EEG-Kh-gd3">
@@ -649,7 +619,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IIo-ga-hgK">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ваше имя" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lUr-NC-xkE">
                                         <rect key="frame" x="15" y="304" width="384" height="34"/>
@@ -725,33 +695,22 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5nV-pi-Jnk"/>
                     </view>
-                    <navigationItem key="navigationItem" id="6Kk-xC-5Zt">
-                        <barButtonItem key="leftBarButtonItem" title="Назад" id="Ih6-Bd-eyG">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <action selector="comeBackButton:" destination="nIm-y6-BQW" id="Myc-Gw-vCc"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="6Kk-xC-5Zt"/>
                     <connections>
-                        <outlet property="greatAccButton" destination="2YM-tC-rNc" id="DBb-oE-Epd"/>
-                        <outlet property="logoImage" destination="E9M-6q-xMO" id="2En-gC-UJh"/>
-                        <outlet property="nameViewLabel" destination="ZIy-yJ-8Ia" id="0yx-hx-Xki"/>
                         <outlet property="newName" destination="lUr-NC-xkE" id="W3h-9T-iRD"/>
                         <outlet property="newPassword" destination="3sR-E5-rVi" id="6XF-f1-VDX"/>
                         <outlet property="repeatPassword" destination="CxW-nH-BzE" id="JYH-SQ-Xyd"/>
-                        <segue destination="yZH-TK-Ys9" kind="presentation" modalPresentationStyle="fullScreen" id="O51-dx-SQh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ONZ-Jg-GiR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1013.0434782608696" y="1380.8035714285713"/>
         </scene>
-        <!--Друзья-->
+        <!--Navigation Controller-->
         <scene sceneID="8kr-Gl-qJN">
             <objects>
                 <navigationController id="T5o-R5-XIZ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Друзья" image="person.2.fill" catalog="system" id="o84-th-TmX"/>
+                    <tabBarItem key="tabBarItem" title="" image="person" catalog="system" id="o84-th-TmX"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="8Hv-N2-Src">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -850,28 +809,20 @@
                             <outlet property="delegate" destination="nSQ-Ap-Rde" id="mpb-cN-V3X"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Друзья" id="G8t-9T-wkw">
-                        <barButtonItem key="leftBarButtonItem" title="Назад" id="pXH-Sj-gvd">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <action selector="backButton:" destination="nSQ-Ap-Rde" id="3rw-zv-idi"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Друзья" id="G8t-9T-wkw"/>
                     <connections>
                         <outlet property="searchBar" destination="RiQ-0D-k0O" id="EOu-F7-Pno"/>
-                        <segue destination="yZH-TK-Ys9" kind="presentation" modalPresentationStyle="fullScreen" id="fpp-ms-OiA"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fwb-8Y-N2H" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1653.6231884057972" y="361.60714285714283"/>
         </scene>
-        <!--Новости-->
+        <!--Navigation Controller-->
         <scene sceneID="A6w-fo-wQd">
             <objects>
                 <navigationController id="iQz-6q-9iO" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Новости" image="sidebar.left" catalog="system" id="SC9-nJ-6EA"/>
+                    <tabBarItem key="tabBarItem" title="" image="sidebar.left" catalog="system" id="SC9-nJ-6EA"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="Pl4-IY-tgD">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -913,7 +864,6 @@
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OKY-kz-cjM">
                                             <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="OKY-kz-cjM" secondAttribute="height" multiplier="1:1" id="ykq-Gw-yQ6"/>
                                             </constraints>
@@ -926,7 +876,7 @@
                                             </constraints>
                                             <state key="normal" title="Button"/>
                                             <connections>
-                                                <action selector="likedButton:" destination="fbU-ws-R53" eventType="touchDown" id="5GH-6t-hRH"/>
+                                                <action selector="likedButton:" destination="xpV-Hi-qLI" eventType="touchDown" id="d3k-Fg-M4D"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -960,12 +910,9 @@
     </scenes>
     <resources>
         <image name="message" catalog="system" width="64" height="56"/>
-        <image name="person.2.fill" catalog="system" width="64" height="40"/>
-        <image name="person.3.fill" catalog="system" width="71" height="34"/>
+        <image name="person" catalog="system" width="64" height="58"/>
+        <image name="person.3" catalog="system" width="72" height="35"/>
         <image name="sidebar.left" catalog="system" width="64" height="46"/>
         <image name="vkLogo" width="512" height="512"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="O51-dx-SQh"/>
-    </inferredMetricsTieBreakers>
 </document>

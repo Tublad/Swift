@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vkLogo" translatesAutoresizingMaskIntoConstraints="NO" id="iw0-6Z-W6p">
-                                <rect key="frame" x="132" y="144" width="150" height="150"/>
+                                <rect key="frame" x="132" y="134" width="150" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="52A-sI-hqp"/>
                                     <constraint firstAttribute="height" constant="150" id="eqY-Ba-lVW"/>
@@ -26,7 +26,7 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="iw0-6Z-W6p" firstAttribute="centerX" secondItem="s8l-RU-X1u" secondAttribute="centerX" id="b8b-as-5Ez"/>
-                            <constraint firstItem="iw0-6Z-W6p" firstAttribute="top" secondItem="s8l-RU-X1u" secondAttribute="top" constant="100" id="nWJ-Ie-Jyj"/>
+                            <constraint firstItem="iw0-6Z-W6p" firstAttribute="top" secondItem="s8l-RU-X1u" secondAttribute="top" constant="90" id="nWJ-Ie-Jyj"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="s8l-RU-X1u"/>
                     </view>

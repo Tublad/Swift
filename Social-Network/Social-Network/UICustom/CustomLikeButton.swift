@@ -61,12 +61,13 @@ class LiKeButton: UIButton {
     }
     
     private func animationLike() {
-        let animation = CASpringAnimation(keyPath: "transform.scale")
-        animation.fromValue = 1.2
-        animation.toValue = 1
-        animation.stiffness = 400
-        animation.mass = 1
-        animation.duration = 2
-        layer.add(animation, forKey: nil)
-    }
+          let animation = CASpringAnimation(keyPath: "transform.scale")
+          animation.fromValue = 1.2
+          animation.toValue = 1
+          animation.stiffness = 400
+          animation.mass = 1
+          animation.duration = 2
+          layer.add(animation, forKey: nil)
+      }
+    
 }

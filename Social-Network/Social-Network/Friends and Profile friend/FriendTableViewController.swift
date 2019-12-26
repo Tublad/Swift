@@ -30,22 +30,21 @@ class FriendTableViewController: UITableViewController {
          Friends(firstName: "Никита", lastName: "Гусельников", imageFriend: "image4", isOnline: false, message: Message(textUser: "Сегодня туса будет! Давай подтягивайся =) Тебя только не хватает!! Подьезжай на улицу Красный путь 127 кв 60 ;) ", time: "Вчера")),
          Friends(firstName: "Никита", lastName: "Попов", imageFriend: "image3", isOnline: true, message:  Message(textUser: "Пока", time: "Вчера"))]
     
+    
     var friendSection = [Section<Friends>]()
-    var standartAnimator = AnimatedTransition()
     
     override func viewDidLoad() {
         searchBar.delegate = self
         madeOfSortedSection()
+        updateNavigationBar()
     }
     
-    @IBAction func backButton(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let mainView = storyboard.instantiateViewController(identifier: "ViewController")
-        mainView.modalPresentationStyle = .custom
-        mainView.modalPresentationCapturesStatusBarAppearance = true
-        mainView.transitioningDelegate = self.standartAnimator
-        present(mainView, animated: true, completion: nil)
+    func updateNavigationBar() {
+        let backButton = UIBarButtonItem()
+        backButton.title = ""
+        navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
     }
+    
     
     func madeOfSortedSection() {
         let friendDictionary = Dictionary(grouping: friendList) {
@@ -53,7 +52,76 @@ class FriendTableViewController: UITableViewController {
         }
         friendSection = friendDictionary.map { Section(title: String($0.key), item: $0.value) }
         friendSection.sort { $0.title < $1.title }
+    }
+}
+
+extension FriendTableViewController { // delegate
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let userName = friendSection[indexPath.section].item[indexPath.row]
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let ProfileFriendCollectionView = storyboard.instantiateViewController(identifier: "ProfileFriendCollectionViewController") as? ProfileFriendCollectionViewController else {
+            return
+        }
         
+        ProfileFriendCollectionView.user = userName
+        self.navigationController?.pushViewController(ProfileFriendCollectionView, animated: true)
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let deleteAction = UITableViewRowAction(style: .default, title: "Удалить") { (action, index) in
+            self.friendList.removeAll {
+                $0.firstName == self.friendSection[indexPath.section].item[indexPath.row].firstName
+            }
+            self.madeOfSortedSection()
+            self.tableView.reloadData()
+        }
+        return [deleteAction]
+    }
+}
+
+extension FriendTableViewController { // dataSource
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return friendSection.count
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return friendSection[section].item.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "FriendCell", for: indexPath) as? FriendCell else {
+            return UITableViewCell()
+        }
+        
+        cell.nameFriend.text = friendSection[indexPath.section].item[indexPath.row].firstName + " " + friendSection[indexPath.section].item[indexPath.row].lastName
+        cell.photoFriend.image = UIImage(named: friendSection[indexPath.section].item[indexPath.row].imageFriend)
+        var image: String
+        if friendSection[indexPath.section].item[indexPath.row].isOnline == true {
+            image = "onlineFriend"
+        } else {
+            image = " "
+        }
+        
+        cell.isOnline.image = UIImage(named: image)
+        return cell
+    }
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return friendSection[section].title
+    }
+    
+    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        return friendSection.map { $0.title  }
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        view.tintColor = UIColor.clear
+        guard let header = view as? UITableViewHeaderFooterView else {
+            return
+        }
+        header.textLabel?.textColor = UIColor.darkGray
+        header.textLabel?.font = UIFont.systemFont(ofSize: 14, weight: .medium)
     }
 }
 
@@ -74,83 +142,4 @@ extension FriendTableViewController: UISearchBarDelegate {
         view.endEditing(true)
     }
     
-}
-
-extension FriendTableViewController { // dataSource
-    
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return friendSection.count
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return friendSection[section].item.count
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "FriendCell", for: indexPath) as? FriendCell else {
-            return UITableViewCell()
-        }
-        
-        cell.nameFriend.text = friendSection[indexPath.section].item[indexPath.row].firstName + " " + friendSection[indexPath.section].item[indexPath.row].lastName
-        cell.photoFriend.image = UIImage(named: friendSection[indexPath.section].item[indexPath.row].imageFriend)
-        
-        var image: String
-        if friendSection[indexPath.section].item[indexPath.row].isOnline == true {
-            image = "onlineFriend"
-        } else {
-            image = " "
-        }
-        cell.isOnline.image = UIImage(named: image)
-        
-        if image == "onlineFriend" {
-            cell.animationImage()
-        }
-        
-        return cell
-    }
-    
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return friendSection[section].title
-    }
-    
-    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        return friendSection.map { $0.title  }
-    }
-    
-    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        view.tintColor = UIColor.clear
-        guard let header = view as? UITableViewHeaderFooterView else {
-            return
-        }
-        
-        header.textLabel?.textColor = UIColor.darkGray
-        header.textLabel?.font = UIFont.systemFont(ofSize: 14, weight: .medium)
-    }
-    
-}
-
-extension FriendTableViewController { // delegate
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-          let userName = friendSection[indexPath.section].item[indexPath.row]
-          let storyboard = UIStoryboard(name: "Main", bundle: nil)
-          
-          guard let ProfileFriendCollectionView = storyboard.instantiateViewController(identifier: "ProfileFriendCollectionViewController") as? ProfileFriendCollectionViewController else {
-              return
-          }
-          
-          ProfileFriendCollectionView.user = userName
-          self.navigationController?.pushViewController(ProfileFriendCollectionView, animated: true)
-      }
-    
-    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let deleteAction = UITableViewRowAction(style: .default, title: "Удалить") { (action, index) in
-            self.friendList.removeAll {
-                $0.firstName == self.friendSection[indexPath.section].item[indexPath.row].firstName
-            }
-            self.madeOfSortedSection()
-            self.tableView.reloadData()
-        }
-        return [deleteAction]
-    }
 }

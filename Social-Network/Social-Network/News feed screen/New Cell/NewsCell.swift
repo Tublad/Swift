@@ -2,7 +2,6 @@
 import UIKit
 
 class NewsCell: UITableViewCell {
-    
     @IBOutlet weak var nameGroup: UILabel!
     @IBOutlet weak var groupImage: UIImageView!
     @IBOutlet weak var time: UILabel!
@@ -11,7 +10,6 @@ class NewsCell: UITableViewCell {
     @IBOutlet weak var repostNew: UIButton!
     @IBOutlet weak var commintNew: UIButton!
     @IBOutlet weak var likeNews: UIButton!
-    @IBOutlet weak var animationButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,32 +21,17 @@ class NewsCell: UITableViewCell {
         }
         liked.like()
     }
-    
     @IBAction func commentNewsButton(_ sender: Any) {
         guard let commented = (sender as? CommintButton) else {
-            return
-        }
+                   return
+               }
         commented.commet()
     }
-    
     @IBAction func repostNewsButton(_ sender: Any) {
         guard let reposted = (sender as? RepostButton) else {
-            return
-        }
+                   return
+               }
         reposted.repost()
-    }
-    
-    @IBAction func animationImageView(_ sender: Any) {
-        animationImage()
-    }
-    
-    func animationImage() {
-        UIView.animate(withDuration: 0.25, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: [], animations: {
-            self.newsImage.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
-        }, completion: { _ in
-            UIView.animate(withDuration: 0.25, delay: 0.1, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: [], animations: {
-                self.newsImage.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-            })})
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -5,8 +5,7 @@ import UIKit
 class ProfileFriendCollectionViewController: UICollectionViewController {
     
     var user: Friends?
-    var propertyAnimator: UIViewPropertyAnimator!
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,7 +17,6 @@ class ProfileFriendCollectionViewController: UICollectionViewController {
         let backButton = UIBarButtonItem()
         backButton.title = ""
         navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
-        
     }
     
     
@@ -26,14 +24,20 @@ class ProfileFriendCollectionViewController: UICollectionViewController {
         return 1
     }
     
+    @IBAction func likedButton(_ sender: Any) {
+        guard let liked = (sender as? LiKeButton) else {
+            return
+        }
+        liked.like()
+    }
     
-
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProfileFriendCell", for: indexPath) as? ProfileFriendCell else {
             return UICollectionViewCell()
         }
         guard let image = user?.imageFriend else { return UICollectionViewCell() }
         cell.friendPhoto.image = UIImage(named: image)
+        
         return cell
     }
     

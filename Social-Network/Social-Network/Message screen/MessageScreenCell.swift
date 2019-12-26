@@ -10,7 +10,6 @@ class MessageScreenCell: UITableViewCell {
     @IBOutlet weak var imageUsers: UIImageView!
     @IBOutlet weak var textUser: UILabel!
     @IBOutlet weak var isOnlineImage: UIImageView!
-    @IBOutlet weak var nextView: UIButton!
     
     
     override func awakeFromNib() {

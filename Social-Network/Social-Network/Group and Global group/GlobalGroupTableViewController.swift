@@ -52,6 +52,38 @@ class GlobalGroupTableViewController: UITableViewController {
     }
 }
 
+extension GlobalGroupTableViewController { // dataSource
+    
+       override func numberOfSections(in tableView: UITableView) -> Int {
+           return 1
+       }
+       
+       override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+           if isFiltering {
+               return filteredGroup.count
+           }
+           return globalGroupList.count
+       }
+       
+       override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+           let cell = tableView.dequeueReusableCell(withIdentifier: "GlobalGroupCell", for: indexPath) as! GlobalGroupCell
+           
+           var global: Group
+           if isFiltering {
+               global = filteredGroup[indexPath.row]
+           } else {
+               global = globalGroupList[indexPath.row]
+           }
+           
+           
+           cell.globalGroupName.text = global.name
+           cell.globalContent.text = global.content
+           cell.participantGlobal.text = global.participant
+           cell.imageGlobal.image = UIImage(named: global.imageGroup )
+           return cell
+       }
+}
+
 extension GlobalGroupTableViewController : UISearchResultsUpdating {
     
     func updateSearchResults(for searchController: UISearchController) {
@@ -64,36 +96,4 @@ extension GlobalGroupTableViewController : UISearchResultsUpdating {
         })
         tableView.reloadData()
     }
-}
-
-extension GlobalGroupTableViewController { // dataSource
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if isFiltering {
-            return filteredGroup.count
-        }
-        return globalGroupList.count
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "GlobalGroupCell", for: indexPath) as! GlobalGroupCell
-        
-        var global: Group
-        if isFiltering {
-            global = filteredGroup[indexPath.row]
-        } else {
-            global = globalGroupList[indexPath.row]
-        }
-        
-        cell.globalGroupName.text = global.name
-        cell.globalContent.text = global.content
-        cell.participantGlobal.text = global.participant
-        cell.imageGlobal.image = UIImage(named: global.imageGroup )
-        return cell
-    }
-       
-    
 }

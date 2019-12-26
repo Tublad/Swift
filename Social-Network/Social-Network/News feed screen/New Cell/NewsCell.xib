@@ -41,13 +41,13 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="newsText" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GPx-cR-GYh">
-                        <rect key="frame" x="10" y="60" width="372" height="2"/>
+                        <rect key="frame" x="10" y="60" width="372" height="20.5"/>
                         <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="CsL-oV-j7f">
-                        <rect key="frame" x="0.0" y="72" width="392" height="392"/>
+                        <rect key="frame" x="0.0" y="80.5" width="392" height="392"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="84R-Nh-C0m">
                                 <rect key="frame" x="0.0" y="0.0" width="392" height="392"/>
@@ -58,7 +58,7 @@
                         </subviews>
                     </stackView>
                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gws-Pf-iJH" customClass="LiKeButton" customModule="Social_Network" customModuleProvider="target">
-                        <rect key="frame" x="20" y="474" width="20.5" height="22"/>
+                        <rect key="frame" x="20" y="477.5" width="20.5" height="23.5"/>
                         <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <state key="normal" image="heart" catalog="system">
                             <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -68,7 +68,7 @@
                         </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a7X-LF-0Eq" customClass="CommintButton" customModule="Social_Network" customModuleProvider="target">
-                        <rect key="frame" x="70.5" y="474" width="22.5" height="22"/>
+                        <rect key="frame" x="70.5" y="477.5" width="22.5" height="23.5"/>
                         <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <state key="normal" image="bubble.middle.bottom" catalog="system">
                             <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -78,7 +78,7 @@
                         </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tON-cs-j3J" customClass="RepostButton" customModule="Social_Network" customModuleProvider="target">
-                        <rect key="frame" x="123" y="474" width="21" height="22"/>
+                        <rect key="frame" x="123" y="477.5" width="21" height="23.5"/>
                         <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <state key="normal" image="arrowshape.turn.up.right" catalog="system">
                             <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -87,52 +87,37 @@
                             <action selector="repostNewsButton:" destination="KGk-i7-Jjw" eventType="touchDown" id="LdM-CC-X43"/>
                         </connections>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ny-EH-uJp">
-                        <rect key="frame" x="0.0" y="72" width="392" height="392"/>
-                        <state key="normal">
-                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </state>
-                        <connections>
-                            <action selector="animationImageView:" destination="KGk-i7-Jjw" eventType="touchDown" id="7qV-wB-46v"/>
-                        </connections>
-                    </button>
                 </subviews>
                 <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                 <constraints>
                     <constraint firstItem="eno-Rk-3Hd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="3wV-wB-Vdx"/>
-                    <constraint firstAttribute="bottom" secondItem="tON-cs-j3J" secondAttribute="bottom" constant="10" id="7G7-OH-X1G"/>
-                    <constraint firstItem="9ny-EH-uJp" firstAttribute="width" secondItem="84R-Nh-C0m" secondAttribute="width" id="7Gy-ju-4Ne"/>
+                    <constraint firstAttribute="bottom" secondItem="tON-cs-j3J" secondAttribute="bottom" constant="5" id="7G7-OH-X1G"/>
                     <constraint firstAttribute="trailing" secondItem="yii-Yl-nkH" secondAttribute="trailing" constant="15" id="87F-Td-5uR"/>
                     <constraint firstItem="GPx-cR-GYh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="8sj-FN-nV6"/>
-                    <constraint firstItem="9ny-EH-uJp" firstAttribute="bottom" secondItem="CsL-oV-j7f" secondAttribute="bottom" id="8vL-gG-C7E"/>
                     <constraint firstItem="X4u-Dv-dgh" firstAttribute="leading" secondItem="eno-Rk-3Hd" secondAttribute="trailing" constant="10" id="Gqn-nK-GPx"/>
-                    <constraint firstAttribute="bottom" secondItem="gws-Pf-iJH" secondAttribute="bottom" constant="10" id="KiC-Hx-Czc"/>
-                    <constraint firstItem="9ny-EH-uJp" firstAttribute="top" secondItem="CsL-oV-j7f" secondAttribute="top" id="Kis-bv-tiS"/>
+                    <constraint firstAttribute="bottom" secondItem="gws-Pf-iJH" secondAttribute="bottom" constant="5" id="KiC-Hx-Czc"/>
                     <constraint firstItem="tON-cs-j3J" firstAttribute="leading" secondItem="a7X-LF-0Eq" secondAttribute="trailing" constant="30" id="NqG-6w-vd3"/>
-                    <constraint firstItem="a7X-LF-0Eq" firstAttribute="top" secondItem="84R-Nh-C0m" secondAttribute="bottom" constant="10" id="Oct-4P-GDB"/>
+                    <constraint firstItem="a7X-LF-0Eq" firstAttribute="top" secondItem="84R-Nh-C0m" secondAttribute="bottom" constant="5" id="Oct-4P-GDB"/>
                     <constraint firstItem="yii-Yl-nkH" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="RT3-IJ-JOf"/>
                     <constraint firstItem="gws-Pf-iJH" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="YGp-tB-oTP"/>
                     <constraint firstItem="X4u-Dv-dgh" firstAttribute="top" secondItem="yii-Yl-nkH" secondAttribute="bottom" constant="5" id="Ym3-b3-mY1"/>
                     <constraint firstItem="a7X-LF-0Eq" firstAttribute="leading" secondItem="gws-Pf-iJH" secondAttribute="trailing" constant="30" id="cC7-mK-9jv"/>
-                    <constraint firstItem="gws-Pf-iJH" firstAttribute="top" secondItem="84R-Nh-C0m" secondAttribute="bottom" constant="10" id="d9s-nN-KQx"/>
-                    <constraint firstItem="9ny-EH-uJp" firstAttribute="leading" secondItem="CsL-oV-j7f" secondAttribute="leading" id="fY3-Ss-O8J"/>
+                    <constraint firstItem="gws-Pf-iJH" firstAttribute="top" secondItem="84R-Nh-C0m" secondAttribute="bottom" constant="5" id="d9s-nN-KQx"/>
                     <constraint firstAttribute="trailing" secondItem="CsL-oV-j7f" secondAttribute="trailing" id="fid-NS-67p"/>
-                    <constraint firstItem="9ny-EH-uJp" firstAttribute="trailing" secondItem="CsL-oV-j7f" secondAttribute="trailing" id="g0Y-UE-ezz"/>
-                    <constraint firstItem="tON-cs-j3J" firstAttribute="top" secondItem="84R-Nh-C0m" secondAttribute="bottom" constant="10" id="g6W-JD-PsR"/>
+                    <constraint firstItem="tON-cs-j3J" firstAttribute="top" secondItem="84R-Nh-C0m" secondAttribute="bottom" constant="5" id="g6W-JD-PsR"/>
                     <constraint firstItem="eno-Rk-3Hd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="iR1-C1-8TN"/>
                     <constraint firstAttribute="trailing" secondItem="GPx-cR-GYh" secondAttribute="trailing" constant="10" id="l2F-Ey-k9t"/>
                     <constraint firstItem="CsL-oV-j7f" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="l2Y-XK-Pwy"/>
                     <constraint firstAttribute="trailing" secondItem="X4u-Dv-dgh" secondAttribute="trailing" constant="15" id="lqR-RF-74D"/>
                     <constraint firstItem="yii-Yl-nkH" firstAttribute="leading" secondItem="eno-Rk-3Hd" secondAttribute="trailing" constant="10" id="rO3-P8-fL7"/>
-                    <constraint firstItem="CsL-oV-j7f" firstAttribute="top" secondItem="GPx-cR-GYh" secondAttribute="bottom" constant="10" id="xMA-Jk-pd6"/>
+                    <constraint firstItem="CsL-oV-j7f" firstAttribute="top" secondItem="GPx-cR-GYh" secondAttribute="bottom" id="xMA-Jk-pd6"/>
                     <constraint firstItem="GPx-cR-GYh" firstAttribute="top" secondItem="eno-Rk-3Hd" secondAttribute="bottom" constant="10" id="xce-WL-Dh7"/>
-                    <constraint firstAttribute="bottom" secondItem="a7X-LF-0Eq" secondAttribute="bottom" constant="10" id="zfu-le-eUE"/>
+                    <constraint firstAttribute="bottom" secondItem="a7X-LF-0Eq" secondAttribute="bottom" constant="5" id="zfu-le-eUE"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="aboutOfNews" destination="GPx-cR-GYh" id="gxe-WD-Jhn"/>
-                <outlet property="animationButton" destination="9ny-EH-uJp" id="GBr-US-ovH"/>
                 <outlet property="commintNew" destination="a7X-LF-0Eq" id="DWf-pm-SIf"/>
                 <outlet property="groupImage" destination="eno-Rk-3Hd" id="32p-WW-Ptu"/>
                 <outlet property="likeNews" destination="gws-Pf-iJH" id="mQB-ed-wSX"/>
