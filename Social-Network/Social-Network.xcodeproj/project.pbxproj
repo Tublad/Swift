@@ -32,7 +32,7 @@
 		A9BE209B23B4C15A00BD8C57 /* IndicatorLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BE209A23B4C15A00BD8C57 /* IndicatorLoad.swift */; };
 		A9C8EEDF23894F3500276B94 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C8EEDE23894F3500276B94 /* AppDelegate.swift */; };
 		A9C8EEE123894F3500276B94 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C8EEE023894F3500276B94 /* SceneDelegate.swift */; };
-		A9C8EEE323894F3500276B94 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C8EEE223894F3500276B94 /* ViewController.swift */; };
+		A9C8EEE323894F3500276B94 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C8EEE223894F3500276B94 /* LoginViewController.swift */; };
 		A9C8EEE623894F3500276B94 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9C8EEE423894F3500276B94 /* Main.storyboard */; };
 		A9C8EEE823894F3700276B94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9C8EEE723894F3700276B94 /* Assets.xcassets */; };
 		A9C8EEEB23894F3700276B94 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9C8EEE923894F3700276B94 /* LaunchScreen.storyboard */; };
@@ -69,7 +69,7 @@
 		A9C8EEDB23894F3500276B94 /* Social-Network.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Social-Network.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9C8EEDE23894F3500276B94 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A9C8EEE023894F3500276B94 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A9C8EEE223894F3500276B94 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A9C8EEE223894F3500276B94 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A9C8EEE523894F3500276B94 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A9C8EEE723894F3700276B94 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A9C8EEEA23894F3700276B94 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -188,7 +188,7 @@
 		A9C729A22397AC3F00363C2D /* Main and Great Password */ = {
 			isa = PBXGroup;
 			children = (
-				A9C8EEE223894F3500276B94 /* ViewController.swift */,
+				A9C8EEE223894F3500276B94 /* LoginViewController.swift */,
 				A9AD66C623939DFA0059A046 /* GreatPasswordController.swift */,
 			);
 			path = "Main and Great Password";
@@ -317,7 +317,7 @@
 				A9AD66C52392E6410059A046 /* GlobalGroupCell.swift in Sources */,
 				A9AD11D723980ADD00F28D0E /* CustomPhoto.swift in Sources */,
 				A94E7C6323A26D0700D0DB89 /* NewViewController.swift in Sources */,
-				A9C8EEE323894F3500276B94 /* ViewController.swift in Sources */,
+				A9C8EEE323894F3500276B94 /* LoginViewController.swift in Sources */,
 				A9334D1A238FA3F100FE75F3 /* ProfileFriendCollectionViewController.swift in Sources */,
 				A9D5D332238E968300581A9B /* GroupTableViewController.swift in Sources */,
 				A9BE209B23B4C15A00BD8C57 /* IndicatorLoad.swift in Sources */,
