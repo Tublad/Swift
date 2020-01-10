@@ -31,7 +31,7 @@ class GreatPasswordViewController: UIViewController {
         }
         if newPassword == repeatPassword {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            guard let mainViewController = storyboard.instantiateViewController(identifier: "ViewController") as? ViewController else {
+            guard let mainViewController = storyboard.instantiateViewController(identifier: "ViewController") as? LoginViewController else {
                 return
             }
             

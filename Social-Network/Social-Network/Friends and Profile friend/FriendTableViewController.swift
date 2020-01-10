@@ -12,6 +12,7 @@ class FriendTableViewController: UITableViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
     
+    
     var friendList =
         [Friends(firstName: "Антон", lastName: "Ермов", imageFriend: "image2", isOnline: false, message: Message(textUser: "Давай, доброй ночи!", time: "23:30")),
          Friends(firstName: "Егор", lastName: "Масляннов", imageFriend: "image1", isOnline: true, message:  Message(textUser: "Пока", time: "15:14")),
@@ -37,6 +38,13 @@ class FriendTableViewController: UITableViewController {
         searchBar.delegate = self
         madeOfSortedSection()
         updateNavigationBar()
+       
+        // Пример Singleton
+        func sendRequest() {
+            print(Session.shared.userId)
+            print(Session.shared.token)
+        }
+        
     }
     
     func updateNavigationBar() {

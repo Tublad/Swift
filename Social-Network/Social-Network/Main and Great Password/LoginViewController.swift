@@ -1,7 +1,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class LoginViewController: UIViewController {
     
     @IBOutlet weak var login: UITextField!
     @IBOutlet weak var password: UITextField!
@@ -12,6 +12,12 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       
+      // пример работы Singleton
+        func sendRequest() {
+            print(Session.shared.userId)
+            print(Session.shared.token)
+        }
         
         let hideAction = UITapGestureRecognizer(target: self, action: #selector(hideKeyBoard))
         view.addGestureRecognizer(hideAction)
