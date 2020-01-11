@@ -845,54 +845,38 @@
             <objects>
                 <collectionViewController storyboardIdentifier="ProfileFriendCollectionViewController" title="Фотографии" useStoryboardIdentifierAsRestorationIdentifier="YES" id="xpV-Hi-qLI" customClass="ProfileFriendCollectionViewController" customModule="Social_Network" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" id="Ewq-9A-Nuh">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="P3l-Jh-TjW">
-                            <size key="itemSize" width="200" height="200"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="1" minimumInteritemSpacing="1" id="P3l-Jh-TjW">
+                            <size key="itemSize" width="130" height="130"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="sectionInset" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ProfileFriendCell" id="fbU-ws-R53" customClass="ProfileFriendCell" customModule="Social_Network" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                <rect key="frame" x="5" y="0.0" width="130" height="130"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                    <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="130" height="130"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OKY-kz-cjM">
-                                            <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" secondItem="OKY-kz-cjM" secondAttribute="height" multiplier="1:1" id="ykq-Gw-yQ6"/>
-                                            </constraints>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OKY-kz-cjM">
+                                            <rect key="frame" x="0.0" y="0.0" width="130" height="130"/>
                                         </imageView>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hIS-Cf-5SF" customClass="LiKeButton" customModule="Social_Network" customModuleProvider="target">
-                                            <rect key="frame" x="80" y="160" width="40" height="30"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="40" id="B8y-ed-sIY"/>
-                                                <constraint firstAttribute="height" constant="30" id="sl0-hf-JcK"/>
-                                            </constraints>
-                                            <state key="normal" title="Button"/>
-                                            <connections>
-                                                <action selector="likedButton:" destination="xpV-Hi-qLI" eventType="touchDown" id="d3k-Fg-M4D"/>
-                                            </connections>
-                                        </button>
                                     </subviews>
                                 </view>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="OKY-kz-cjM" secondAttribute="bottom" id="FeG-Mc-sdW"/>
-                                    <constraint firstItem="hIS-Cf-5SF" firstAttribute="top" secondItem="OKY-kz-cjM" secondAttribute="bottom" constant="-40" id="HoD-Fc-3ss"/>
                                     <constraint firstItem="OKY-kz-cjM" firstAttribute="leading" secondItem="fbU-ws-R53" secondAttribute="leading" id="MTu-QF-ueY"/>
                                     <constraint firstItem="OKY-kz-cjM" firstAttribute="top" secondItem="fbU-ws-R53" secondAttribute="top" id="a4c-M8-fkP"/>
                                     <constraint firstAttribute="trailing" secondItem="OKY-kz-cjM" secondAttribute="trailing" id="uld-Jz-k3S"/>
-                                    <constraint firstItem="hIS-Cf-5SF" firstAttribute="leading" secondItem="OKY-kz-cjM" secondAttribute="trailing" constant="-120" id="wWe-d9-7TJ"/>
                                 </constraints>
-                                <size key="customSize" width="200" height="200"/>
+                                <size key="customSize" width="130" height="130"/>
                                 <connections>
                                     <outlet property="friendPhoto" destination="OKY-kz-cjM" id="dGt-oj-9DL"/>
-                                    <outlet property="like" destination="hIS-Cf-5SF" id="47g-QG-yXn"/>
+                                    <segue destination="Ds8-p3-rLa" kind="push" identifier="goPhoto" id="AgL-eR-fcn"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -905,7 +889,54 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s7W-R3-CI8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2447.826086956522" y="361.60714285714283"/>
+            <point key="canvasLocation" x="3130" y="362"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="gWW-yd-GZp">
+            <objects>
+                <navigationController storyboardIdentifier="PhotoList" useStoryboardIdentifierAsRestorationIdentifier="YES" id="uvM-aK-RAg" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="08M-hi-Kbs">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="xpV-Hi-qLI" kind="relationship" relationship="rootViewController" id="Zeh-Dt-goH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="daQ-W3-haa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2391" y="362"/>
+        </scene>
+        <!--PreviewVC-->
+        <scene sceneID="NIW-ao-H5N">
+            <objects>
+                <viewController storyboardIdentifier="PreviewVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ds8-p3-rLa" customClass="PreviewVC" customModule="Social_Network" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7WQ-j6-Yy3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Dsd-6C-BjH">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Dsd-6C-BjH" firstAttribute="top" secondItem="NDx-ZR-USy" secondAttribute="top" id="4Ar-jp-ve8"/>
+                            <constraint firstItem="NDx-ZR-USy" firstAttribute="trailing" secondItem="Dsd-6C-BjH" secondAttribute="trailing" id="Wsy-VJ-Dvi"/>
+                            <constraint firstItem="Dsd-6C-BjH" firstAttribute="leading" secondItem="NDx-ZR-USy" secondAttribute="leading" id="k5n-Tq-C3f"/>
+                            <constraint firstItem="NDx-ZR-USy" firstAttribute="bottom" secondItem="Dsd-6C-BjH" secondAttribute="bottom" id="zN9-xq-evp"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="NDx-ZR-USy"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="5wX-iD-6Eg"/>
+                    <connections>
+                        <outlet property="imageViewPreview" destination="Dsd-6C-BjH" id="Nr0-u5-SIJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TRw-eI-hcq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3883" y="362"/>
         </scene>
     </scenes>
     <resources>

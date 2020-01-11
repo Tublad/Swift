@@ -41,13 +41,13 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="newsText" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GPx-cR-GYh">
-                        <rect key="frame" x="10" y="60" width="372" height="20.5"/>
+                        <rect key="frame" x="10" y="60" width="372" height="12"/>
                         <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="CsL-oV-j7f">
-                        <rect key="frame" x="0.0" y="80.5" width="392" height="392"/>
+                        <rect key="frame" x="0.0" y="82" width="392" height="392"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="84R-Nh-C0m">
                                 <rect key="frame" x="0.0" y="0.0" width="392" height="392"/>
@@ -58,7 +58,7 @@
                         </subviews>
                     </stackView>
                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gws-Pf-iJH" customClass="LiKeButton" customModule="Social_Network" customModuleProvider="target">
-                        <rect key="frame" x="20" y="477.5" width="20.5" height="23.5"/>
+                        <rect key="frame" x="20" y="479" width="20.5" height="22"/>
                         <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <state key="normal" image="heart" catalog="system">
                             <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -68,7 +68,7 @@
                         </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a7X-LF-0Eq" customClass="CommintButton" customModule="Social_Network" customModuleProvider="target">
-                        <rect key="frame" x="70.5" y="477.5" width="22.5" height="23.5"/>
+                        <rect key="frame" x="70.5" y="479" width="22.5" height="22"/>
                         <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <state key="normal" image="bubble.middle.bottom" catalog="system">
                             <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -78,7 +78,7 @@
                         </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tON-cs-j3J" customClass="RepostButton" customModule="Social_Network" customModuleProvider="target">
-                        <rect key="frame" x="123" y="477.5" width="21" height="23.5"/>
+                        <rect key="frame" x="123" y="479" width="21" height="22"/>
                         <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <state key="normal" image="arrowshape.turn.up.right" catalog="system">
                             <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -110,7 +110,7 @@
                     <constraint firstItem="CsL-oV-j7f" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="l2Y-XK-Pwy"/>
                     <constraint firstAttribute="trailing" secondItem="X4u-Dv-dgh" secondAttribute="trailing" constant="15" id="lqR-RF-74D"/>
                     <constraint firstItem="yii-Yl-nkH" firstAttribute="leading" secondItem="eno-Rk-3Hd" secondAttribute="trailing" constant="10" id="rO3-P8-fL7"/>
-                    <constraint firstItem="CsL-oV-j7f" firstAttribute="top" secondItem="GPx-cR-GYh" secondAttribute="bottom" id="xMA-Jk-pd6"/>
+                    <constraint firstItem="CsL-oV-j7f" firstAttribute="top" secondItem="GPx-cR-GYh" secondAttribute="bottom" constant="10" id="xMA-Jk-pd6"/>
                     <constraint firstItem="GPx-cR-GYh" firstAttribute="top" secondItem="eno-Rk-3Hd" secondAttribute="bottom" constant="10" id="xce-WL-Dh7"/>
                     <constraint firstAttribute="bottom" secondItem="a7X-LF-0Eq" secondAttribute="bottom" constant="5" id="zfu-le-eUE"/>
                 </constraints>
