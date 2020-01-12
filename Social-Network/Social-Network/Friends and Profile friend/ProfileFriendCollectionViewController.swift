@@ -47,7 +47,7 @@ class ProfileFriendCollectionViewController: UICollectionViewController {
             
             let image = cell.friendPhoto.image
             
-            let previewVC: PreviewVC = segue.destination as! PreviewVC
+            let previewVC: PreviewViewController = segue.destination as! PreviewViewController
             
             previewVC.correctlyPhoto = image
         }
