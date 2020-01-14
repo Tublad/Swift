@@ -38,12 +38,6 @@ class FriendTableViewController: UITableViewController {
         searchBar.delegate = self
         madeOfSortedSection()
         updateNavigationBar()
-       
-        // Пример Singleton
-        func sendRequest() {
-            print(Session.shared.userId)
-            print(Session.shared.token)
-        }
         
     }
     
