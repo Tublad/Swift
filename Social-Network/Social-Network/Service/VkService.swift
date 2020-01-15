@@ -52,11 +52,11 @@ class VKApi {
     }
     // запрос на поисковой запрос групп данного пользователя
     // сделал пока Music, пока не знаю как по другому
-    func getGroupsSearch(token: String) {
+    func getGroupsSearch(token: String, name: String) {
         let requestURL = vkURL + "groups.search"
         let params = ["user_id": "70406229",
                       "access_token": token,
-                      "q": "Music,Adventure", 
+                      "q": name,
                       "count": "100",
                       "v": "5.103"]
         

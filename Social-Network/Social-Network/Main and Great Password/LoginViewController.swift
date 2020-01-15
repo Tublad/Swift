@@ -43,7 +43,7 @@ class LoginViewController: UIViewController {
         
         
         if loginInput == rightLogin && passwordInput == rightPassword  {
-            performSegue(withIdentifier: "firstCase", sender: nil)
+          //  performSegue(withIdentifier: "firstCase", sender: nil)
         } else {
             let alert = UIAlertController(title: "Ошибка", message: "Не верно внесены данные, возможно пароль или почта не корректны", preferredStyle: .alert)
             let action = UIAlertAction(title: "Ок", style: .cancel, handler: nil)

@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		81C21976706BB673AA153733 /* libPods-Social-Network.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 364EB90B20FC7FAD525F131A /* libPods-Social-Network.a */; };
 		A91ED0F223C850E400D9D4B7 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91ED0F123C850E400D9D4B7 /* Session.swift */; };
+		A932126C23CF16B800649D49 /* ImageViewerPresent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A932126B23CF16B800649D49 /* ImageViewerPresent.swift */; };
+		A932126E23CF1A3800649D49 /* UIApplication+Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = A932126D23CF1A3800649D49 /* UIApplication+Controller.swift */; };
 		A9334D1A238FA3F100FE75F3 /* ProfileFriendCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9334D19238FA3F100FE75F3 /* ProfileFriendCollectionViewController.swift */; };
 		A94E7C4D23A217EF00D0DB89 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94E7C4C23A217EF00D0DB89 /* MessageViewController.swift */; };
 		A94E7C5123A218AD00D0DB89 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94E7C4F23A218AD00D0DB89 /* MessageCell.swift */; };
@@ -21,7 +24,6 @@
 		A94E7C6523A2806B00D0DB89 /* CustomRepostButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94E7C6423A2806B00D0DB89 /* CustomRepostButton.swift */; };
 		A94E7C6723A280EB00D0DB89 /* CustomCommentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94E7C6623A280EB00D0DB89 /* CustomCommentButton.swift */; };
 		A9778F0023CB23E100D85636 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9778EFF23CB23E100D85636 /* PreviewViewController.swift */; };
-		A9951C7D23CDC118001648A8 /* PreviewViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9951C7C23CDC118001648A8 /* PreviewViewCell.swift */; };
 		A9951C8023CDC4F2001648A8 /* VkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9951C7F23CDC4F2001648A8 /* VkService.swift */; };
 		A9951C8323CDC5F8001648A8 /* VkWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9951C8223CDC5F8001648A8 /* VkWebViewController.swift */; };
 		A9AD11D723980ADD00F28D0E /* CustomPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AD11D623980ADD00F28D0E /* CustomPhoto.swift */; };
@@ -32,6 +34,7 @@
 		A9AD11F0239E8CC200F28D0E /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AD11EF239E8CC200F28D0E /* Friend.swift */; };
 		A9AD66C52392E6410059A046 /* GlobalGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AD66C42392E6410059A046 /* GlobalGroupCell.swift */; };
 		A9AD66C723939DFA0059A046 /* GreatPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AD66C623939DFA0059A046 /* GreatPasswordController.swift */; };
+		A9B728BF23CF10CE00FA53BD /* AnimationPop.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B728BE23CF10CE00FA53BD /* AnimationPop.swift */; };
 		A9BE209623B4BC9300BD8C57 /* CustomIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BE209523B4BC9300BD8C57 /* CustomIndicator.swift */; };
 		A9BE209923B4BED900BD8C57 /* Indicator.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9BE209823B4BED900BD8C57 /* Indicator.xib */; };
 		A9BE209B23B4C15A00BD8C57 /* IndicatorLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BE209A23B4C15A00BD8C57 /* IndicatorLoad.swift */; };
@@ -46,13 +49,13 @@
 		A9DE6DDE239270C800EFAA81 /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DE6DDD239270C800EFAA81 /* GroupCell.swift */; };
 		A9DE6DE323928BB600EFAA81 /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DE6DE223928BB600EFAA81 /* FriendCell.swift */; };
 		A9DE6DE523928FCD00EFAA81 /* ProfileFriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DE6DE423928FCD00EFAA81 /* ProfileFriendCell.swift */; };
-		FC561F012DC4099C1DE488D5 /* libPods-Social-Network.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 09042D7FF3B6BC2D7EB17A54 /* libPods-Social-Network.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		09042D7FF3B6BC2D7EB17A54 /* libPods-Social-Network.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Social-Network.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9696BBCDBD6757BCA907A169 /* Pods-Social-Network.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Social-Network.release.xcconfig"; path = "Target Support Files/Pods-Social-Network/Pods-Social-Network.release.xcconfig"; sourceTree = "<group>"; };
+		364EB90B20FC7FAD525F131A /* libPods-Social-Network.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Social-Network.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A91ED0F123C850E400D9D4B7 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		A932126B23CF16B800649D49 /* ImageViewerPresent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewerPresent.swift; sourceTree = "<group>"; };
+		A932126D23CF1A3800649D49 /* UIApplication+Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Controller.swift"; sourceTree = "<group>"; };
 		A9334D19238FA3F100FE75F3 /* ProfileFriendCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFriendCollectionViewController.swift; sourceTree = "<group>"; };
 		A94E7C4C23A217EF00D0DB89 /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		A94E7C4F23A218AD00D0DB89 /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
@@ -66,7 +69,6 @@
 		A94E7C6423A2806B00D0DB89 /* CustomRepostButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRepostButton.swift; sourceTree = "<group>"; };
 		A94E7C6623A280EB00D0DB89 /* CustomCommentButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCommentButton.swift; sourceTree = "<group>"; };
 		A9778EFF23CB23E100D85636 /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
-		A9951C7C23CDC118001648A8 /* PreviewViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewCell.swift; sourceTree = "<group>"; };
 		A9951C7F23CDC4F2001648A8 /* VkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VkService.swift; sourceTree = "<group>"; };
 		A9951C8223CDC5F8001648A8 /* VkWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VkWebViewController.swift; sourceTree = "<group>"; };
 		A9AD11D623980ADD00F28D0E /* CustomPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPhoto.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 		A9AD11EF239E8CC200F28D0E /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		A9AD66C42392E6410059A046 /* GlobalGroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalGroupCell.swift; sourceTree = "<group>"; };
 		A9AD66C623939DFA0059A046 /* GreatPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreatPasswordController.swift; sourceTree = "<group>"; };
+		A9B728BE23CF10CE00FA53BD /* AnimationPop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationPop.swift; sourceTree = "<group>"; };
 		A9BE209523B4BC9300BD8C57 /* CustomIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomIndicator.swift; sourceTree = "<group>"; };
 		A9BE209823B4BED900BD8C57 /* Indicator.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Indicator.xib; sourceTree = "<group>"; };
 		A9BE209A23B4C15A00BD8C57 /* IndicatorLoad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorLoad.swift; sourceTree = "<group>"; };
@@ -93,7 +96,8 @@
 		A9DE6DDD239270C800EFAA81 /* GroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
 		A9DE6DE223928BB600EFAA81 /* FriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
 		A9DE6DE423928FCD00EFAA81 /* ProfileFriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFriendCell.swift; sourceTree = "<group>"; };
-		BED8D2E5F6C634B2061D2156 /* Pods-Social-Network.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Social-Network.debug.xcconfig"; path = "Target Support Files/Pods-Social-Network/Pods-Social-Network.debug.xcconfig"; sourceTree = "<group>"; };
+		CE0F23FBEE9F1A91B7B6D270 /* Pods-Social-Network.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Social-Network.release.xcconfig"; path = "Target Support Files/Pods-Social-Network/Pods-Social-Network.release.xcconfig"; sourceTree = "<group>"; };
+		D753FBE6ED74858ACBA969E4 /* Pods-Social-Network.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Social-Network.debug.xcconfig"; path = "Target Support Files/Pods-Social-Network/Pods-Social-Network.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,28 +105,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC561F012DC4099C1DE488D5 /* libPods-Social-Network.a in Frameworks */,
+				81C21976706BB673AA153733 /* libPods-Social-Network.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		396ACA0E2FD5D71917EF056E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				364EB90B20FC7FAD525F131A /* libPods-Social-Network.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		7F15DFFF0E1E0A52194C18D9 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				BED8D2E5F6C634B2061D2156 /* Pods-Social-Network.debug.xcconfig */,
-				9696BBCDBD6757BCA907A169 /* Pods-Social-Network.release.xcconfig */,
+				D753FBE6ED74858ACBA969E4 /* Pods-Social-Network.debug.xcconfig */,
+				CE0F23FBEE9F1A91B7B6D270 /* Pods-Social-Network.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		7F3171D13FAFBF7C98C9FB12 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				09042D7FF3B6BC2D7EB17A54 /* libPods-Social-Network.a */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		A94E7C4A23A2162B00D0DB89 /* Message screen */ = {
@@ -167,7 +171,6 @@
 			isa = PBXGroup;
 			children = (
 				A9778EFF23CB23E100D85636 /* PreviewViewController.swift */,
-				A9951C7C23CDC118001648A8 /* PreviewViewCell.swift */,
 			);
 			path = PreviewViewController;
 			sourceTree = "<group>";
@@ -210,6 +213,16 @@
 				A91ED0F123C850E400D9D4B7 /* Session.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		A9B728C023CF11EC00FA53BD /* AnimationPop */ = {
+			isa = PBXGroup;
+			children = (
+				A9B728BE23CF10CE00FA53BD /* AnimationPop.swift */,
+				A932126B23CF16B800649D49 /* ImageViewerPresent.swift */,
+				A932126D23CF1A3800649D49 /* UIApplication+Controller.swift */,
+			);
+			path = AnimationPop;
 			sourceTree = "<group>";
 		};
 		A9BE209723B4BCA800BD8C57 /* Indicator */ = {
@@ -260,7 +273,7 @@
 				A9C8EEDD23894F3500276B94 /* Social-Network */,
 				A9C8EEDC23894F3500276B94 /* Products */,
 				7F15DFFF0E1E0A52194C18D9 /* Pods */,
-				7F3171D13FAFBF7C98C9FB12 /* Frameworks */,
+				396ACA0E2FD5D71917EF056E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -275,6 +288,7 @@
 		A9C8EEDD23894F3500276B94 /* Social-Network */ = {
 			isa = PBXGroup;
 			children = (
+				A9B728C023CF11EC00FA53BD /* AnimationPop */,
 				A9951C7E23CDC4C9001648A8 /* Service */,
 				A9BE209723B4BCA800BD8C57 /* Indicator */,
 				A9AD11EA239E8C7100F28D0E /* Model */,
@@ -301,7 +315,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A9C8EEEF23894F3700276B94 /* Build configuration list for PBXNativeTarget "Social-Network" */;
 			buildPhases = (
-				60AD9301E20338115E89879E /* [CP] Check Pods Manifest.lock */,
+				63F9370221DEE2A008E33D49 /* [CP] Check Pods Manifest.lock */,
 				A9C8EED723894F3500276B94 /* Sources */,
 				A9C8EED823894F3500276B94 /* Frameworks */,
 				A9C8EED923894F3500276B94 /* Resources */,
@@ -365,7 +379,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		60AD9301E20338115E89879E /* [CP] Check Pods Manifest.lock */ = {
+		63F9370221DEE2A008E33D49 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -400,10 +414,12 @@
 				A9AD66C52392E6410059A046 /* GlobalGroupCell.swift in Sources */,
 				A9AD11D723980ADD00F28D0E /* CustomPhoto.swift in Sources */,
 				A94E7C6323A26D0700D0DB89 /* NewViewController.swift in Sources */,
+				A9B728BF23CF10CE00FA53BD /* AnimationPop.swift in Sources */,
 				A9C8EEE323894F3500276B94 /* LoginViewController.swift in Sources */,
 				A9334D1A238FA3F100FE75F3 /* ProfileFriendCollectionViewController.swift in Sources */,
 				A9D5D332238E968300581A9B /* GroupTableViewController.swift in Sources */,
 				A9BE209B23B4C15A00BD8C57 /* IndicatorLoad.swift in Sources */,
+				A932126C23CF16B800649D49 /* ImageViewerPresent.swift in Sources */,
 				A94E7C5623A224FB00D0DB89 /* Message.swift in Sources */,
 				A94E7C6723A280EB00D0DB89 /* CustomCommentButton.swift in Sources */,
 				A9C8EEDF23894F3500276B94 /* AppDelegate.swift in Sources */,
@@ -413,6 +429,7 @@
 				A94E7C5123A218AD00D0DB89 /* MessageCell.swift in Sources */,
 				A94E7C6523A2806B00D0DB89 /* CustomRepostButton.swift in Sources */,
 				A94E7C5423A21EF800D0DB89 /* MessageScreenCell.swift in Sources */,
+				A932126E23CF1A3800649D49 /* UIApplication+Controller.swift in Sources */,
 				A9BE209623B4BC9300BD8C57 /* CustomIndicator.swift in Sources */,
 				A94E7C4D23A217EF00D0DB89 /* MessageViewController.swift in Sources */,
 				A9AD66C723939DFA0059A046 /* GreatPasswordController.swift in Sources */,
@@ -422,7 +439,6 @@
 				A9AD11F0239E8CC200F28D0E /* Friend.swift in Sources */,
 				A9AD11DF239BF69F00F28D0E /* CustomLikeButton.swift in Sources */,
 				A9AD11E8239E832F00F28D0E /* FriendTableViewController.swift in Sources */,
-				A9951C7D23CDC118001648A8 /* PreviewViewCell.swift in Sources */,
 				A9951C8023CDC4F2001648A8 /* VkService.swift in Sources */,
 				A9DE6DDE239270C800EFAA81 /* GroupCell.swift in Sources */,
 				A94E7C6023A2563000D0DB89 /* NewsCell.swift in Sources */,
@@ -568,7 +584,7 @@
 		};
 		A9C8EEF023894F3700276B94 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BED8D2E5F6C634B2061D2156 /* Pods-Social-Network.debug.xcconfig */;
+			baseConfigurationReference = D753FBE6ED74858ACBA969E4 /* Pods-Social-Network.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -588,7 +604,7 @@
 		};
 		A9C8EEF123894F3700276B94 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9696BBCDBD6757BCA907A169 /* Pods-Social-Network.release.xcconfig */;
+			baseConfigurationReference = CE0F23FBEE9F1A91B7B6D270 /* Pods-Social-Network.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

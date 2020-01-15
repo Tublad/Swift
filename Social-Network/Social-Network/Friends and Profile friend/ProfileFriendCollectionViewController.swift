@@ -1,11 +1,12 @@
 
 import UIKit
 
-class ProfileFriendCollectionViewController: UICollectionViewController {
+class ProfileFriendCollectionViewController: UICollectionViewController, ImageViewerPresenterSource {
     
     var user: Friends?
     var photoUsers: [String]!
     var photoUser = [UIImage]()
+    var source: UIView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,22 +37,22 @@ class ProfileFriendCollectionViewController: UICollectionViewController {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProfileFriendCell", for: indexPath) as? ProfileFriendCell else {
             return UICollectionViewCell()
         }
+        
         cell.friendPhoto.image = UIImage(named: photoUsers[indexPath.item])
+        
+        cell.imageCliced = { view in
+            self.source = view
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+          guard let vc = storyboard.instantiateViewController(identifier: "PreviewViewController") as? PreviewViewController else { return }
+            vc.image = cell.friendPhoto.image
+            let delegate = ImageViewerPresenter(delegate: self)
+            self.navigationController?.delegate = delegate
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
         
         return cell
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "goPhoto" {
-            let cell: ProfileFriendCell = sender as! ProfileFriendCell
-            
-            let image = cell.friendPhoto.image
-            
-            let previewVC: PreviewViewController = segue.destination as! PreviewViewController
-            previewVC.photoUser = photoUser
-        }
-        
-    }
-    
 }
+
 

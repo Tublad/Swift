@@ -8,9 +8,11 @@ struct Section<T> {
 }
 
 
-class FriendTableViewController: UITableViewController {
+class FriendTableViewController: UITableViewController, ImageViewerPresenterSource {
     
     @IBOutlet weak var searchBar: UISearchBar!
+    
+    var source: UIView?
     
     
     var friendList =
