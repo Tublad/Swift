@@ -63,10 +63,6 @@ extension VkWebViewController: WKNavigationDelegate {
         Session.shared.token = token
         Session.shared.userId = userId
         
-        vkApi.getFriendList(token: token)
-        vkApi.getPhotos(token: token)
-        vkApi.getGroups(token: token)
-       // vkApi.getGroupsSearch(token: token)
         performSegue(withIdentifier: "goContent", sender: nil)
         decisionHandler(.cancel)
     }

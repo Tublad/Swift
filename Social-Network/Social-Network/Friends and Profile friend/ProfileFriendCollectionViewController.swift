@@ -4,17 +4,22 @@ import UIKit
 class ProfileFriendCollectionViewController: UICollectionViewController, ImageViewerPresenterSource {
     
     var user: Friends?
-    var photoUsers: [String]!
-    var photoUser = [UIImage]()
+    var photoArray = [Photo]()
     var source: UIView?
+    var vkApi = VKApi()
+    let imageCache = NSCache<NSString, UIImage>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         updateNavigationBar()
-        
-        photoUsers = ["image1", "image2", "image3", "image4","image1", "image2", "image3", "image4","image1", "image2", "image3", "image4","image1", "image2", "image3", "image4"]
-        photoUser = [UIImage(named: "image1")!, UIImage(named: "image2")!,UIImage(named: "image3")!, UIImage(named: "image4")!,UIImage(named: "image1")!, UIImage(named: "image2")!,UIImage(named: "image3")!, UIImage(named: "image4")!,UIImage(named: "image1")!, UIImage(named: "image2")!,UIImage(named: "image3")!, UIImage(named: "image4")!,UIImage(named: "image1")!, UIImage(named: "image2")!,UIImage(named: "image3")!, UIImage(named: "image4")!]
+        guard let id = user?.id else {
+            return
+        }
+        vkApi.getPhotos(token: Session.shared.token, userId: String(id)) { (photo) in
+            self.photoArray = photo
+            self.collectionView.reloadData()
+        }
         
         self.title = "Фотографии"
     }
@@ -30,15 +35,28 @@ class ProfileFriendCollectionViewController: UICollectionViewController, ImageVi
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return photoUsers.count
+        return photoArray.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProfileFriendCell", for: indexPath) as? ProfileFriendCell else {
             return UICollectionViewCell()
         }
-        
-        cell.friendPhoto.image = UIImage(named: photoUsers[indexPath.item])
+       
+        if let cachedImage = self.imageCache.object(forKey: NSString(string:(String(self.photoArray[indexPath.row].id)))) {
+            cell.friendPhoto.image = cachedImage
+        } else {
+            DispatchQueue.global(qos: .background).async {
+                let url = URL(string:(self.photoArray[indexPath.row].url))
+                let data = try? Data(contentsOf: url!)
+                let image: UIImage = UIImage(data: data!)!
+                DispatchQueue.main.async {
+                    self.imageCache.setObject(image, forKey: NSString(string: (String(self.photoArray[indexPath.row].id))))
+                    cell.friendPhoto.image = image
+                }
+            }
+        }
+       
         
         cell.imageCliced = { view in
             self.source = view

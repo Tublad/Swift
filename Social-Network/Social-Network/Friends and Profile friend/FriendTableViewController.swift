@@ -13,33 +13,23 @@ class FriendTableViewController: UITableViewController, ImageViewerPresenterSour
     @IBOutlet weak var searchBar: UISearchBar!
     
     var source: UIView?
-    
-    
-    var friendList =
-        [Friends(firstName: "Антон", lastName: "Ермов", imageFriend: "image2", isOnline: false, message: Message(textUser: "Давай, доброй ночи!", time: "23:30")),
-         Friends(firstName: "Егор", lastName: "Масляннов", imageFriend: "image1", isOnline: true, message:  Message(textUser: "Пока", time: "15:14")),
-         Friends(firstName: "Марк", lastName: "Шварцкопф", imageFriend: "image3", isOnline: false, message: Message(textUser: "Привет, как дела?", time: "13:11")),
-         Friends(firstName: "Марина", lastName: "Усува", imageFriend: "image4", isOnline: true, message: Message(textUser: "Ххахаха, нормас", time: "16:04")),
-         Friends(firstName: "Яна", lastName: "Ярёмина", imageFriend: "image1", isOnline: false, message: Message(textUser: "Чем занимаешься?", time: "14:31")),
-         Friends(firstName: "Максим", lastName: "Уваров", imageFriend: "image2", isOnline: true, message: Message(textUser: "Может в кино?", time: "16:30")),
-         Friends(firstName: "Ян", lastName: "У", imageFriend: "image4", isOnline: false, message: Message(textUser: "Ты чего молчишь?", time: "Вчера")),
-         Friends(firstName: "Иван", lastName: "Григоров", imageFriend: "image3", isOnline: true, message:  Message(textUser: "Кстати, ты прав, думаю надо что нибудь придумать по этому поводу!", time: "18:03")),
-         Friends(firstName: "Варвара", lastName: "Мирова", imageFriend: "image1", isOnline: true, message: Message(textUser: "Привет", time: "Сейчас")),
-         Friends(firstName: "Ринат", lastName: "Аринат", imageFriend: "image4", isOnline: false, message: Message(textUser: "Давай, удачи!", time: "Сейчас")),
-         Friends(firstName: "Кирилл", lastName: "Ягодка", imageFriend: "image3", isOnline: false, message: Message(textUser: "Хмммммм", time: "Вчера")),
-         Friends(firstName: "Арам", lastName: "Мартирасян", imageFriend: "image2", isOnline: true, message: Message(textUser: "Ну не знаю", time: "16:03")),
-         Friends(firstName: "Гагик", lastName: "Мартирасян", imageFriend: "image1", isOnline: false, message: Message(textUser: "Давай познакомимся", time: "Сейчас")),
-         Friends(firstName: "Александр", lastName: "Шварцкопф", imageFriend: "image1", isOnline: true, message: Message(textUser: "Дарова братишка", time: "Сейчас")),
-         Friends(firstName: "Никита", lastName: "Гусельников", imageFriend: "image4", isOnline: false, message: Message(textUser: "Сегодня туса будет! Давай подтягивайся =) Тебя только не хватает!! Подьезжай на улицу Красный путь 127 кв 60 ;) ", time: "Вчера")),
-         Friends(firstName: "Никита", lastName: "Попов", imageFriend: "image3", isOnline: true, message:  Message(textUser: "Пока", time: "Вчера"))]
-    
-    
+    var friendList = [Friends]()
+    var vkApi = VKApi()
     var friendSection = [Section<Friends>]()
     
     override func viewDidLoad() {
         searchBar.delegate = self
-        madeOfSortedSection()
         updateNavigationBar()
+        
+        vkApi.getFriendList(token: Session.shared.token) { (friends) in
+            self.friendList = friends
+            let friendDictionary = Dictionary.init(grouping: friends) {
+                $0.lastName.prefix(1)
+            }
+            self.friendSection = friendDictionary.map { Section(title: String($0.key), item: $0.value) }
+            self.friendSection.sort { $0.title < $1.title }
+            self.tableView.reloadData()
+        }
         
     }
     
@@ -49,14 +39,6 @@ class FriendTableViewController: UITableViewController, ImageViewerPresenterSour
         navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
     }
     
-    
-    func madeOfSortedSection() {
-        let friendDictionary = Dictionary(grouping: friendList) {
-            $0.lastName.prefix(1)
-        }
-        friendSection = friendDictionary.map { Section(title: String($0.key), item: $0.value) }
-        friendSection.sort { $0.title < $1.title }
-    }
 }
 
 extension FriendTableViewController { // delegate
@@ -77,7 +59,6 @@ extension FriendTableViewController { // delegate
             self.friendList.removeAll {
                 $0.firstName == self.friendSection[indexPath.section].item[indexPath.row].firstName
             }
-            self.madeOfSortedSection()
             self.tableView.reloadData()
         }
         return [deleteAction]
@@ -100,17 +81,31 @@ extension FriendTableViewController { // dataSource
         }
         
         cell.nameFriend.text = friendSection[indexPath.section].item[indexPath.row].firstName + " " + friendSection[indexPath.section].item[indexPath.row].lastName
-        cell.photoFriend.image = UIImage(named: friendSection[indexPath.section].item[indexPath.row].imageFriend)
         var image: String
-        if friendSection[indexPath.section].item[indexPath.row].isOnline == true {
+        if friendSection[indexPath.section].item[indexPath.row].online == 1 {
             image = "onlineFriend"
         } else {
             image = " "
         }
+        var photos = [Photo]()
         
+        vkApi.getPhotos(token: Session.shared.token, userId: String(friendSection[indexPath.section].item[indexPath.row].id)) { (photo) in
+            photos = photo
+            
+            if photos.isEmpty {
+                cell.photoFriend.image = UIImage(named: "PhotoProfile")
+            } else {
+                if let imageURL:URL = URL(string: photos[0].url) {
+                    if let data = NSData(contentsOf: imageURL) {
+                        cell.photoFriend.image = UIImage(data: data as Data)
+                    }
+                }
+            }
+        }
         cell.isOnline.image = UIImage(named: image)
         return cell
     }
+    
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return friendSection[section].title
     }

@@ -31,7 +31,6 @@ class NewsViewController: UITableViewController {
            guard let profileViewController = storyboard.instantiateViewController(identifier: "FriendTableViewController") as? FriendTableViewController else {
                return
            }
-           news = profileViewController.friendList
        }
     
     
@@ -44,10 +43,7 @@ class NewsViewController: UITableViewController {
         }
         
         cell.nameGroup.text = news[indexPath.row].firstName + " " + news[indexPath.row].lastName
-        cell.time.text = news[indexPath.row].message.time
-        cell.aboutOfNews.text = news[indexPath.row].message.textUser
-        cell.groupImage.image = UIImage(named: news[indexPath.row].imageFriend)
-        cell.newsImage.image = UIImage(named: news[indexPath.row].imageFriend)
+        
         
         return cell
     }

@@ -3,18 +3,8 @@ import UIKit
 
 class GroupTableViewController: UITableViewController {
     
-    var groupList: [Group] = [Group(name: "Сообщества Developed iOS", content: "Образовательный", participant: "2 312 105 участников", imageGroup: "PhotoGroup"),
-                              Group(name: "PlayStation Store Official Group", content: "Видеоигры", participant: "201 123 участиков", imageGroup: "PhotoGroup"),
-                              Group(name: "Паблик +100500", content: "Развлекательный", participant: "1 000 123 участников", imageGroup: "PhotoGroup"),
-                              Group(name: "Одежда из Европы", content: "Одежда", participant: "54 123 участников", imageGroup: "PhotoGroup"),
-                              Group(name: "SwiftBook iOS", content: "Образовательный", participant: "14 120 участников", imageGroup: "PhotoGroup"),
-                              Group(name: "Лайфхакер", content: "Познавательный", participant: "5 103 участника", imageGroup: "PhotoGroup"),
-                              Group(name: "Vine Video", content: "Юмор", participant: "5 231 214 участников", imageGroup: "PhotoGroup"),
-                              Group(name: "Grisha", content: "Кафе, Ресторан", participant: "6 012 участников", imageGroup: "PhotoGroup"),
-                              Group(name: "Английский каждый день", content: "Языки", participant: "99 124 участников", imageGroup: "PhotoGroup"),
-                              Group(name: "Rosberry - Mobile Apps", content: "Программное обеспечение", participant: "501 участников", imageGroup: "PhotoGroup"),
-                              Group(name: "Game park | Гейм парк", content: "Открытая группа", participant: "142 612 участников", imageGroup: "PhotoGroup"),
-                              Group(name: "Dota 2 HS", content: "Видеоигры", participant: "3 123 412 участников", imageGroup: "PhotoGroup")]
+    var groupList = [Group]()
+    var vkApi = VKApi()
     
     var customRefreshController = UIRefreshControl()
     
@@ -34,6 +24,11 @@ class GroupTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        vkApi.getGroups(token: Session.shared.token) { (group) in
+            self.groupList = group
+            self.tableView.reloadData()
+        }
         
         addSearchBarControl()
         addRefreshController()
@@ -129,10 +124,22 @@ extension GroupTableViewController { //dataSource
             group = groupList[indexPath.row]
         }
         
-        cell.imageGroup.image = UIImage(named: group.imageGroup)
+        if let imageURL:URL = URL(string: group.imageGroup) {
+            if let data = NSData(contentsOf: imageURL) {
+            cell.imageGroup.image = UIImage(data: data as Data)
+            }
+        } else {
+            cell.imageGroup.image = UIImage(named: "PhotoProfile")
+        }
+        
         cell.groupName.text = group.name
         cell.content.text = group.content
-        cell.participant.text = group.participant
+        
+        if group.content == "Открытая группа" {
+            cell.participant.text = String(group.participant) + " участника"
+        } else {
+            cell.participant.text = String(group.participant) + " подписчика"
+        }
         
         return cell
     }

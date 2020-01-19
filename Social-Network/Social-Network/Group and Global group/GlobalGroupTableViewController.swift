@@ -5,14 +5,12 @@ class GlobalGroupTableViewController: UITableViewController {
     
     var customRefreshController = UIRefreshControl()
     
-    var globalGroupList: [Group] = [Group(name: "M.Game", content: "Открытая группа", participant: "65 865 участников", imageGroup: "PhotoGroup"),
-                                    Group(name: "myPlayStation", content: "Видеоигры", participant: "87 782 подписчика", imageGroup: "PhotoGroup"),
-                                    Group(name: "ADCI Solutions", content: "Веб-студия", participant: "1 388 подписчиков", imageGroup: "PhotoGroup"),
-                                    Group(name: "ЧерньИла | Тату-Мастерская", content: "Открытая группа", participant: "3 486 участников",imageGroup: "PhotoGroup"),
-                                    Group(name: "Заброшенное", content: "Туризм, путешествия", participant: "3 070 914 подписчиков",imageGroup: "PhotoGroup")]
-    
+    var globalGroupList = [Group]()
+    var vkApi = VKApi()
+        
     private let searchController = UISearchController(searchResultsController: nil)
     private var filteredGroup = [Group]()
+    
     private var searchBarIsEmpty: Bool {
         guard let text = searchController.searchBar.text else {
             return false
@@ -75,11 +73,14 @@ extension GlobalGroupTableViewController { // dataSource
                global = globalGroupList[indexPath.row]
            }
            
-           
            cell.globalGroupName.text = global.name
-           cell.globalContent.text = global.content
-           cell.participantGlobal.text = global.participant
-           cell.imageGlobal.image = UIImage(named: global.imageGroup )
+           if let imageURL:URL = URL(string: global.imageGroup) {
+                   if let data = NSData(contentsOf: imageURL) {
+                   cell.imageGlobal.image = UIImage(data: data as Data)
+                   }
+               } else {
+                   cell.imageGlobal.image = UIImage(named: "PhotoProfile")
+               }
            return cell
        }
 }
@@ -91,9 +92,12 @@ extension GlobalGroupTableViewController : UISearchResultsUpdating {
     }
     
     private func filterContentForSearchText(_ searchText: String, indexPath: IndexPath) {
-        filteredGroup = globalGroupList.filter({ (global: Group) -> Bool in
-            return global.name.lowercased().contains(searchText.lowercased())
-        })
+        vkApi.getGroupsSearch(token: Session.shared.token, name: searchText.lowercased()) { (global) in
+            self.globalGroupList = global
+            self.filteredGroup = self.globalGroupList.filter({ (global: Group) -> Bool in
+                return global.name.lowercased().contains(searchText.lowercased())
+            })
+        }
         tableView.reloadData()
     }
 }

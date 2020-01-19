@@ -6,7 +6,7 @@ class VKApi {
     
     let vkURL = "https://api.vk.com/method/"
     // запрос на список друзей данного пользователя
-    func getFriendList(token: String) {
+    func getFriendList(token: String, complition: @escaping ([Friends]) -> Void) {
         let requestURL = vkURL + "friends.get"
         let params = ["user_id": "70406229",
                       "access_token": token,
@@ -15,44 +15,65 @@ class VKApi {
                       "fields": "city,domain"]
         
         Alamofire.request(requestURL,
-                          method: .post,
-                          parameters: params).responseJSON { (response) in
-                            print(response.value)
+                          method: .get,
+                          parameters: params).responseData { (response) in
+                            guard let data = response.value else { return }
+                            do {
+                                let responses = try JSONDecoder().decode(ResponseFriend.self, from: data).response.items
+                                
+                                complition(responses)
+                            } catch {
+                                print(error)
+                            }
         }
     }
     // запрос на список фотографий данного пользователя
-    func getPhotos(token: String) {
+    func getPhotos(token: String, userId: String, complition: @escaping ([Photo]) -> Void) {
         let requestURL = vkURL + "photos.get"
-        let params = ["user_id": "70406229",
+        let params = ["user_id": userId,
                       "access_token": token,
                       "album_id": "profile",
-                      "rev": "0",
                       "extended": "1",
+                      "rev": "1",
                       "v": "5.103"]
         
         Alamofire.request(requestURL,
-                          method: .post,
-                          parameters: params).responseJSON { (response) in
-                            print(response.value)
+                          method: .get,
+                          parameters: params).responseData { (response) in
+                            guard let data = response.value else { return }
+                            do {
+                                let responses = try JSONDecoder().decode(ResponsePhoto.self, from: data).response.items
+                                complition(responses)
+                            } catch {
+                                print(error)
+                            }
         }
     }
+    
     // запрос на список групп данного пользователя
-    func getGroups(token: String) {
+    func getGroups(token: String, complition: @escaping ([Group]) -> Void) {
         let requestURL = vkURL + "groups.get"
         let params = ["user_id": "70406229",
                       "access_token": token,
                       "extended": "1",
+                      "fields": "activity,members_count",
                       "v": "5.103"]
         
         Alamofire.request(requestURL,
-                          method: .post,
-                          parameters: params).responseJSON { (response) in
-                            print(response.value)
+                          method: .get,
+                          parameters: params).responseData { (response) in
+                            guard let data = response.value else { return }
+                            do {
+                                let responses = try JSONDecoder().decode(ResponseGroup.self, from: data).response.items
+                                complition(responses)
+                            } catch {
+                                print(error)
+                            }
         }
+
     }
     // запрос на поисковой запрос групп данного пользователя
-    // сделал пока Music, пока не знаю как по другому
-    func getGroupsSearch(token: String, name: String) {
+    func getGroupsSearch(token: String, name: String, complition: @escaping ([Group]) -> Void) {
         let requestURL = vkURL + "groups.search"
         let params = ["user_id": "70406229",
                       "access_token": token,
@@ -61,9 +82,15 @@ class VKApi {
                       "v": "5.103"]
         
         Alamofire.request(requestURL,
-                          method: .post,
-                          parameters: params).responseJSON { (response) in
-                            print(response.value)
+                          method: .get,
+                          parameters: params).responseData { (response) in
+                        guard let data = response.value else { return }
+                        do {
+                            let responses = try JSONDecoder().decode(ResponseGroup.self, from: data).response.items
+                           complition(responses)
+                        } catch {
+                            print(error)
+                        }
         }
     }
     
