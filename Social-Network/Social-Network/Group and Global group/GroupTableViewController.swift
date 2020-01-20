@@ -1,5 +1,6 @@
 
 import UIKit
+import Kingfisher
 
 class GroupTableViewController: UITableViewController {
     
@@ -123,13 +124,12 @@ extension GroupTableViewController { //dataSource
         } else {
             group = groupList[indexPath.row]
         }
-        
-        if let imageURL:URL = URL(string: group.imageGroup) {
-            if let data = NSData(contentsOf: imageURL) {
-            cell.imageGroup.image = UIImage(data: data as Data)
-            }
-        } else {
+     
+        if group.imageGroup.isEmpty {
             cell.imageGroup.image = UIImage(named: "PhotoProfile")
+        } else {
+            let url = URL(string: String(group.imageGroup))
+            cell.imageGroup.kf.setImage(with: url)
         }
         
         cell.groupName.text = group.name

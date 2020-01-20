@@ -1,6 +1,7 @@
 
 
 import UIKit
+import Kingfisher
 
 struct Section<T> {
     var title: String
@@ -80,26 +81,25 @@ extension FriendTableViewController { // dataSource
             return UITableViewCell()
         }
         
-        cell.nameFriend.text = friendSection[indexPath.section].item[indexPath.row].firstName + " " + friendSection[indexPath.section].item[indexPath.row].lastName
+        let friend = friendSection[indexPath.section].item[indexPath.row]
+        
+        cell.nameFriend.text = friend.firstName + " " + friend.lastName
         var image: String
-        if friendSection[indexPath.section].item[indexPath.row].online == 1 {
+        if friend.online == 1 {
             image = "onlineFriend"
         } else {
             image = " "
         }
         var photos = [Photo]()
         
-        vkApi.getPhotos(token: Session.shared.token, userId: String(friendSection[indexPath.section].item[indexPath.row].id)) { (photo) in
+        vkApi.getPhotos(token: Session.shared.token, userId: String(friend.id)) { (photo) in
             photos = photo
             
             if photos.isEmpty {
                 cell.photoFriend.image = UIImage(named: "PhotoProfile")
             } else {
-                if let imageURL:URL = URL(string: photos[0].url) {
-                    if let data = NSData(contentsOf: imageURL) {
-                        cell.photoFriend.image = UIImage(data: data as Data)
-                    }
-                }
+                let url = URL(string: String(photos[0].url))
+                cell.photoFriend.kf.setImage(with: url)
             }
         }
         cell.isOnline.image = UIImage(named: image)

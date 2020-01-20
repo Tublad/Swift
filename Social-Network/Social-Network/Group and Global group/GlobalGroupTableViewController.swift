@@ -1,5 +1,6 @@
 
 import UIKit
+import Kingfisher
 
 class GlobalGroupTableViewController: UITableViewController {
     
@@ -7,7 +8,7 @@ class GlobalGroupTableViewController: UITableViewController {
     
     var globalGroupList = [Group]()
     var vkApi = VKApi()
-        
+    
     private let searchController = UISearchController(searchResultsController: nil)
     private var filteredGroup = [Group]()
     
@@ -52,37 +53,38 @@ class GlobalGroupTableViewController: UITableViewController {
 
 extension GlobalGroupTableViewController { // dataSource
     
-       override func numberOfSections(in tableView: UITableView) -> Int {
-           return 1
-       }
-       
-       override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-           if isFiltering {
-               return filteredGroup.count
-           }
-           return globalGroupList.count
-       }
-       
-       override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-           let cell = tableView.dequeueReusableCell(withIdentifier: "GlobalGroupCell", for: indexPath) as! GlobalGroupCell
-           
-           var global: Group
-           if isFiltering {
-               global = filteredGroup[indexPath.row]
-           } else {
-               global = globalGroupList[indexPath.row]
-           }
-           
-           cell.globalGroupName.text = global.name
-           if let imageURL:URL = URL(string: global.imageGroup) {
-                   if let data = NSData(contentsOf: imageURL) {
-                   cell.imageGlobal.image = UIImage(data: data as Data)
-                   }
-               } else {
-                   cell.imageGlobal.image = UIImage(named: "PhotoProfile")
-               }
-           return cell
-       }
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if isFiltering {
+            return filteredGroup.count
+        }
+        return globalGroupList.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "GlobalGroupCell", for: indexPath) as! GlobalGroupCell
+        
+        var global: Group
+        if isFiltering {
+            global = filteredGroup[indexPath.row]
+        } else {
+            global = globalGroupList[indexPath.row]
+        }
+        
+        cell.globalGroupName.text = global.name
+        
+        if global.imageGroup.isEmpty {
+            cell.imageGlobal.image = UIImage(named: "PhotoProfile")
+        } else {
+            let url = URL(string: String(global.imageGroup))
+            cell.imageGlobal.kf.setImage(with: url)
+        }
+        
+        return cell
+    }
 }
 
 extension GlobalGroupTableViewController : UISearchResultsUpdating {

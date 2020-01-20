@@ -1,5 +1,6 @@
 
 import UIKit
+import Kingfisher
 
 class ProfileFriendCollectionViewController: UICollectionViewController, ImageViewerPresenterSource {
     
@@ -42,21 +43,9 @@ class ProfileFriendCollectionViewController: UICollectionViewController, ImageVi
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProfileFriendCell", for: indexPath) as? ProfileFriendCell else {
             return UICollectionViewCell()
         }
-       
-        if let cachedImage = self.imageCache.object(forKey: NSString(string:(String(self.photoArray[indexPath.row].id)))) {
-            cell.friendPhoto.image = cachedImage
-        } else {
-            DispatchQueue.global(qos: .background).async {
-                let url = URL(string:(self.photoArray[indexPath.row].url))
-                let data = try? Data(contentsOf: url!)
-                let image: UIImage = UIImage(data: data!)!
-                DispatchQueue.main.async {
-                    self.imageCache.setObject(image, forKey: NSString(string: (String(self.photoArray[indexPath.row].id))))
-                    cell.friendPhoto.image = image
-                }
-            }
-        }
-       
+        
+        let urls = URL(string:(photoArray[indexPath.row].url))
+        cell.friendPhoto.kf.setImage(with: urls)
         
         cell.imageCliced = { view in
             self.source = view
