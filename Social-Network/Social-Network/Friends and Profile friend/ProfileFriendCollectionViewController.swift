@@ -45,6 +45,7 @@ class ProfileFriendCollectionViewController: UICollectionViewController, ImageVi
         }
         
         let urls = URL(string:(photoArray[indexPath.row].url))
+        cell.friendPhoto.kf.indicatorType = .activity
         cell.friendPhoto.kf.setImage(with: urls)
         
         cell.imageCliced = { view in

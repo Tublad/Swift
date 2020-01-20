@@ -22,6 +22,7 @@ class FriendTableViewController: UITableViewController, ImageViewerPresenterSour
         searchBar.delegate = self
         updateNavigationBar()
         
+        
         vkApi.getFriendList(token: Session.shared.token) { (friends) in
             self.friendList = friends
             let friendDictionary = Dictionary.init(grouping: friends) {
@@ -99,6 +100,7 @@ extension FriendTableViewController { // dataSource
                 cell.photoFriend.image = UIImage(named: "PhotoProfile")
             } else {
                 let url = URL(string: String(photos[0].url))
+                cell.photoFriend.kf.indicatorType = .activity
                 cell.photoFriend.kf.setImage(with: url)
             }
         }
