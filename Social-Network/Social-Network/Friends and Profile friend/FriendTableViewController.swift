@@ -99,8 +99,8 @@ extension FriendTableViewController { // dataSource
             if photos.isEmpty {
                 cell.photoFriend.image = UIImage(named: "PhotoProfile")
             } else {
-                let url = URL(string: String(photos[0].url))
                 cell.photoFriend.kf.indicatorType = .activity
+                guard let url = URL(string: String(photos[0].url)) else { return }
                 cell.photoFriend.kf.setImage(with: url)
             }
         }
