@@ -17,9 +17,14 @@ class ProfileFriendCollectionViewController: UICollectionViewController, ImageVi
         guard let id = user?.id else {
             return
         }
-        vkApi.getPhotos(token: Session.shared.token, userId: String(id)) { (photo) in
-            self.photoArray = photo
-            self.collectionView.reloadData()
+        vkApi.getPhotos(token: Session.shared.token, userId: String(id)) { [weak self] photo in
+            switch photo {
+            case .failure(let error):
+                print(error)
+            case .success(let photos):
+                self?.photoArray = photos
+                self?.collectionView.reloadData()
+            }
         }
         
         self.title = "Фотографии"

@@ -22,16 +22,20 @@ class FriendTableViewController: UITableViewController, ImageViewerPresenterSour
         searchBar.delegate = self
         updateNavigationBar()
         
-        vkApi.getFriendList(token: Session.shared.token) { (friends) in
-            self.friendList = friends
-            let friendDictionary = Dictionary.init(grouping: friends) {
-                $0.lastName.prefix(1)
+        vkApi.getFriendList(token: Session.shared.token) { [weak self] friend in
+            switch friend {
+            case .failure(let error):
+                print(error)
+            case .success(let friends):
+                self?.friendList = friends
+                let friendDictionary = Dictionary.init(grouping: friends) {
+                    $0.lastName.prefix(1)
+                }
+                self?.friendSection = friendDictionary.map { Section(title: String($0.key), item: $0.value) }
+                self?.friendSection.sort { $0.title < $1.title }
+                self?.tableView.reloadData()
             }
-            self.friendSection = friendDictionary.map { Section(title: String($0.key), item: $0.value) }
-            self.friendSection.sort { $0.title < $1.title }
-            self.tableView.reloadData()
         }
-        
     }
     
     func updateNavigationBar() {
@@ -92,17 +96,24 @@ extension FriendTableViewController { // dataSource
         }
         var photos = [Photo]()
         
-        vkApi.getPhotos(token: Session.shared.token, userId: String(friend.id)) { (photo) in
-            photos = photo
-            
-            if photos.isEmpty {
-                cell.photoFriend.image = UIImage(named: "PhotoProfile")
-            } else {
-                cell.photoFriend.kf.indicatorType = .activity
-                guard let url = URL(string: String(photos[0].url)) else { return }
-                cell.photoFriend.kf.setImage(with: url)
+        vkApi.getPhotos(token: Session.shared.token, userId: String(friend.id)) { [weak self] photo in
+            switch photo {
+            case .failure(let error):
+                print(error)
+            case .success(let photo):
+                photos = photo
+                
+                if photos.isEmpty {
+                    cell.photoFriend.image = UIImage(named: "PhotoProfile")
+                } else {
+                    cell.photoFriend.kf.indicatorType = .activity
+                    guard let url = URL(string: String(photos[0].url)) else { return }
+                    cell.photoFriend.kf.setImage(with: url)
+                }
             }
         }
+        
+        
         cell.isOnline.image = UIImage(named: image)
         return cell
     }

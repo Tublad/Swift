@@ -11,7 +11,7 @@ class VKApi {
     
     let vkURL = "https://api.vk.com/method/"
     
-  /*  func requestServer<T: Decodable>(requestURL: String,
+    func requestServer<T: Decodable>(requestURL: String,
                                      params: Parameters,
                                      completion: @escaping (Swift.Result<T, Error>) -> Void) {
         
@@ -32,18 +32,20 @@ class VKApi {
                             }
         }
         
-    }*/
+    }
     
     
     // запрос на список друзей данного пользователя
-    func getFriendList(token: String, completion: @escaping ([Friends]) -> Void) {
+    func getFriendList(token: String,
+                       completion: @escaping (Swift.Result<[Friends], Error>) -> Void) {
+        
         let requestURL = vkURL + "friends.get"
         let params = ["user_id": "70406229",
                       "access_token": token,
                       "order": "name",
                       "v": "5.103",
                       "fields": "city,domain"]
-        /*
+        
         requestServer(requestURL: requestURL, params: params) { (friends: (Swift.Result<ResponseFriend, Error>)) in
             switch friends {
             case .failure(let error):
@@ -51,23 +53,13 @@ class VKApi {
             case.success(let friend):
                 completion(.success(friend.response.items))
             }
-        }*/
-        
-        Alamofire.request(requestURL,
-                          method: .get,
-                          parameters: params).responseData { (response) in
-                            guard let data = response.value else { return }
-                            do {
-                                let responses = try JSONDecoder().decode(ResponseFriend.self, from: data).response.items
-                                
-                                completion(responses)
-                            } catch {
-                                print(error)
-                            }
         }
     }
     // запрос на список фотографий данного пользователя
-    func getPhotos(token: String, userId: String, completion: @escaping ([Photo]) -> Void) {
+    func getPhotos(token: String,
+                   userId: String,
+                   completion: @escaping (Swift.Result<[Photo], Error>) -> Void) {
+        
         let requestURL = vkURL + "photos.get"
         let params = ["user_id": userId,
                       "access_token": token,
@@ -76,21 +68,21 @@ class VKApi {
                       "rev": "1",
                       "v": "5.103"]
         
-        Alamofire.request(requestURL,
-                          method: .get,
-                          parameters: params).responseData { (response) in
-                            guard let data = response.value else { return }
-                            do {
-                                let responses = try JSONDecoder().decode(ResponsePhoto.self, from: data).response.items
-                                completion(responses)
-                            } catch {
-                                print(error)
-                            }
+        requestServer(requestURL: requestURL, params: params) { (photos: (Swift.Result<ResponsePhoto, Error>)) in
+            switch photos {
+            case .failure(let error):
+                completion(.failure(error))
+            case.success(let photo):
+                completion(.success(photo.response.items))
+            }
         }
+        
     }
     
     // запрос на список групп данного пользователя
-    func getGroups(token: String, completion: @escaping ([Group]) -> Void) {
+    func getGroups(token: String,
+                   completion: @escaping (Swift.Result<[Group], Error>) -> Void) {
+        
         let requestURL = vkURL + "groups.get"
         let params = ["user_id": "70406229",
                       "access_token": token,
@@ -98,21 +90,18 @@ class VKApi {
                       "fields": "activity,members_count",
                       "v": "5.103"]
         
-        Alamofire.request(requestURL,
-                          method: .get,
-                          parameters: params).responseData { (response) in
-                            guard let data = response.value else { return }
-                            do {
-                                let responses = try JSONDecoder().decode(ResponseGroup.self, from: data).response.items
-                                completion(responses)
-                            } catch {
-                                print(error)
-                            }
+        requestServer(requestURL: requestURL, params: params) { (groups: (Swift.Result<ResponseGroup, Error>)) in
+            switch groups {
+            case .failure(let error):
+                completion(.failure(error))
+            case.success(let group):
+                completion(.success(group.response.items))
+            }
         }
 
     }
     // запрос на поисковой запрос групп данного пользователя
-    func getGroupsSearch(token: String, name: String, completion: @escaping ([Group]) -> Void) {
+    func getGroupsSearch(token: String, name: String,completion: @escaping (Swift.Result<[Group], Error>) -> Void){
         let requestURL = vkURL + "groups.search"
         let params = ["user_id": "70406229",
                       "access_token": token,
@@ -120,17 +109,15 @@ class VKApi {
                       "count": "100",
                       "v": "5.103"]
         
-        Alamofire.request(requestURL,
-                          method: .get,
-                          parameters: params).responseData { (response) in
-                        guard let data = response.value else { return }
-                        do {
-                            let responses = try JSONDecoder().decode(ResponseGroup.self, from: data).response.items
-                           completion(responses)
-                        } catch {
-                            print(error)
-                        }
+        requestServer(requestURL: requestURL, params: params) { (groups: (Swift.Result<ResponseGroup, Error>)) in
+            switch groups {
+            case .failure(let error):
+                completion(.failure(error))
+            case.success(let group):
+                completion(.success(group.response.items))
+            }
         }
+        
     }
     
 }

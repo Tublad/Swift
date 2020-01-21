@@ -26,9 +26,14 @@ class GroupTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        vkApi.getGroups(token: Session.shared.token) { (group) in
-            self.groupList = group
-            self.tableView.reloadData()
+        vkApi.getGroups(token: Session.shared.token) { [weak self] groups in
+            switch groups {
+            case .failure(let error):
+                print(error)
+            case .success(let group):
+                self?.groupList = group
+                self?.tableView.reloadData()
+            }
         }
         
         addSearchBarControl()

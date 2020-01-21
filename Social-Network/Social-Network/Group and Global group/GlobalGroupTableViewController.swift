@@ -94,12 +94,19 @@ extension GlobalGroupTableViewController : UISearchResultsUpdating {
     }
     
     private func filterContentForSearchText(_ searchText: String, indexPath: IndexPath) {
-        vkApi.getGroupsSearch(token: Session.shared.token, name: searchText.lowercased()) { (global) in
-            self.globalGroupList = global
-            self.filteredGroup = self.globalGroupList.filter({ (global: Group) -> Bool in
-                return global.name.lowercased().contains(searchText.lowercased())
-            })
+        
+        vkApi.getGroupsSearch(token: Session.shared.token, name: searchText.lowercased()) { [weak self] global in
+            switch global {
+            case .failure(let error):
+                print(error)
+            case .success(let group):
+                self?.globalGroupList = group
+                self?.filteredGroup = group.filter({ (global: Group) -> Bool in
+                    return global.name.lowercased().contains(searchText.lowercased())
+                })
+            }
+            self?.tableView.reloadData()
         }
-        tableView.reloadData()
     }
 }
+
