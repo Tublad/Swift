@@ -1,3 +1,4 @@
+import RealmSwift
 
 class ResponseFriend: Decodable {
     var response: ItemsFriend
@@ -8,7 +9,7 @@ class ItemsFriend: Decodable {
     var items: [Friends]
 }
 
-class Friends: Decodable{
+class Friends: Object, Decodable{
     
      var id = 0
      var firstName = ""

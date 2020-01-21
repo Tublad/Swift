@@ -1,4 +1,6 @@
 
+import RealmSwift
+
 class ResponsePhoto: Decodable {
     var response: ItemsPhoto
 }
@@ -9,7 +11,7 @@ class ItemsPhoto: Decodable {
 }
 
 
-class Photo: Decodable {
+class Photo: Object, Decodable {
     
     var id = 0
     var userId = 0

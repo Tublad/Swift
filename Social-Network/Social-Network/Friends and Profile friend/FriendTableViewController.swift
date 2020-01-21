@@ -22,7 +22,6 @@ class FriendTableViewController: UITableViewController, ImageViewerPresenterSour
         searchBar.delegate = self
         updateNavigationBar()
         
-        
         vkApi.getFriendList(token: Session.shared.token) { (friends) in
             self.friendList = friends
             let friendDictionary = Dictionary.init(grouping: friends) {

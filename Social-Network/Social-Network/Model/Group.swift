@@ -1,4 +1,6 @@
 
+import RealmSwift
+
 class ResponseGroup: Decodable {
     var response: ItemsGroup
 }
@@ -8,7 +10,7 @@ class ItemsGroup: Decodable {
     var items: [Group]
 }
 
-class Group: Decodable {
+class Group: Object, Decodable {
     
     var id = 0
     var name = ""

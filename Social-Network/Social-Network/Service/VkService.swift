@@ -2,9 +2,39 @@
 import Foundation
 import Alamofire
 
+enum RequestError: Error {
+    case failedError(message: String)
+    case decodebleError
+}
+
 class VKApi {
     
     let vkURL = "https://api.vk.com/method/"
+    
+  /*  func requestServer<T: Decodable>(requestURL: String,
+                                     params: Parameters,
+                                     completion: @escaping (Swift.Result<T, Error>) -> Void) {
+        
+        Alamofire.request(requestURL,
+                          method: .get,
+                          parameters: params).responseData { (response) in
+                            
+                            switch response.result {
+                            case .failure(let error):
+                                completion(.failure(RequestError.failedError(message: error.localizedDescription)))
+                            case .success(let data):
+                                do {
+                                    let responses = try JSONDecoder().decode(T.self, from: data)
+                                    completion(.success(responses))
+                                } catch let error {
+                                    completion(.failure(RequestError.decodebleError))
+                                }
+                            }
+        }
+        
+    }*/
+    
+    
     // запрос на список друзей данного пользователя
     func getFriendList(token: String, completion: @escaping ([Friends]) -> Void) {
         let requestURL = vkURL + "friends.get"
@@ -13,6 +43,15 @@ class VKApi {
                       "order": "name",
                       "v": "5.103",
                       "fields": "city,domain"]
+        /*
+        requestServer(requestURL: requestURL, params: params) { (friends: (Swift.Result<ResponseFriend, Error>)) in
+            switch friends {
+            case .failure(let error):
+                completion(.failure(error))
+            case.success(let friend):
+                completion(.success(friend.response.items))
+            }
+        }*/
         
         Alamofire.request(requestURL,
                           method: .get,

@@ -3,11 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		81C21976706BB673AA153733 /* libPods-Social-Network.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 364EB90B20FC7FAD525F131A /* libPods-Social-Network.a */; };
+		688E3FAF03298CF2E7485A13 /* Pods_Social_Network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BE63E453524A1C16C395DA3 /* Pods_Social_Network.framework */; };
 		A91ED0F223C850E400D9D4B7 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91ED0F123C850E400D9D4B7 /* Session.swift */; };
 		A932126C23CF16B800649D49 /* ImageViewerPresent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A932126B23CF16B800649D49 /* ImageViewerPresent.swift */; };
 		A932126E23CF1A3800649D49 /* UIApplication+Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = A932126D23CF1A3800649D49 /* UIApplication+Controller.swift */; };
@@ -43,10 +43,13 @@
 		A9DE6DDE239270C800EFAA81 /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DE6DDD239270C800EFAA81 /* GroupCell.swift */; };
 		A9DE6DE323928BB600EFAA81 /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DE6DE223928BB600EFAA81 /* FriendCell.swift */; };
 		A9DE6DE523928FCD00EFAA81 /* ProfileFriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DE6DE423928FCD00EFAA81 /* ProfileFriendCell.swift */; };
+		A9FA9D8023D6DF35002172DC /* PhotoRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FA9D7F23D6DF35002172DC /* PhotoRealm.swift */; };
+		A9FA9D8223D6DF45002172DC /* GroupRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FA9D8123D6DF45002172DC /* GroupRealm.swift */; };
+		A9FA9D8423D6DF5A002172DC /* FriendRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FA9D8323D6DF5A002172DC /* FriendRealm.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		364EB90B20FC7FAD525F131A /* libPods-Social-Network.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Social-Network.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7BE63E453524A1C16C395DA3 /* Pods_Social_Network.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Social_Network.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A91ED0F123C850E400D9D4B7 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		A932126B23CF16B800649D49 /* ImageViewerPresent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewerPresent.swift; sourceTree = "<group>"; };
 		A932126D23CF1A3800649D49 /* UIApplication+Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Controller.swift"; sourceTree = "<group>"; };
@@ -84,6 +87,9 @@
 		A9DE6DDD239270C800EFAA81 /* GroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
 		A9DE6DE223928BB600EFAA81 /* FriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
 		A9DE6DE423928FCD00EFAA81 /* ProfileFriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFriendCell.swift; sourceTree = "<group>"; };
+		A9FA9D7F23D6DF35002172DC /* PhotoRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoRealm.swift; sourceTree = "<group>"; };
+		A9FA9D8123D6DF45002172DC /* GroupRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupRealm.swift; sourceTree = "<group>"; };
+		A9FA9D8323D6DF5A002172DC /* FriendRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendRealm.swift; sourceTree = "<group>"; };
 		CE0F23FBEE9F1A91B7B6D270 /* Pods-Social-Network.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Social-Network.release.xcconfig"; path = "Target Support Files/Pods-Social-Network/Pods-Social-Network.release.xcconfig"; sourceTree = "<group>"; };
 		D753FBE6ED74858ACBA969E4 /* Pods-Social-Network.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Social-Network.debug.xcconfig"; path = "Target Support Files/Pods-Social-Network/Pods-Social-Network.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -93,7 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				81C21976706BB673AA153733 /* libPods-Social-Network.a in Frameworks */,
+				688E3FAF03298CF2E7485A13 /* Pods_Social_Network.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,7 +109,7 @@
 		396ACA0E2FD5D71917EF056E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				364EB90B20FC7FAD525F131A /* libPods-Social-Network.a */,
+				7BE63E453524A1C16C395DA3 /* Pods_Social_Network.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -174,6 +180,7 @@
 		A9AD11EA239E8C7100F28D0E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A9FA9D7E23D6DEBC002172DC /* Model Realm */,
 				A9AD11EB239E8C8700F28D0E /* Photo.swift */,
 				A9AD11ED239E8CA200F28D0E /* Group.swift */,
 				A9AD11EF239E8CC200F28D0E /* Friend.swift */,
@@ -274,6 +281,16 @@
 			path = "Social-Network";
 			sourceTree = "<group>";
 		};
+		A9FA9D7E23D6DEBC002172DC /* Model Realm */ = {
+			isa = PBXGroup;
+			children = (
+				A9FA9D7F23D6DF35002172DC /* PhotoRealm.swift */,
+				A9FA9D8123D6DF45002172DC /* GroupRealm.swift */,
+				A9FA9D8323D6DF5A002172DC /* FriendRealm.swift */,
+			);
+			path = "Model Realm";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -285,6 +302,7 @@
 				A9C8EED723894F3500276B94 /* Sources */,
 				A9C8EED823894F3500276B94 /* Frameworks */,
 				A9C8EED923894F3500276B94 /* Resources */,
+				C8F6B60A2DC7934925557965 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -366,6 +384,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		C8F6B60A2DC7934925557965 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Social-Network/Pods-Social-Network-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Social-Network/Pods-Social-Network-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Social-Network/Pods-Social-Network-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -382,6 +417,7 @@
 				A9B728BF23CF10CE00FA53BD /* AnimationPop.swift in Sources */,
 				A9C8EEE323894F3500276B94 /* LoginViewController.swift in Sources */,
 				A9334D1A238FA3F100FE75F3 /* ProfileFriendCollectionViewController.swift in Sources */,
+				A9FA9D8223D6DF45002172DC /* GroupRealm.swift in Sources */,
 				A9D5D332238E968300581A9B /* GroupTableViewController.swift in Sources */,
 				A9BE209B23B4C15A00BD8C57 /* IndicatorLoad.swift in Sources */,
 				A932126C23CF16B800649D49 /* ImageViewerPresent.swift in Sources */,
@@ -396,12 +432,14 @@
 				A9AD66C723939DFA0059A046 /* GreatPasswordController.swift in Sources */,
 				A9DE6DE523928FCD00EFAA81 /* ProfileFriendCell.swift in Sources */,
 				A9778F0023CB23E100D85636 /* PreviewViewController.swift in Sources */,
+				A9FA9D8423D6DF5A002172DC /* FriendRealm.swift in Sources */,
 				A9AD11F0239E8CC200F28D0E /* Friend.swift in Sources */,
 				A9AD11DF239BF69F00F28D0E /* CustomLikeButton.swift in Sources */,
 				A9AD11E8239E832F00F28D0E /* FriendTableViewController.swift in Sources */,
 				A9951C8023CDC4F2001648A8 /* VkService.swift in Sources */,
 				A9DE6DDE239270C800EFAA81 /* GroupCell.swift in Sources */,
 				A94E7C6023A2563000D0DB89 /* NewsCell.swift in Sources */,
+				A9FA9D8023D6DF35002172DC /* PhotoRealm.swift in Sources */,
 				A9DE6DE323928BB600EFAA81 /* FriendCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
