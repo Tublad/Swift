@@ -98,8 +98,8 @@ class VKApi {
                 completion(.success(group.response.items))
             }
         }
-
     }
+    
     // запрос на поисковой запрос групп данного пользователя
     func getGroupsSearch(token: String, name: String,completion: @escaping (Swift.Result<[Group], Error>) -> Void){
         let requestURL = vkURL + "groups.search"

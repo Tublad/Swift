@@ -1,31 +1,42 @@
 PODS:
   - Alamofire (4.9.1)
-  - Kingfisher (4.10.1)
+  - ImageViewer.swift (3.0.9):
+    - SDWebImage
+  - Kingfisher (5.13.0):
+    - Kingfisher/Core (= 5.13.0)
+  - Kingfisher/Core (5.13.0)
   - Realm (4.3.1):
     - Realm/Headers (= 4.3.1)
   - Realm/Headers (4.3.1)
   - RealmSwift (4.3.1):
     - Realm (= 4.3.1)
+  - SDWebImage (5.4.2):
+    - SDWebImage/Core (= 5.4.2)
+  - SDWebImage/Core (5.4.2)
 
 DEPENDENCIES:
   - Alamofire
-  - Kingfisher (~> 4.0)
+  - ImageViewer.swift (~> 3.0)
+  - Kingfisher (~> 5.13.0)
   - RealmSwift
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
-    - Alamofire
   trunk:
+    - Alamofire
+    - ImageViewer.swift
     - Kingfisher
     - Realm
     - RealmSwift
+    - SDWebImage
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
-  Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
+  ImageViewer.swift: b2a83488e089fd2250406d81c783c02b21e1d424
+  Kingfisher: 0d334cada987fcddbe9b5cec516406e1ee9d4748
   Realm: 31dc40934081ef740f60feedc46d88473cbfeb40
   RealmSwift: b5199e9a41f67b99f51acf6874a6166f5fbe93d1
+  SDWebImage: 4ca2dc4eefae4224bea8f504251cda485a363745
 
-PODFILE CHECKSUM: 63f7c40248a8994cc08a983789ad68885ffdd8fb
+PODFILE CHECKSUM: 9f737fd3bdf8ba163d5f3a65362526bc5657b20f
 
 COCOAPODS: 1.8.4

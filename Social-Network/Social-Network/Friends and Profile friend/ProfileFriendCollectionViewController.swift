@@ -1,6 +1,7 @@
 
 import UIKit
 import Kingfisher
+import ImageViewer_swift
 
 class ProfileFriendCollectionViewController: UICollectionViewController, ImageViewerPresenterSource {
     
@@ -49,14 +50,16 @@ class ProfileFriendCollectionViewController: UICollectionViewController, ImageVi
             return UICollectionViewCell()
         }
         
-        let urls = URL(string:(photoArray[indexPath.row].url))
+        guard let url = URL(string:(photoArray[indexPath.row].url)) else {
+            return UICollectionViewCell()
+        }
         cell.friendPhoto.kf.indicatorType = .activity
-        cell.friendPhoto.kf.setImage(with: urls)
+        cell.friendPhoto.kf.setImage(with: url)
         
         cell.imageCliced = { view in
             self.source = view
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-          guard let vc = storyboard.instantiateViewController(identifier: "PreviewViewController") as? PreviewViewController else { return }
+            guard let vc = storyboard.instantiateViewController(identifier: "PreviewViewController") as? PreviewViewController else { return }
             vc.image = cell.friendPhoto.image
             let delegate = ImageViewerPresenter(delegate: self)
             self.navigationController?.delegate = delegate

@@ -8,6 +8,7 @@ class PreviewViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         fullPhoto.image = image
+        fullPhoto.setupImageViewer()
     }
     
 }
