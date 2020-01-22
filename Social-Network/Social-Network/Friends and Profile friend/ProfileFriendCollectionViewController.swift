@@ -3,13 +3,14 @@ import UIKit
 import Kingfisher
 import ImageViewer_swift
 
-class ProfileFriendCollectionViewController: UICollectionViewController, ImageViewerPresenterSource {
+class ProfileFriendCollectionViewController: UICollectionViewController {
     
     var user: Friends?
     var photoArray = [Photo]()
     var source: UIView?
     var vkApi = VKApi()
     let imageCache = NSCache<NSString, UIImage>()
+    var images = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,10 +25,12 @@ class ProfileFriendCollectionViewController: UICollectionViewController, ImageVi
                 print(error)
             case .success(let photos):
                 self?.photoArray = photos
+                for value in photos {
+                    self?.images.append(value.url)
+                }
                 self?.collectionView.reloadData()
             }
         }
-        
         self.title = "Фотографии"
     }
     
@@ -42,7 +45,7 @@ class ProfileFriendCollectionViewController: UICollectionViewController, ImageVi
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return photoArray.count
+        return images.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -50,21 +53,18 @@ class ProfileFriendCollectionViewController: UICollectionViewController, ImageVi
             return UICollectionViewCell()
         }
         
-        guard let url = URL(string:(photoArray[indexPath.row].url)) else {
-            return UICollectionViewCell()
-        }
+        let imageString = self.images[indexPath.row]
         cell.friendPhoto.kf.indicatorType = .activity
-        cell.friendPhoto.kf.setImage(with: url)
-        
-        cell.imageCliced = { view in
-            self.source = view
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            guard let vc = storyboard.instantiateViewController(identifier: "PreviewViewController") as? PreviewViewController else { return }
-            vc.image = cell.friendPhoto.image
-            let delegate = ImageViewerPresenter(delegate: self)
-            self.navigationController?.delegate = delegate
-            self.navigationController?.pushViewController(vc, animated: true)
+        if let imageUrl = URL(string: imageString) {
+            cell.friendPhoto.kf.setImage(with: imageUrl)
+        } else {
+            cell.friendPhoto.image = UIImage()
         }
+      
+        
+        cell.friendPhoto.setupImageViewer(urls: images.map{ URL(string: $0)! },
+                                          initialIndex: indexPath.row,
+                                          options: [.theme(.dark)])
         
         return cell
     }

@@ -734,39 +734,6 @@
             </objects>
             <point key="canvasLocation" x="2391" y="362"/>
         </scene>
-        <!--Preview View Controller-->
-        <scene sceneID="NIW-ao-H5N">
-            <objects>
-                <viewController storyboardIdentifier="PreviewViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ds8-p3-rLa" customClass="PreviewViewController" customModule="Social_Network" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="7WQ-j6-Yy3">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vdS-jF-xgx">
-                                <rect key="frame" x="0.0" y="246" width="414" height="414"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="vdS-jF-xgx" secondAttribute="height" multiplier="1:1" id="ICl-Lt-X5K"/>
-                                </constraints>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="vdS-jF-xgx" firstAttribute="leading" secondItem="NDx-ZR-USy" secondAttribute="leading" id="YV0-AI-K9m"/>
-                            <constraint firstItem="vdS-jF-xgx" firstAttribute="centerX" secondItem="NDx-ZR-USy" secondAttribute="centerX" id="to5-Kk-IzQ"/>
-                            <constraint firstItem="NDx-ZR-USy" firstAttribute="trailing" secondItem="vdS-jF-xgx" secondAttribute="trailing" id="vDw-HM-9u6"/>
-                            <constraint firstItem="vdS-jF-xgx" firstAttribute="centerY" secondItem="NDx-ZR-USy" secondAttribute="centerY" id="xNz-ZA-dVu"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="NDx-ZR-USy"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="5wX-iD-6Eg"/>
-                    <connections>
-                        <outlet property="fullPhoto" destination="vdS-jF-xgx" id="eCE-Vw-MW6"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="TRw-eI-hcq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3882.608695652174" y="361.60714285714283"/>
-        </scene>
     </scenes>
     <resources>
         <image name="person" catalog="system" width="64" height="58"/>

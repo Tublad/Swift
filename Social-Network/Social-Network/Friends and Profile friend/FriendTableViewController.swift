@@ -9,7 +9,7 @@ struct Section<T> {
 }
 
 
-class FriendTableViewController: UITableViewController, ImageViewerPresenterSource {
+class FriendTableViewController: UITableViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
     
