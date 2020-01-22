@@ -10,7 +10,6 @@ class ProfileFriendCollectionViewController: UICollectionViewController {
     var source: UIView?
     var vkApi = VKApi()
     let imageCache = NSCache<NSString, UIImage>()
-    var images = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,9 +24,6 @@ class ProfileFriendCollectionViewController: UICollectionViewController {
                 print(error)
             case .success(let photos):
                 self?.photoArray = photos
-                for value in photos {
-                    self?.images.append(value.url)
-                }
                 self?.collectionView.reloadData()
             }
         }
@@ -45,7 +41,7 @@ class ProfileFriendCollectionViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return images.count
+        return photoArray.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -53,17 +49,16 @@ class ProfileFriendCollectionViewController: UICollectionViewController {
             return UICollectionViewCell()
         }
         
-        let imageString = self.images[indexPath.row]
+        let imageString = self.photoArray[indexPath.row].url
         cell.friendPhoto.kf.indicatorType = .activity
         if let imageUrl = URL(string: imageString) {
             cell.friendPhoto.kf.setImage(with: imageUrl)
         } else {
             cell.friendPhoto.image = UIImage()
         }
-      
         
-        cell.friendPhoto.setupImageViewer(urls: images.map{ URL(string: $0)! },
-                                          initialIndex: indexPath.row,
+        cell.friendPhoto.setupImageViewer(urls: photoArray.map{ URL(string: $0.url)! },
+                                          initialIndex: indexPath.item,
                                           options: [.theme(.dark)])
         
         return cell

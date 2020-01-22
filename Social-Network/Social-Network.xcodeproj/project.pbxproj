@@ -133,13 +133,6 @@
 			path = "New Cell";
 			sourceTree = "<group>";
 		};
-		A9778EFE23CB23C300D85636 /* PreviewViewController */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = PreviewViewController;
-			sourceTree = "<group>";
-		};
 		A9951C7E23CDC4C9001648A8 /* Service */ = {
 			isa = PBXGroup;
 			children = (
@@ -193,7 +186,6 @@
 		A9C729A02397ABCA00363C2D /* Friends and Profile friend */ = {
 			isa = PBXGroup;
 			children = (
-				A9778EFE23CB23C300D85636 /* PreviewViewController */,
 				A9D5D32F238E966C00581A9B /* FriendTableViewController.swift */,
 				A9DE6DE223928BB600EFAA81 /* FriendCell.swift */,
 				A9334D19238FA3F100FE75F3 /* ProfileFriendCollectionViewController.swift */,

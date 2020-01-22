@@ -31,7 +31,6 @@ class VkWebViewController: UIViewController {
         view = vkWebView
     }
     
-    
 }
 
 extension VkWebViewController: WKNavigationDelegate {
@@ -63,7 +62,13 @@ extension VkWebViewController: WKNavigationDelegate {
         Session.shared.token = token
         Session.shared.userId = userId
         
-        performSegue(withIdentifier: "goContent", sender: nil)
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let tabBar = storyboard.instantiateViewController(identifier: "TabBarViewController") as? UITabBarController else {
+            return
+        }
+        
+        self.navigationController?.pushViewController(tabBar, animated: true)
         decisionHandler(.cancel)
     }
 }
