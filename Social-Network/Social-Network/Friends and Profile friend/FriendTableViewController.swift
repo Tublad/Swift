@@ -1,5 +1,4 @@
 
-
 import UIKit
 import Kingfisher
 
@@ -17,11 +16,16 @@ class FriendTableViewController: UITableViewController {
     var friendList = [Friends]()
     var vkApi = VKApi()
     var friendSection = [Section<Friends>]()
+    var photoUser = [String]()
+    
+    var customRefreshController = UIRefreshControl()
     
     override func viewDidLoad() {
         searchBar.delegate = self
         updateNavigationBar()
+        addRefreshController()
         
+        // MARK: запрос на список друзей и сортировка по первой букве фамилии
         vkApi.getFriendList(token: Session.shared.token) { [weak self] friend in
             switch friend {
             case .failure(let error):
@@ -33,11 +37,27 @@ class FriendTableViewController: UITableViewController {
                 }
                 self?.friendSection = friendDictionary.map { Section(title: String($0.key), item: $0.value) }
                 self?.friendSection.sort { $0.title < $1.title }
-                self?.tableView.reloadData()
+                
             }
+            self?.tableView.reloadData()
         }
     }
     
+    // MARK: добавление RefreshControllers
+    
+    func addRefreshController() {
+        customRefreshController.tintColor = .white
+        customRefreshController.addTarget(self, action: #selector(refreshTable), for: .valueChanged)
+        tableView.addSubview(customRefreshController)
+    }
+    
+    @objc func refreshTable() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            self.tableView.reloadData()
+            self.customRefreshController.endRefreshing()
+        }
+    }
+    // MARK: коррекция NavigationBar
     func updateNavigationBar() {
         let backButton = UIBarButtonItem()
         backButton.title = ""
@@ -46,7 +66,10 @@ class FriendTableViewController: UITableViewController {
     
 }
 
-extension FriendTableViewController { // delegate
+// MARK: delegate
+
+extension FriendTableViewController {
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let userName = friendSection[indexPath.section].item[indexPath.row]
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -70,7 +93,9 @@ extension FriendTableViewController { // delegate
     }
 }
 
-extension FriendTableViewController { // dataSource
+// MARK: dataSource
+
+extension FriendTableViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return friendSection.count
@@ -94,25 +119,14 @@ extension FriendTableViewController { // dataSource
         } else {
             image = " "
         }
-        var photos = [Photo]()
         
-        vkApi.getPhotos(token: Session.shared.token, userId: String(friend.id)) { [weak self] photo in
-            switch photo {
-            case .failure(let error):
-                print(error)
-            case .success(let photo):
-                photos = photo
-                
-                if photos.isEmpty {
-                    cell.photoFriend.image = UIImage(named: "PhotoProfile")
-                } else {
-                    cell.photoFriend.kf.indicatorType = .activity
-                    guard let url = URL(string: String(photos[0].url)) else { return }
-                    cell.photoFriend.kf.setImage(with: url)
-                }
-            }
+        if friend.avatar.isEmpty {
+            cell.photoFriend.image = UIImage(named: "PhotoProfile")
+        } else {
+            cell.photoFriend.kf.indicatorType = .activity
+            let url = URL(string: String(friend.avatar))
+            cell.photoFriend.kf.setImage(with: url)
         }
-        
         
         cell.isOnline.image = UIImage(named: image)
         return cell
@@ -135,6 +149,8 @@ extension FriendTableViewController { // dataSource
         header.textLabel?.font = UIFont.systemFont(ofSize: 14, weight: .medium)
     }
 }
+
+// MARK: Расширешие для SearchBar 
 
 extension FriendTableViewController: UISearchBarDelegate {
     

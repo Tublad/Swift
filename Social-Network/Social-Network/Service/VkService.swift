@@ -44,7 +44,7 @@ class VKApi {
                       "access_token": token,
                       "order": "name",
                       "v": "5.103",
-                      "fields": "city,domain"]
+                      "fields": "city,domain,photo_100"]
         
         requestServer(requestURL: requestURL, params: params) { (friends: (Swift.Result<ResponseFriend, Error>)) in
             switch friends {

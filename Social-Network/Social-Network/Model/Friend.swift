@@ -14,6 +14,7 @@ class Friends: Object, Decodable{
      var id = 0
      var firstName = ""
      var lastName = ""
+     var avatar = ""
      var online = 0
      var cityName = ""
     
@@ -22,6 +23,7 @@ class Friends: Object, Decodable{
         case id
         case firstName = "first_name"
         case lastName = "last_name"
+        case avatar = "photo_100"
         case online
         case city
     }
@@ -37,6 +39,7 @@ class Friends: Object, Decodable{
         self.firstName = try mainConteiner.decode(String.self, forKey: .firstName)
         self.lastName = try mainConteiner.decode(String.self, forKey: .lastName)
         self.online = try mainConteiner.decode(Int.self, forKey: .online)
+        self.avatar = try mainConteiner.decode(String.self, forKey: .avatar)
         if mainConteiner.contains(.city) {
             let cityConteiner = try mainConteiner.nestedContainer(keyedBy: CityKeys.self, forKey: .city)
             self.cityName = try cityConteiner.decode(String.self, forKey: .title)

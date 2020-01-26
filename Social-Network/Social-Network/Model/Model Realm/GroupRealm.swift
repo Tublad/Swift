@@ -11,6 +11,7 @@ class GroupRealm: Object {
     @objc dynamic var imageGroup = ""
     
     let groups = List<Group>()
+    let globalGroups = List<Group>()
     
     func addGroup(id: Int, name: String, content: String, particiant: String, imageGroup: String) {
         let realm = try! Realm()
@@ -32,3 +33,4 @@ class GroupRealm: Object {
     }
     
 }
+

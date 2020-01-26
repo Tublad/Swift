@@ -15,4 +15,8 @@ class FriendCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
+    override func prepareForReuse() {
+        photoFriend.image = nil
+    }
+    
 }

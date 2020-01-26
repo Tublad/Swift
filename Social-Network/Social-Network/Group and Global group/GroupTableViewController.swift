@@ -26,6 +26,8 @@ class GroupTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // MARK: запрос на список групп пользователя
+        
         vkApi.getGroups(token: Session.shared.token) { [weak self] groups in
             switch groups {
             case .failure(let error):
@@ -40,6 +42,8 @@ class GroupTableViewController: UITableViewController {
         addRefreshController()
     }
     
+    // MARK: настройки и добавление SearchBar
+    
     func addSearchBarControl() {
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
@@ -49,6 +53,8 @@ class GroupTableViewController: UITableViewController {
         searchController.searchBar.searchTextField.textColor = .white
     }
     
+    // MARK: настройки и добавление RefreshController
+    
     func addRefreshController() {
         customRefreshController.tintColor = .white
         customRefreshController.addTarget(self, action: #selector(refreshTable), for: .valueChanged)
@@ -57,9 +63,13 @@ class GroupTableViewController: UITableViewController {
     
     @objc func refreshTable() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            self.tableView.reloadData()
             self.customRefreshController.endRefreshing()
         }
     }
+    
+    // MARK: действией на добавление группы из глобального поиска
+    
     @IBAction func addGroup(segue: UIStoryboardSegue) {
         if segue.identifier == "addGroup" {
             guard let globalGroupController = segue.source as? GlobalGroupTableViewController else {
@@ -83,7 +93,9 @@ class GroupTableViewController: UITableViewController {
     
 }
 
-extension GroupTableViewController { // delegate
+// MARK: delegate
+
+extension GroupTableViewController {
     
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let deleteAction = UITableViewRowAction(style: .default, title: "Удалить") { (action,index)  in
@@ -107,7 +119,10 @@ extension GroupTableViewController { // delegate
     
 }
 
-extension GroupTableViewController { //dataSource
+// MARK: dataSource
+
+extension GroupTableViewController {
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -120,7 +135,8 @@ extension GroupTableViewController { //dataSource
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "GroupCell", for: indexPath) as? GroupCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "GroupCell",
+                                                       for: indexPath) as? GroupCell else {
             return UITableViewCell()
         }
         var group: Group
@@ -129,7 +145,7 @@ extension GroupTableViewController { //dataSource
         } else {
             group = groupList[indexPath.row]
         }
-     
+        
         if group.imageGroup.isEmpty {
             cell.imageGroup.image = UIImage(named: "PhotoProfile")
         } else {
@@ -150,6 +166,7 @@ extension GroupTableViewController { //dataSource
     }
     
 }
+// MARK: расширение TableView для SearchBar
 
 extension GroupTableViewController: UISearchResultsUpdating {
     

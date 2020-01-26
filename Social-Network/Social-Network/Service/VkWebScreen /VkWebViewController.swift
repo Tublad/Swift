@@ -6,7 +6,7 @@ import WebKit
 class VkWebViewController: UIViewController {
     
     var vkWebView: WKWebView!
-    var idAppVkSecret = "7281244"
+    var idAppVkSecret = "7295740"
     var vkApi = VKApi()
     
     override func viewDidLoad() {

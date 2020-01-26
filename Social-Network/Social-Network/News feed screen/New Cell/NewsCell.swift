@@ -2,17 +2,29 @@
 import UIKit
 
 class NewsCell: UITableViewCell {
+    
     @IBOutlet weak var nameGroup: UILabel!
     @IBOutlet weak var groupImage: UIImageView!
     @IBOutlet weak var time: UILabel!
     @IBOutlet weak var aboutOfNews: UILabel!
-    @IBOutlet weak var newsImage: UIImageView!
+    @IBOutlet weak var PhotoListCollectionView: PhotoCollectionView!
     @IBOutlet weak var repostNew: UIButton!
     @IBOutlet weak var commintNew: UIButton!
     @IBOutlet weak var likeNews: UIButton!
+ 
     
     override func awakeFromNib() {
         super.awakeFromNib()
+    }
+    // для временного хранения и отправляю в коллекцию для показа 
+    var photoPost: [UIImage]! {
+        didSet {
+            setupUI()
+        }
+    }
+    
+    func setupUI(){
+        PhotoListCollectionView.images = photoPost as! [UIImage]
     }
     
     @IBAction func likeNewsAction(_ sender: Any) {

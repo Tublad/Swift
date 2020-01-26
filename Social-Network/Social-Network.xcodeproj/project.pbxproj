@@ -15,6 +15,10 @@
 		A94E7C6323A26D0700D0DB89 /* NewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94E7C6223A26D0700D0DB89 /* NewViewController.swift */; };
 		A94E7C6523A2806B00D0DB89 /* CustomRepostButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94E7C6423A2806B00D0DB89 /* CustomRepostButton.swift */; };
 		A94E7C6723A280EB00D0DB89 /* CustomCommentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94E7C6623A280EB00D0DB89 /* CustomCommentButton.swift */; };
+		A95EB94E23DC7D080074E99E /* PhotoCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95EB94D23DC7D080074E99E /* PhotoCollectionView.swift */; };
+		A95EB95323DC7D920074E99E /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95EB95223DC7D920074E99E /* PhotoCollectionViewCell.swift */; };
+		A95EB95523DC88220074E99E /* PhotoCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A95EB95423DC88220074E99E /* PhotoCollectionCell.xib */; };
+		A95EB95723DC98E50074E99E /* CustomCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95EB95623DC98E50074E99E /* CustomCollectionViewLayout.swift */; };
 		A9951C8023CDC4F2001648A8 /* VkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9951C7F23CDC4F2001648A8 /* VkService.swift */; };
 		A9951C8323CDC5F8001648A8 /* VkWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9951C8223CDC5F8001648A8 /* VkWebViewController.swift */; };
 		A9AD11D723980ADD00F28D0E /* CustomPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AD11D623980ADD00F28D0E /* CustomPhoto.swift */; };
@@ -53,6 +57,10 @@
 		A94E7C6223A26D0700D0DB89 /* NewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewViewController.swift; sourceTree = "<group>"; };
 		A94E7C6423A2806B00D0DB89 /* CustomRepostButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRepostButton.swift; sourceTree = "<group>"; };
 		A94E7C6623A280EB00D0DB89 /* CustomCommentButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCommentButton.swift; sourceTree = "<group>"; };
+		A95EB94D23DC7D080074E99E /* PhotoCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionView.swift; sourceTree = "<group>"; };
+		A95EB95223DC7D920074E99E /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		A95EB95423DC88220074E99E /* PhotoCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoCollectionCell.xib; sourceTree = "<group>"; };
+		A95EB95623DC98E50074E99E /* CustomCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewLayout.swift; sourceTree = "<group>"; };
 		A9951C7F23CDC4F2001648A8 /* VkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VkService.swift; sourceTree = "<group>"; };
 		A9951C8223CDC5F8001648A8 /* VkWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VkWebViewController.swift; sourceTree = "<group>"; };
 		A9AD11D623980ADD00F28D0E /* CustomPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPhoto.swift; sourceTree = "<group>"; };
@@ -127,10 +135,30 @@
 		A94E7C5D23A255FF00D0DB89 /* New Cell */ = {
 			isa = PBXGroup;
 			children = (
+				A95EB94F23DC7D0D0074E99E /* News Photo Collection */,
 				A94E7C5E23A2563000D0DB89 /* NewsCell.swift */,
 				A94E7C5F23A2563000D0DB89 /* NewsCell.xib */,
 			);
 			path = "New Cell";
+			sourceTree = "<group>";
+		};
+		A95EB94F23DC7D0D0074E99E /* News Photo Collection */ = {
+			isa = PBXGroup;
+			children = (
+				A95EB95823DCC6B20074E99E /* Photo Present Collection */,
+				A95EB95623DC98E50074E99E /* CustomCollectionViewLayout.swift */,
+			);
+			path = "News Photo Collection";
+			sourceTree = "<group>";
+		};
+		A95EB95823DCC6B20074E99E /* Photo Present Collection */ = {
+			isa = PBXGroup;
+			children = (
+				A95EB94D23DC7D080074E99E /* PhotoCollectionView.swift */,
+				A95EB95223DC7D920074E99E /* PhotoCollectionViewCell.swift */,
+				A95EB95423DC88220074E99E /* PhotoCollectionCell.xib */,
+			);
+			path = "Photo Present Collection";
 			sourceTree = "<group>";
 		};
 		A9951C7E23CDC4C9001648A8 /* Service */ = {
@@ -323,6 +351,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A95EB95523DC88220074E99E /* PhotoCollectionCell.xib in Resources */,
 				A9C8EEEB23894F3700276B94 /* LaunchScreen.storyboard in Resources */,
 				A94E7C6123A2563000D0DB89 /* NewsCell.xib in Resources */,
 				A9BE209923B4BED900BD8C57 /* Indicator.xib in Resources */,
@@ -390,6 +419,7 @@
 				A9334D1A238FA3F100FE75F3 /* ProfileFriendCollectionViewController.swift in Sources */,
 				A9FA9D8223D6DF45002172DC /* GroupRealm.swift in Sources */,
 				A9D5D332238E968300581A9B /* GroupTableViewController.swift in Sources */,
+				A95EB95323DC7D920074E99E /* PhotoCollectionViewCell.swift in Sources */,
 				A9BE209B23B4C15A00BD8C57 /* IndicatorLoad.swift in Sources */,
 				A94E7C6723A280EB00D0DB89 /* CustomCommentButton.swift in Sources */,
 				A9C8EEDF23894F3500276B94 /* AppDelegate.swift in Sources */,
@@ -401,11 +431,13 @@
 				A9AD66C723939DFA0059A046 /* GreatPasswordController.swift in Sources */,
 				A9DE6DE523928FCD00EFAA81 /* ProfileFriendCell.swift in Sources */,
 				A9FA9D8423D6DF5A002172DC /* FriendRealm.swift in Sources */,
+				A95EB95723DC98E50074E99E /* CustomCollectionViewLayout.swift in Sources */,
 				A9AD11F0239E8CC200F28D0E /* Friend.swift in Sources */,
 				A9AD11DF239BF69F00F28D0E /* CustomLikeButton.swift in Sources */,
 				A9AD11E8239E832F00F28D0E /* FriendTableViewController.swift in Sources */,
 				A9951C8023CDC4F2001648A8 /* VkService.swift in Sources */,
 				A9DE6DDE239270C800EFAA81 /* GroupCell.swift in Sources */,
+				A95EB94E23DC7D080074E99E /* PhotoCollectionView.swift in Sources */,
 				A94E7C6023A2563000D0DB89 /* NewsCell.swift in Sources */,
 				A9FA9D8023D6DF35002172DC /* PhotoRealm.swift in Sources */,
 				A9DE6DE323928BB600EFAA81 /* FriendCell.swift in Sources */,

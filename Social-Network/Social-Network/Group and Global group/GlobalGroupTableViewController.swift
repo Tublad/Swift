@@ -29,6 +29,8 @@ class GlobalGroupTableViewController: UITableViewController {
         addRefreshController()
     }
     
+    // MARK: настройки и добавление SearchBar
+    
     func addSearchBarControl() {
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
@@ -38,6 +40,8 @@ class GlobalGroupTableViewController: UITableViewController {
         searchController.searchBar.searchTextField.textColor = .white
     }
     
+    // MARK: настройки и добавление RefreshController
+    
     func addRefreshController() {
         customRefreshController.tintColor = .white
         customRefreshController.addTarget(self, action: #selector(refreshTable), for: .valueChanged)
@@ -46,12 +50,15 @@ class GlobalGroupTableViewController: UITableViewController {
     
     @objc func refreshTable() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            self.tableView.reloadData()
             self.customRefreshController.endRefreshing()
         }
     }
 }
 
-extension GlobalGroupTableViewController { // dataSource
+// MARK: dataSource
+
+extension GlobalGroupTableViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -65,6 +72,7 @@ extension GlobalGroupTableViewController { // dataSource
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "GlobalGroupCell", for: indexPath) as! GlobalGroupCell
         
         var global: Group
@@ -86,6 +94,8 @@ extension GlobalGroupTableViewController { // dataSource
         return cell
     }
 }
+
+// MARK: Расширение для SearchBar
 
 extension GlobalGroupTableViewController : UISearchResultsUpdating {
     
