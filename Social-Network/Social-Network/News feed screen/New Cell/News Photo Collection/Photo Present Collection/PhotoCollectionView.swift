@@ -4,7 +4,8 @@ import ImageViewer_swift
 
 class PhotoCollectionView: UICollectionView {
     
-    // получаю фотографии и начинаю их обрабатывать для предствляния 
+    //MARK: получаю фотографии и начинаю их обрабатывать для предствляния
+    
     var images: [UIImage] = [UIImage]() {
         didSet {
             self.delegate = self
@@ -13,7 +14,8 @@ class PhotoCollectionView: UICollectionView {
         }
     }
 }
- // добавляю в ячейку полученные данные 
+
+//MARK: добавляю в ячейку полученные данные
 
 extension PhotoCollectionView: UICollectionViewDelegate, UICollectionViewDataSource {
     

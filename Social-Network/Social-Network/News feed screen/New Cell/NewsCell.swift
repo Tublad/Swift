@@ -11,17 +11,21 @@ class NewsCell: UITableViewCell {
     @IBOutlet weak var repostNew: UIButton!
     @IBOutlet weak var commintNew: UIButton!
     @IBOutlet weak var likeNews: UIButton!
- 
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-    // для временного хранения и отправляю в коллекцию для показа 
+    
+    //MARK: для временного хранения и отправляю в коллекцию для показа
+    
     var photoPost: [UIImage]! {
         didSet {
             setupUI()
         }
     }
+    
+    //MARK: передаю уже в коллекцию, где буду отображать их
     
     func setupUI(){
         PhotoListCollectionView.images = photoPost as! [UIImage]
@@ -35,14 +39,14 @@ class NewsCell: UITableViewCell {
     }
     @IBAction func commentNewsButton(_ sender: Any) {
         guard let commented = (sender as? CommintButton) else {
-                   return
-               }
+            return
+        }
         commented.commet()
     }
     @IBAction func repostNewsButton(_ sender: Any) {
         guard let reposted = (sender as? RepostButton) else {
-                   return
-               }
+            return
+        }
         reposted.repost()
     }
     

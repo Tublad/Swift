@@ -47,25 +47,30 @@ class NewsViewController: UITableViewController {
         }
     }
     
+}
+
+// MARK: dataSource
+
+extension NewsViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return name.count
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       guard let cell = tableView.dequeueReusableCell(withIdentifier: "simpleNewsCell", for: indexPath) as? NewsCell  else {
-            return UITableViewCell()
-        }
-        cell.aboutOfNews.text = content[indexPath.row]
-        cell.nameGroup.text = name[indexPath.row]
-        cell.groupImage.image = UIImage(named: imagePost[indexPath.row])
-        cell.time.text = time[indexPath.row]
-        
-        // передаю массив фотографий на дальнейшее дейсвие и визуализации коллекции
-        
-        cell.photoPost = image[indexPath.row]
-        
-        return cell
-    }
-    
+           return name.count
+       }
+       
+       override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+          guard let cell = tableView.dequeueReusableCell(withIdentifier: "simpleNewsCell", for: indexPath) as? NewsCell  else {
+               return UITableViewCell()
+           }
+           cell.aboutOfNews.text = content[indexPath.row]
+           cell.nameGroup.text = name[indexPath.row]
+           cell.groupImage.image = UIImage(named: imagePost[indexPath.row])
+           cell.time.text = time[indexPath.row]
+           
+           //MARK: передаю массив фотографий на дальнейшее действие и визуализации коллекции
+           
+           cell.photoPost = image[indexPath.row]
+           
+           return cell
+       }
+       
 }
