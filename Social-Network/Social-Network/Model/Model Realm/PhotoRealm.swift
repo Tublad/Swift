@@ -15,30 +15,21 @@ class PhotoRealm: Object {
     
     let photos = List<Photo>()
     
-}
-
-class PhotoRepositoryRealm {
+    override class func primaryKey() -> String? {
+        return "id"
+    }
     
-    func addPhoto(id: Int, userId: Int, url: String, like: Int, userLike: Int, repost: Int, comment: Int) {
-        
-        let realm = try! Realm()
-        let photo = PhotoRealm()
+    func toModel() -> Photo {
+        let photo = Photo()
         photo.id = id
-        photo.userId = id
+        photo.userId = userId
         photo.url = url
         photo.like = like
         photo.userLike = userLike
         photo.repost = repost
         photo.comment = comment
-        
-        try! realm.write {
-            realm.add(photo)
-        }
+        return photo
     }
-    
-    func getPhoto(id: Int) -> PhotoRealm? {
-        let realm = try! Realm()
-        return realm.objects(PhotoRealm.self).filter("id == %@", id).first
-    }
-    
 }
+    
+

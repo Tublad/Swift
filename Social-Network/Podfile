@@ -6,4 +6,5 @@ target 'Social-Network' do
      pod 'ImageViewer.swift', '~> 3.0'
      pod 'Alamofire'
      pod 'RealmSwift'
+     pod 'SwiftKeychainWrapper'
 end

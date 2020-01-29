@@ -1,15 +1,6 @@
 
 import RealmSwift
 
-class ResponseGroup: Decodable {
-    var response: ItemsGroup
-}
-
-class ItemsGroup: Decodable {
-    var count: Int
-    var items: [Group]
-}
-
 class Group: Object, Decodable {
     
     var id = 0

@@ -165,7 +165,7 @@
         <!--Vk Web View Controller-->
         <scene sceneID="dJ9-Q5-T1h">
             <objects>
-                <viewController id="kEe-qO-Ifo" customClass="VkWebViewController" customModule="Social_Network" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VkWebViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kEe-qO-Ifo" customClass="VkWebViewController" customModule="Social_Network" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="l7E-xM-7Mq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

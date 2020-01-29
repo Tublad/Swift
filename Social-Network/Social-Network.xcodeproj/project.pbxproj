@@ -21,6 +21,10 @@
 		A95EB95723DC98E50074E99E /* CustomCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95EB95623DC98E50074E99E /* CustomCollectionViewLayout.swift */; };
 		A9951C8023CDC4F2001648A8 /* VkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9951C7F23CDC4F2001648A8 /* VkService.swift */; };
 		A9951C8323CDC5F8001648A8 /* VkWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9951C8223CDC5F8001648A8 /* VkWebViewController.swift */; };
+		A996BD4723E035990043498D /* FriendsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A996BD4623E035990043498D /* FriendsRepository.swift */; };
+		A996BD4923E052910043498D /* GroupsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A996BD4823E052910043498D /* GroupsRepository.swift */; };
+		A996BD4B23E052A90043498D /* PhotosRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A996BD4A23E052A90043498D /* PhotosRepository.swift */; };
+		A996BD4D23E15D810043498D /* CommonResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A996BD4C23E15D810043498D /* CommonResponse.swift */; };
 		A9AD11D723980ADD00F28D0E /* CustomPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AD11D623980ADD00F28D0E /* CustomPhoto.swift */; };
 		A9AD11DF239BF69F00F28D0E /* CustomLikeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AD11DE239BF69F00F28D0E /* CustomLikeButton.swift */; };
 		A9AD11E8239E832F00F28D0E /* FriendTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D5D32F238E966C00581A9B /* FriendTableViewController.swift */; };
@@ -63,6 +67,10 @@
 		A95EB95623DC98E50074E99E /* CustomCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewLayout.swift; sourceTree = "<group>"; };
 		A9951C7F23CDC4F2001648A8 /* VkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VkService.swift; sourceTree = "<group>"; };
 		A9951C8223CDC5F8001648A8 /* VkWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VkWebViewController.swift; sourceTree = "<group>"; };
+		A996BD4623E035990043498D /* FriendsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsRepository.swift; sourceTree = "<group>"; };
+		A996BD4823E052910043498D /* GroupsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsRepository.swift; sourceTree = "<group>"; };
+		A996BD4A23E052A90043498D /* PhotosRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosRepository.swift; sourceTree = "<group>"; };
+		A996BD4C23E15D810043498D /* CommonResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonResponse.swift; sourceTree = "<group>"; };
 		A9AD11D623980ADD00F28D0E /* CustomPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPhoto.swift; sourceTree = "<group>"; };
 		A9AD11DE239BF69F00F28D0E /* CustomLikeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLikeButton.swift; sourceTree = "<group>"; };
 		A9AD11EB239E8C8700F28D0E /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
@@ -164,7 +172,6 @@
 		A9951C7E23CDC4C9001648A8 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				A9951C8123CDC5DD001648A8 /* VkWebScreen  */,
 				A9951C7F23CDC4F2001648A8 /* VkService.swift */,
 			);
 			path = Service;
@@ -176,6 +183,36 @@
 				A9951C8223CDC5F8001648A8 /* VkWebViewController.swift */,
 			);
 			path = "VkWebScreen ";
+			sourceTree = "<group>";
+		};
+		A996BD4323DF5D250043498D /* All screen */ = {
+			isa = PBXGroup;
+			children = (
+				A9951C8123CDC5DD001648A8 /* VkWebScreen  */,
+				A9C729A02397ABCA00363C2D /* Friends and Profile friend screen */,
+				A9C729A12397ABFA00363C2D /* Group and Global group screen */,
+				A9C729A22397AC3F00363C2D /* Main and Great Password screen */,
+				A94E7C4B23A2165400D0DB89 /* News feed screen */,
+			);
+			path = "All screen";
+			sourceTree = "<group>";
+		};
+		A996BD4423E0350A0043498D /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				A996BD4523E0353E0043498D /* RealmRepository */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		A996BD4523E0353E0043498D /* RealmRepository */ = {
+			isa = PBXGroup;
+			children = (
+				A996BD4623E035990043498D /* FriendsRepository.swift */,
+				A996BD4823E052910043498D /* GroupsRepository.swift */,
+				A996BD4A23E052A90043498D /* PhotosRepository.swift */,
+			);
+			path = RealmRepository;
 			sourceTree = "<group>";
 		};
 		A9AD11D32397F81A00F28D0E /* UICustom */ = {
@@ -193,10 +230,11 @@
 			isa = PBXGroup;
 			children = (
 				A9FA9D7E23D6DEBC002172DC /* Model Realm */,
+				A996BD4C23E15D810043498D /* CommonResponse.swift */,
+				A91ED0F123C850E400D9D4B7 /* Session.swift */,
+				A9AD11EF239E8CC200F28D0E /* Friend.swift */,
 				A9AD11EB239E8C8700F28D0E /* Photo.swift */,
 				A9AD11ED239E8CA200F28D0E /* Group.swift */,
-				A9AD11EF239E8CC200F28D0E /* Friend.swift */,
-				A91ED0F123C850E400D9D4B7 /* Session.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -211,7 +249,7 @@
 			path = Indicator;
 			sourceTree = "<group>";
 		};
-		A9C729A02397ABCA00363C2D /* Friends and Profile friend */ = {
+		A9C729A02397ABCA00363C2D /* Friends and Profile friend screen */ = {
 			isa = PBXGroup;
 			children = (
 				A9D5D32F238E966C00581A9B /* FriendTableViewController.swift */,
@@ -219,10 +257,10 @@
 				A9334D19238FA3F100FE75F3 /* ProfileFriendCollectionViewController.swift */,
 				A9DE6DE423928FCD00EFAA81 /* ProfileFriendCell.swift */,
 			);
-			path = "Friends and Profile friend";
+			path = "Friends and Profile friend screen";
 			sourceTree = "<group>";
 		};
-		A9C729A12397ABFA00363C2D /* Group and Global group */ = {
+		A9C729A12397ABFA00363C2D /* Group and Global group screen */ = {
 			isa = PBXGroup;
 			children = (
 				A9D5D331238E968300581A9B /* GroupTableViewController.swift */,
@@ -230,16 +268,16 @@
 				A9D5D333238EB02B00581A9B /* GlobalGroupTableViewController.swift */,
 				A9AD66C42392E6410059A046 /* GlobalGroupCell.swift */,
 			);
-			path = "Group and Global group";
+			path = "Group and Global group screen";
 			sourceTree = "<group>";
 		};
-		A9C729A22397AC3F00363C2D /* Main and Great Password */ = {
+		A9C729A22397AC3F00363C2D /* Main and Great Password screen */ = {
 			isa = PBXGroup;
 			children = (
 				A9C8EEE223894F3500276B94 /* LoginViewController.swift */,
 				A9AD66C623939DFA0059A046 /* GreatPasswordController.swift */,
 			);
-			path = "Main and Great Password";
+			path = "Main and Great Password screen";
 			sourceTree = "<group>";
 		};
 		A9C8EED223894F3500276B94 = {
@@ -264,15 +302,13 @@
 			isa = PBXGroup;
 			children = (
 				A9951C7E23CDC4C9001648A8 /* Service */,
+				A996BD4423E0350A0043498D /* Database */,
 				A9BE209723B4BCA800BD8C57 /* Indicator */,
 				A9AD11EA239E8C7100F28D0E /* Model */,
 				A9AD11D32397F81A00F28D0E /* UICustom */,
-				A9C729A02397ABCA00363C2D /* Friends and Profile friend */,
-				A9C729A12397ABFA00363C2D /* Group and Global group */,
-				A9C729A22397AC3F00363C2D /* Main and Great Password */,
-				A94E7C4B23A2165400D0DB89 /* News feed screen */,
-				A9C8EEDE23894F3500276B94 /* AppDelegate.swift */,
+				A996BD4323DF5D250043498D /* All screen */,
 				A9C8EEE023894F3500276B94 /* SceneDelegate.swift */,
+				A9C8EEDE23894F3500276B94 /* AppDelegate.swift */,
 				A9C8EEE423894F3500276B94 /* Main.storyboard */,
 				A9C8EEE723894F3700276B94 /* Assets.xcassets */,
 				A9C8EEE923894F3700276B94 /* LaunchScreen.storyboard */,
@@ -414,12 +450,15 @@
 				A91ED0F223C850E400D9D4B7 /* Session.swift in Sources */,
 				A9AD66C52392E6410059A046 /* GlobalGroupCell.swift in Sources */,
 				A9AD11D723980ADD00F28D0E /* CustomPhoto.swift in Sources */,
+				A996BD4923E052910043498D /* GroupsRepository.swift in Sources */,
 				A94E7C6323A26D0700D0DB89 /* NewViewController.swift in Sources */,
 				A9C8EEE323894F3500276B94 /* LoginViewController.swift in Sources */,
 				A9334D1A238FA3F100FE75F3 /* ProfileFriendCollectionViewController.swift in Sources */,
 				A9FA9D8223D6DF45002172DC /* GroupRealm.swift in Sources */,
 				A9D5D332238E968300581A9B /* GroupTableViewController.swift in Sources */,
+				A996BD4D23E15D810043498D /* CommonResponse.swift in Sources */,
 				A95EB95323DC7D920074E99E /* PhotoCollectionViewCell.swift in Sources */,
+				A996BD4723E035990043498D /* FriendsRepository.swift in Sources */,
 				A9BE209B23B4C15A00BD8C57 /* IndicatorLoad.swift in Sources */,
 				A94E7C6723A280EB00D0DB89 /* CustomCommentButton.swift in Sources */,
 				A9C8EEDF23894F3500276B94 /* AppDelegate.swift in Sources */,
@@ -434,6 +473,7 @@
 				A95EB95723DC98E50074E99E /* CustomCollectionViewLayout.swift in Sources */,
 				A9AD11F0239E8CC200F28D0E /* Friend.swift in Sources */,
 				A9AD11DF239BF69F00F28D0E /* CustomLikeButton.swift in Sources */,
+				A996BD4B23E052A90043498D /* PhotosRepository.swift in Sources */,
 				A9AD11E8239E832F00F28D0E /* FriendTableViewController.swift in Sources */,
 				A9951C8023CDC4F2001648A8 /* VkService.swift in Sources */,
 				A9DE6DDE239270C800EFAA81 /* GroupCell.swift in Sources */,

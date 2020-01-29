@@ -1,16 +1,6 @@
 
 import RealmSwift
 
-class ResponsePhoto: Decodable {
-    var response: ItemsPhoto
-}
-
-class ItemsPhoto: Decodable {
-    var count: Int
-    var items: [Photo]
-}
-
-
 class Photo: Object, Decodable {
     
     var id = 0
@@ -58,7 +48,6 @@ class Photo: Object, Decodable {
         
         var sizePhotoValue = try photoProfileConteiner.nestedUnkeyedContainer(forKey: .sizes)
         let firstSizePhoto = try sizePhotoValue.nestedContainer(keyedBy: SizeKeys.self)
-        //self.type = try firstSizePhoto.decode(String.self, forKey: .type) не могу понять как другой формат скачать фотографий
         self.url = try firstSizePhoto.decode(String.self, forKey: .url)
         
         if photoProfileConteiner.contains(.likes) {

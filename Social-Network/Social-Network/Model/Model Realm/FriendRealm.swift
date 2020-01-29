@@ -11,21 +11,21 @@ class FriendRealm: Object {
     @objc dynamic var avatar = ""
     @objc dynamic var cityName = ""
     
-    let friends = List<Friends>()
+    let friends = List<Friend>()
     
-    func addFriend(id: Int, firstName: String, lastName: String, online: Int, avatar: String, cityName: String) {
-        let realm = try! Realm()
-        let friend = FriendRealm()
+    override class func primaryKey() -> String? {
+        return "id"
+    }
+    
+    func toModel() -> Friend {
+        let friend = Friend()
         friend.id = id
         friend.firstName = firstName
         friend.lastName = lastName
-        friend.online = online
         friend.avatar = avatar
+        friend.online = online
         friend.cityName = cityName
-        
-        try! realm.write {
-            realm.add(friend)
-        }
+        return friend
     }
     
     func getFriend(id: Int) -> FriendRealm? {

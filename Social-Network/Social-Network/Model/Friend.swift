@@ -1,15 +1,7 @@
 import RealmSwift
 
-class ResponseFriend: Decodable {
-    var response: ItemsFriend
-}
 
-class ItemsFriend: Decodable {
-    var count: Int
-    var items: [Friends]
-}
-
-class Friends: Object, Decodable{
+class Friend: Object, Decodable{
     
      var id = 0
      var firstName = ""
@@ -17,7 +9,6 @@ class Friends: Object, Decodable{
      var avatar = ""
      var online = 0
      var cityName = ""
-    
     
     enum CodingKeys: String, CodingKey {
         case id
