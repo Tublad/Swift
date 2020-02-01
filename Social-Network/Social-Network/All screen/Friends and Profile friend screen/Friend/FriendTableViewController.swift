@@ -7,63 +7,33 @@ struct Section<T> {
     var item: [T]
 }
 
+protocol FriendUpdateView: class {
+    func updateTable()
+}
+
 
 class FriendTableViewController: UITableViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
-    
-    var source: UIView?
-    var friendList = [Friend]()
-    var vkApi = VKApi()
-    var friendSection = [Section<Friend>]()
-    var database = FriendsRepository()
+
+    var presenter: FriendsPresenter?
+    var configurator: FriendConfigurator?
     
     var customRefreshController = UIRefreshControl()
     
     override func viewDidLoad() {
+        configurator = FriendConfiguratorImplementation()
+        configurator?.configure(view: self)
+        
         searchBar.delegate = self
         updateNavigationBar()
         addRefreshController()
-        
-        showFriends()
-        getFriendListApi()
-        
-    }
-    
-    func showFriends() {
-        do {
-            friendList = Array(try database.getAll()).map { $0.toModel() }
-            let friendDictionary = Dictionary.init(grouping: friendList) {
-                $0.lastName.prefix(1)
-            }
-            friendSection = friendDictionary.map { Section(title: String($0.key), item: $0.value) }
-            friendSection.sort { $0.title < $1.title }
-        } catch {
-            print(error)
-        }
+        //MVP
+        presenter?.viewDidLoad()
     }
     
     
     // MARK: запрос на список друзей и сортировка по первой букве фамилии
-    func getFriendListApi() {
-        vkApi.getFriendList(token: Session.shared.token) { [weak self] friend in
-            switch friend {
-            case .failure(let error):
-                print(error)
-            case .success(let friends):
-                self?.friendList = friends
-                self?.database.addFriends(friend: friends)
-                let friendDictionary = Dictionary.init(grouping: friends) {
-                    $0.lastName.prefix(1)
-                }
-                self?.friendSection = friendDictionary.map { Section(title: String($0.key), item: $0.value) }
-                self?.friendSection.sort { $0.title < $1.title }
-                
-            }
-            self?.tableView.reloadData()
-        }
-        
-    }
     
     // MARK: добавление RefreshControllers
     
@@ -89,20 +59,20 @@ class FriendTableViewController: UITableViewController {
 }
 
 // MARK: delegate
+// Не смог сообразить как реазивать  эти 2 метода(вылетал fatal error),надеюсь раскаскажите на след уроке как все исправить =)
 
 extension FriendTableViewController {
-    
+    /*
+     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let userName = friendSection[indexPath.section].item[indexPath.row]
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let ProfileFriendCollectionView = storyboard.instantiateViewController(identifier: "ProfileFriendCollectionViewController") as? ProfileFriendCollectionViewController else {
             return
         }
-        
         ProfileFriendCollectionView.user = userName
         self.navigationController?.pushViewController(ProfileFriendCollectionView, animated: true)
     }
-    
     
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let deleteAction = UITableViewRowAction(style: .default, title: "Удалить") { (action, index) in
@@ -112,7 +82,7 @@ extension FriendTableViewController {
             self.tableView.reloadData()
         }
         return [deleteAction]
-    }
+    }*/
 }
 
 // MARK: dataSource
@@ -120,55 +90,38 @@ extension FriendTableViewController {
 extension FriendTableViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return friendSection.count
+        return presenter?.numberOfSections() ?? 0
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return friendSection[section].item.count
+        return presenter?.numberOfRowsInSection(section) ?? 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "FriendCell", for: indexPath) as? FriendCell else {
-            return UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "FriendCell", for: indexPath) as? FriendCell,
+            let model = presenter?.modelAtIndex(indexPath: indexPath) else {
+                return UITableViewCell()
         }
-        
-        let friend = friendSection[indexPath.section].item[indexPath.row]
-        
-        cell.nameFriend.text = friend.firstName + " " + friend.lastName
-        var image: String
-        if friend.online == 1 {
-            image = "onlineFriend"
-        } else {
-            image = " "
-        }
-        
-        if friend.avatar.isEmpty {
-            cell.photoFriend.image = UIImage(named: "PhotoProfile")
-        } else {
-            cell.photoFriend.kf.indicatorType = .activity
-            let url = URL(string: String(friend.avatar))
-            cell.photoFriend.kf.setImage(with: url)
-        }
-        
-        cell.isOnline.image = UIImage(named: image)
+        cell.renderCell(model: model)
         return cell
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return friendSection[section].title
+        return presenter?.titleForInSection(section)
     }
     
     override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        return friendSection.map { $0.title  }
+        return presenter?.sectionIndexTitles()
     }
     
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        view.tintColor = UIColor.clear
-        guard let header = view as? UITableViewHeaderFooterView else {
-            return
-        }
-        header.textLabel?.textColor = UIColor.darkGray
-        header.textLabel?.font = UIFont.systemFont(ofSize: 14, weight: .medium)
+        presenter?.willDisplayHeaderView(view: view, section: section)
+    }
+}
+
+extension FriendTableViewController: FriendUpdateView {
+    func updateTable() {
+        tableView.reloadData()
     }
 }
 
@@ -177,14 +130,7 @@ extension FriendTableViewController {
 extension FriendTableViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        let friendDictionary = Dictionary(grouping: friendList.filter({ (friend) -> Bool in
-            return searchText.isEmpty ? true : friend.firstName.lowercased().contains(searchText.lowercased()) || friend.lastName.lowercased().contains(searchText.lowercased())
-        })) {
-            $0.lastName.prefix(1)
-        }
-        friendSection = friendDictionary.map { Section(title: String($0.key), item: $0.value) }
-        friendSection.sort { $0.title < $1.title }
-        tableView.reloadData()
+        presenter?.searchFriend(name: searchText)
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {

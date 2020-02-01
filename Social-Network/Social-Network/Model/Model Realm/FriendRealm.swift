@@ -27,9 +27,4 @@ class FriendRealm: Object {
         friend.cityName = cityName
         return friend
     }
-    
-    func getFriend(id: Int) -> FriendRealm? {
-        let realm = try! Realm()
-        return realm.objects(FriendRealm.self).filter("id == %@", id).first
-    }
 }

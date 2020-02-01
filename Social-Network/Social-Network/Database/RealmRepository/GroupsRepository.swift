@@ -50,4 +50,9 @@ class GroupsRepository {
             print(error)
         }
     }
+    
+    func getGroup(id: Int) -> GroupRealm? {
+        let realm = try! Realm()
+        return realm.objects(GroupRealm.self).filter("id == %@", id).first
+    }
 }

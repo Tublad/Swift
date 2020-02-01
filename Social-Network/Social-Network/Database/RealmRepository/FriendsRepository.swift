@@ -1,8 +1,15 @@
 
 import RealmSwift
 
-class FriendsRepository {
-    
+protocol FriendSource {
+    func getAll() throws -> Results<FriendRealm>
+    func addFriends(friends: [Friend])
+    func addFriend(friend: Friend)
+    func getFriend(id: Int) -> FriendRealm?
+}
+
+class FriendsRepository: FriendSource {
+   
     func getAll() throws -> Results<FriendRealm> {
         do {
             let realm = try Realm()
@@ -12,18 +19,18 @@ class FriendsRepository {
         }
     }
     
-    func addFriends(friend: [Friend]) {
+    func addFriends(friends: [Friend]) {
         do {
             let realm = try Realm()
             try realm.write {
                 var friendRealmToAdd = [FriendRealm]()
-                friend.forEach { friends in
+                friends.forEach { friend in
                     let friendRealm = FriendRealm()
-                    friendRealm.id = friends.id
-                    friendRealm.firstName = friends.firstName
-                    friendRealm.lastName = friends.lastName
-                    friendRealm.avatar = friends.avatar
-                    friendRealm.online = friends.online
+                    friendRealm.id = friend.id
+                    friendRealm.firstName = friend.firstName
+                    friendRealm.lastName = friend.lastName
+                    friendRealm.avatar = friend.avatar
+                    friendRealm.online = friend.online
                     friendRealmToAdd.append(friendRealm)
                 }
                 realm.add(friendRealmToAdd, update: .modified)
@@ -50,5 +57,10 @@ class FriendsRepository {
         } catch {
             print(error)
         }
+    }
+    
+    func getFriend(id: Int) -> FriendRealm? {
+        let realm = try! Realm()
+        return realm.objects(FriendRealm.self).filter("id == %@", id).first
     }
 }

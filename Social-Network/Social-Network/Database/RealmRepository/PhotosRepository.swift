@@ -1,6 +1,13 @@
 import RealmSwift
 
-class PhotosRepository {
+protocol PhotoSource {
+    func getAll() throws -> Results<PhotoRealm>
+    func addPhotos(photos: [Photo])
+    func addPhoto(photo: Photo)
+    func getPhoto(userId: Int) -> PhotoRealm?
+}
+
+class PhotosRepository: PhotoSource {
     
     func getAll() throws -> Results<PhotoRealm> {
         do {
@@ -53,5 +60,10 @@ class PhotosRepository {
         } catch {
             print(error)
         }
+    }
+    
+    func getPhoto(userId: Int) -> PhotoRealm? {
+        let realm = try! Realm()
+        return realm.objects(PhotoRealm.self).filter("owner_id == %@", userId).first
     }
 }

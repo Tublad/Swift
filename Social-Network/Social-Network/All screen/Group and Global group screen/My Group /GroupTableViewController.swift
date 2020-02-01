@@ -1,17 +1,21 @@
 
 import UIKit
 import Kingfisher
+import RealmSwift
 
 class GroupTableViewController: UITableViewController {
     
-    var groupList = [Group]()
+   // var groupList = [Group]()
     var vkApi = VKApi()
     var database = GroupsRepository()
+    
+    var groupResults: Results<GroupRealm>!
+    var token: NotificationToken?
     
     var customRefreshController = UIRefreshControl()
     
     private let searchController = UISearchController(searchResultsController: nil)
-    private var filteredGroup = [Group]()
+    private var filteredGroup: [GroupRealm]!
     
     private var searchBarIsEmpty: Bool {
         guard let text = searchController.searchBar.text else {
@@ -34,7 +38,25 @@ class GroupTableViewController: UITableViewController {
     
     func showGroups() {
         do {
-            groupList = Array(try database.getAll()).map { $0.toModel() }
+          //  groupList = Array(try database.getAll()).map { $0.toModel() }
+            
+            groupResults = try database.getAll()
+            
+            token = groupResults.observe { results in
+                switch results {
+                case .error(let error):
+                    print(error)
+                    break
+                case .initial(let groups):
+                    self.tableView.reloadData()
+                case let .update(_, deletions, insertions, modifications):
+                    self.tableView.beginUpdates()
+                    self.tableView.deleteRows(at: deletions.map { IndexPath(row: $0, section: 0) }, with: .none)
+                    self.tableView.insertRows(at: insertions.map { IndexPath(row: $0, section: 0) }, with: .none)
+                    self.tableView.reloadRows(at: modifications.map { IndexPath(row: $0, section: 0) }, with: .none)
+                    self.tableView.endUpdates()
+                }
+            }
         } catch {
             print(error)
         }
@@ -47,9 +69,9 @@ class GroupTableViewController: UITableViewController {
             case .failure(let error):
                 print(error)
             case .success(let group):
-                self?.groupList = group
+               // self?.groupList = group
                 self?.database.addGroups(groups: group)
-                self?.tableView.reloadData()
+               // self?.tableView.reloadData()
             }
         }
         
@@ -84,51 +106,47 @@ class GroupTableViewController: UITableViewController {
     
     @IBAction func addGroup(segue: UIStoryboardSegue) {
         if segue.identifier == "addGroup" {
+            /*
             guard let globalGroupController = segue.source as? GlobalGroupTableViewController else {
                 return
             }
-            if let indexPath = globalGroupController.tableView.indexPathForSelectedRow {
+           if let indexPath = globalGroupController.tableView.indexPathForSelectedRow {
                 
                 let group: Group = globalGroupController.globalGroupList[indexPath.row]
-                if !groupList.contains(where: { (element) -> Bool in
+                if !groupResults.contains(where: { (element) -> Bool in
                     if group.name == element.name {
                         return true
                     } else {
                         return false
                     }}){
-                    groupList.append(group)
+                    groupResults.realm?.add(group)
                     tableView.reloadData()
                 }
-            }
+            }*/
         }
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        token?.invalidate()
+    }
 }
 
 // MARK: delegate
 
 extension GroupTableViewController {
     
-    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+ /*   override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let deleteAction = UITableViewRowAction(style: .default, title: "Удалить") { (action,index)  in
             if self.isFiltering {
-                let group = self.filteredGroup.remove(at: indexPath.row)
-                var indexes = 0
-                for element in self.groupList {
-                    if element.name == group.name {
-                        self.groupList.remove(at: indexes)
-                        break
-                    }
-                    indexes += 1
-                }
+                self.filteredGroup.realm?.delete(self.groupResults[indexPath.row])
             } else {
-                self.groupList.remove(at: indexPath.row)
+                self.groupResults.realm?.delete(self.groupResults[indexPath.row])
             }
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
         return [deleteAction]
     }
-    
+    */
 }
 
 // MARK: dataSource
@@ -143,7 +161,7 @@ extension GroupTableViewController {
         if isFiltering {
             return filteredGroup.count
         }
-        return groupList.count
+        return groupResults.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -151,11 +169,11 @@ extension GroupTableViewController {
                                                        for: indexPath) as? GroupCell else {
             return UITableViewCell()
         }
-        var group: Group
+        var group: GroupRealm
         if isFiltering {
             group = filteredGroup[indexPath.row]
         } else {
-            group = groupList[indexPath.row]
+            group = groupResults[indexPath.row]
         }
         
         if group.imageGroup.isEmpty {
@@ -187,7 +205,7 @@ extension GroupTableViewController: UISearchResultsUpdating {
     }
     
     private func filterContentForSearchText(_ searchText: String, indexPath: IndexPath) {
-        filteredGroup = groupList.filter({ (group: Group) -> Bool in
+        filteredGroup = Array(groupResults).filter({ (group: GroupRealm ) -> Bool in
             return group.name.lowercased().contains(searchText.lowercased())
         })
         tableView.reloadData()

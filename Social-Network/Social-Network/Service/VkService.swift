@@ -50,6 +50,7 @@ class VKApi {
                       "order": "name",
                       "v": "5.103",
                       "fields": "city,domain,photo_100"]
+        
         requestServer(requestURL: requestURL, method: .post, params: params) { completion($0) }
         
     }

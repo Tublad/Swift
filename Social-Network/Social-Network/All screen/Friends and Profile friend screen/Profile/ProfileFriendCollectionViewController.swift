@@ -5,7 +5,7 @@ import ImageViewer_swift
 
 class ProfileFriendCollectionViewController: UICollectionViewController {
     
-    var user: Friend?
+    var user: FriendRealm?
     var photoArray = [Photo]()
     var vkApi = VKApi()
     var database = PhotosRepository()
@@ -13,8 +13,8 @@ class ProfileFriendCollectionViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         updateNavigationBar()
+        
         getPhotoUserApi()
         showPhoto()
         self.title = "Фотографии"
