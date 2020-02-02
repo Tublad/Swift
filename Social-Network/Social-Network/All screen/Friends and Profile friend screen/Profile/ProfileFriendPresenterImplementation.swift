@@ -10,6 +10,7 @@ protocol ProfileFriendPresenter {
     func numberOfSections() -> Int
     func numberOfRowsInSection() -> Int
     func modelAtIndex(indexPath: IndexPath) -> PhotoRealm?
+    func getPhotoArray() -> Results<PhotoRealm>
 }
 
 class ProfileFriendPresenterImplementation: ProfileFriendPresenter {
@@ -74,6 +75,10 @@ extension ProfileFriendPresenterImplementation {
     
     func modelAtIndex(indexPath: IndexPath) -> PhotoRealm? {
         return photoArray[indexPath.row]
+    }
+    
+    func getPhotoArray() -> Results<PhotoRealm> {
+        return photoArray
     }
 }
 

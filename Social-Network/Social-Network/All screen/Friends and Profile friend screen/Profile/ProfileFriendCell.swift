@@ -18,7 +18,6 @@ class ProfileFriendCell: UICollectionViewCell {
         } else {
             friendPhoto.image = UIImage()
         }
-        friendPhoto.setupImageViewer()
     }
     
 }
