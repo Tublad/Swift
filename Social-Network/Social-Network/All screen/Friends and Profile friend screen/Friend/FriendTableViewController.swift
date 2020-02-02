@@ -18,6 +18,7 @@ class FriendTableViewController: UITableViewController {
 
     var presenter: FriendsPresenter?
     var configurator: FriendConfigurator?
+    var repository: FriendSource?
     
     var customRefreshController = UIRefreshControl()
     
@@ -59,30 +60,30 @@ class FriendTableViewController: UITableViewController {
 }
 
 // MARK: delegate
-// Не смог сообразить как реазивать  эти 2 метода(вылетал fatal error),надеюсь раскаскажите на след уроке как все исправить =)
+// Один смог сообразить как реазивать, а 2 метод(вылетал fatal error),надеюсь расскажите на след уроке как все исправить =)
 
 extension FriendTableViewController {
-    /*
      
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let userName = friendSection[indexPath.section].item[indexPath.row]
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let ProfileFriendCollectionView = storyboard.instantiateViewController(identifier: "ProfileFriendCollectionViewController") as? ProfileFriendCollectionViewController else {
             return
         }
-        ProfileFriendCollectionView.user = userName
+        ProfileFriendCollectionView.user = presenter?.getSortedUser(indexPath: indexPath)
+        ProfileFriendCollectionView.configurator = ProfileConfigurationImplementation()
         self.navigationController?.pushViewController(ProfileFriendCollectionView, animated: true)
     }
-    
+    // c удалением совсем не понятно (((
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        // let friendSection = presenter?.getSortedUser(indexPath: indexPath)
         let deleteAction = UITableViewRowAction(style: .default, title: "Удалить") { (action, index) in
-            self.friendList.removeAll {
-                $0.firstName == self.friendSection[indexPath.section].item[indexPath.row].firstName
+            if let friendList = self.presenter?.getUserList(indexPath: indexPath) {
+                self.repository?.deleteFriend(id: friendList.id)
+                self.tableView.reloadData()
             }
-            self.tableView.reloadData()
         }
         return [deleteAction]
-    }*/
+    }
 }
 
 // MARK: dataSource

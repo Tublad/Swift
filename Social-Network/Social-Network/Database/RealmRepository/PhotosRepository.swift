@@ -4,7 +4,7 @@ protocol PhotoSource {
     func getAll() throws -> Results<PhotoRealm>
     func addPhotos(photos: [Photo])
     func addPhoto(photo: Photo)
-    func getPhoto(userId: Int) -> PhotoRealm?
+    func getPhoto(userId: Int) throws -> Results<PhotoRealm>
 }
 
 class PhotosRepository: PhotoSource {
@@ -62,8 +62,12 @@ class PhotosRepository: PhotoSource {
         }
     }
     
-    func getPhoto(userId: Int) -> PhotoRealm? {
-        let realm = try! Realm()
-        return realm.objects(PhotoRealm.self).filter("owner_id == %@", userId).first
+    func getPhoto(userId: Int) throws -> Results<PhotoRealm> {
+        do {
+            let realm = try Realm()
+            return realm.objects(PhotoRealm.self).filter("userId == %@", userId)
+        } catch {
+            throw(error)
+        }
     }
 }

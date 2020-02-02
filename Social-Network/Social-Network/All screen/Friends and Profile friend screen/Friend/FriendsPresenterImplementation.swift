@@ -14,6 +14,8 @@ protocol FriendsPresenter {
     func titleForInSection(_ section: Int) -> String?
     func sectionIndexTitles() -> [String]?
     func willDisplayHeaderView(view: UIView, section: Int)
+    func getSortedUser(indexPath: IndexPath) -> FriendRealm?
+    func getUserList(indexPath: IndexPath) -> FriendRealm?
 }
 
 class FriendsPresenterImplementation: FriendsPresenter {
@@ -108,5 +110,13 @@ extension FriendsPresenterImplementation {
         }
         header.textLabel?.textColor = UIColor.darkGray
         header.textLabel?.font = UIFont.systemFont(ofSize: 14, weight: .medium)
+    }
+    
+    func getSortedUser(indexPath: IndexPath) -> FriendRealm? {
+        return sortedFriendsResults[indexPath.section].item[indexPath.row]
+    }
+    
+    func getUserList(indexPath: IndexPath) -> FriendRealm? {
+        return friendsResults[indexPath.row]
     }
 }
