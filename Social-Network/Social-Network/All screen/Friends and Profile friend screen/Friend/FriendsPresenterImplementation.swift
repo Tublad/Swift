@@ -15,7 +15,7 @@ protocol FriendsPresenter {
     func sectionIndexTitles() -> [String]?
     func willDisplayHeaderView(view: UIView, section: Int)
     func getSortedUser(indexPath: IndexPath) -> FriendRealm?
-    func getUserList(indexPath: IndexPath) -> FriendRealm?
+    func getUser(indexPath: IndexPath) -> FriendRealm?
 }
 
 class FriendsPresenterImplementation: FriendsPresenter {
@@ -116,7 +116,8 @@ extension FriendsPresenterImplementation {
         return sortedFriendsResults[indexPath.section].item[indexPath.row]
     }
     
-    func getUserList(indexPath: IndexPath) -> FriendRealm? {
+    func getUser(indexPath: IndexPath) -> FriendRealm? {
         return friendsResults[indexPath.row]
     }
+    
 }
