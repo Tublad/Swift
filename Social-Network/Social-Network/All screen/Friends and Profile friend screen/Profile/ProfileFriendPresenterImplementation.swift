@@ -10,11 +10,11 @@ protocol ProfileFriendPresenter {
     func numberOfSections() -> Int
     func numberOfRowsInSection() -> Int
     func modelAtIndex(indexPath: IndexPath) -> PhotoRealm?
-    func getPhotoArray() -> Results<PhotoRealm>
+    func getUrlArray() -> [URL]
 }
 
 class ProfileFriendPresenterImplementation: ProfileFriendPresenter {
-
+    
     var user: FriendRealm?
     
     private var vkApi = VKApi()
@@ -33,9 +33,9 @@ class ProfileFriendPresenterImplementation: ProfileFriendPresenter {
         self.database = database
         self.view = view
     }
- 
+    
     //MARK: попробывать добавить фотографии через id 
- 
+    
     private func getPhotoFromDatabase() {
         guard let id = user?.id else { return }
         do {
@@ -45,7 +45,7 @@ class ProfileFriendPresenterImplementation: ProfileFriendPresenter {
         }
         view?.updateView()
     }
- 
+    
     private func getPhotoFromApi() {
         guard let id = user?.id else { return }
         vkApi.getPhotos(token: Session.shared.token, userId: String(id)) { [weak self] photo in
@@ -57,9 +57,7 @@ class ProfileFriendPresenterImplementation: ProfileFriendPresenter {
                 self?.getPhotoFromDatabase()
             }
         }
-        
     }
-    
 }
 
 extension ProfileFriendPresenterImplementation {
@@ -69,18 +67,20 @@ extension ProfileFriendPresenterImplementation {
     }
     
     func numberOfRowsInSection() -> Int {
-       return photoArray.count
-
+        return photoArray.count
+        
     }
     
     func modelAtIndex(indexPath: IndexPath) -> PhotoRealm? {
         return photoArray[indexPath.row]
     }
     
-    func getPhotoArray() -> Results<PhotoRealm> {
-        return photoArray
+    func getUrlArray() -> [URL] {
+        return photoArray.map { URL(string: $0.url)! }
     }
+    
 }
+
 
 
 

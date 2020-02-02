@@ -77,16 +77,7 @@ extension FriendTableViewController {
     // c удалением совсем не понятно (((
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let deleteAction = UITableViewRowAction(style: .default, title: "Удалить") { (action, index) in
-            if let user = self.presenter?.getUser(indexPath: indexPath) {
-                do {
-                    let realm = try Realm()
-                    realm.beginWrite()
-                    realm.delete(user)
-                    realm.cancelWrite()
-                } catch {
-                    print(error)
-                }
-            }
+               
             self.tableView.reloadData()
         }
         return [deleteAction]

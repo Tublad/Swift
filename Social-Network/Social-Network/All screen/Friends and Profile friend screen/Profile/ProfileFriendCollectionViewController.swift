@@ -49,12 +49,12 @@ extension ProfileFriendCollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProfileFriendCell", for: indexPath) as? ProfileFriendCell,
-              let model = presenter?.modelAtIndex(indexPath: indexPath),
-              let photoArray = presenter?.getPhotoArray() else {
+            let model = presenter?.modelAtIndex(indexPath: indexPath),
+            let photoArray = presenter?.getUrlArray() else {
                 return UICollectionViewCell()
         }
         cell.renderCell(model: model)
-        cell.friendPhoto.setupImageViewer(urls: photoArray.map { URL(string: $0.url)!}, initialIndex: indexPath.item, options: [.theme(.dark)])
+        cell.friendPhoto.setupImageViewer(urls: photoArray, initialIndex: indexPath.item, options: [.theme(.dark)])
         return cell
     }
 }

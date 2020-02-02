@@ -23,8 +23,6 @@ class FriendsPresenterImplementation: FriendsPresenter {
     private var vkApi: VKApi
     private var database: FriendSource
     
-    private var token: NotificationToken?
-    
     private var friendsResults: Results<FriendRealm>!
     private var sortedFriendsResults = [Section<FriendRealm>]()
     
@@ -55,7 +53,7 @@ class FriendsPresenterImplementation: FriendsPresenter {
     private func getUsersFromDatabase() {
         do {
             friendsResults = try database.getAll()
-    
+            
             let friendDictionary = Dictionary.init(grouping: friendsResults) {
                 $0.lastName.prefix(1)
             }
