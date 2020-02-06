@@ -8,8 +8,8 @@ struct Section<T> {
     var item: [T]
 }
 
-protocol FriendUpdateView: class {
-    func updateTable()
+protocol UpdateView: class {
+    func updateView()
 }
 
 
@@ -61,23 +61,23 @@ class FriendTableViewController: UITableViewController {
 }
 
 // MARK: delegate
-// Один смог сообразить как реазивать, а 2 метод(вылетал fatal error),надеюсь расскажите на след уроке как все исправить =)
 
 extension FriendTableViewController {
      
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        guard let ProfileFriendCollectionView = storyboard.instantiateViewController(identifier: "ProfileFriendCollectionViewController") as? ProfileFriendCollectionViewController else {
+        guard let photoFriendCollectionView = storyboard.instantiateViewController(identifier: "PhotoFriendCollectionViewController") as? PhotoFriendCollectionViewController else {
             return
         }
-        ProfileFriendCollectionView.user = presenter?.getSortedUser(indexPath: indexPath)
-        ProfileFriendCollectionView.configurator = ProfileConfigurationImplementation()
-        self.navigationController?.pushViewController(ProfileFriendCollectionView, animated: true)
+        photoFriendCollectionView.user = presenter?.getSortedUser(indexPath: indexPath)
+        photoFriendCollectionView.configurator = PhotoConfigurationImplementation()
+        self.navigationController?.pushViewController(photoFriendCollectionView, animated: true)
     }
-    // c удалением совсем не понятно (((
+    
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let deleteAction = UITableViewRowAction(style: .default, title: "Удалить") { (action, index) in
-               
+               // Hmmmmmm fix me =)
+            
             self.tableView.reloadData()
         }
         return [deleteAction]
@@ -118,8 +118,8 @@ extension FriendTableViewController {
     }
 }
 
-extension FriendTableViewController: FriendUpdateView {
-    func updateTable() {
+extension FriendTableViewController: UpdateView {
+    func updateView() {
         tableView.reloadData()
     }
 }

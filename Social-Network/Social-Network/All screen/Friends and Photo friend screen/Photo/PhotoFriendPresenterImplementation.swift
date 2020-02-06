@@ -2,9 +2,7 @@
 import UIKit
 import RealmSwift
 
-protocol ProfileFriendPresenter {
-    var user: FriendRealm? { get set}
-    
+protocol PhotoFriendPresenter {
     func viewDidLoad()
     
     func numberOfSections() -> Int
@@ -13,25 +11,25 @@ protocol ProfileFriendPresenter {
     func getUrlArray() -> [URL]
 }
 
-class ProfileFriendPresenterImplementation: ProfileFriendPresenter {
+class PhotoFriendPresenterImplementation: PhotoFriendPresenter {
     
     var user: FriendRealm?
-    
     private var vkApi = VKApi()
-    private var database = PhotosRepository()
+    private var database: PhotoSource
     private var photoArray: Results<PhotoRealm>!
-    private var configurator: ProfileConfiguration?
+    private var configurator: PhotoConfiguration?
     
-    private weak var view: ProfileViewUpdate?
+    private weak var view: UpdateView?
     
     func viewDidLoad() {
         getPhotoFromDatabase()
         getPhotoFromApi()
     }
     
-    init(database:PhotosRepository, view: ProfileViewUpdate) {
+    init(database: PhotoSource, view: UpdateView, user: FriendRealm?) {
         self.database = database
         self.view = view
+        self.user = user
     }
     
     //MARK: попробывать добавить фотографии через id 
@@ -60,7 +58,7 @@ class ProfileFriendPresenterImplementation: ProfileFriendPresenter {
     }
 }
 
-extension ProfileFriendPresenterImplementation {
+extension PhotoFriendPresenterImplementation {
     
     func numberOfSections() -> Int {
         return 1

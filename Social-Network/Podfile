@@ -7,4 +7,5 @@ target 'Social-Network' do
      pod 'Alamofire'
      pod 'RealmSwift'
      pod 'SwiftKeychainWrapper'
+     pod 'Firebase/Analytics'
 end

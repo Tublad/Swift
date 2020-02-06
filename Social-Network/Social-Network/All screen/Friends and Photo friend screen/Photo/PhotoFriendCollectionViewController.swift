@@ -3,28 +3,22 @@ import UIKit
 import Kingfisher
 import ImageViewer_swift
 
-protocol ProfileViewUpdate: class {
-    func updateView()
-}
-
-class ProfileFriendCollectionViewController: UICollectionViewController {
+class PhotoFriendCollectionViewController: UICollectionViewController {
     
     var user: FriendRealm?
-    var presenter: ProfileFriendPresenter?
-    var configurator: ProfileConfiguration?
+    var presenter: PhotoFriendPresenter?
+    var configurator: PhotoConfiguration?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         updateNavigationBar()
-        configurator?.configure(view: self)
+        configurator?.configure(view: self, user: user)
         
-        presenter?.user = user
         presenter?.viewDidLoad()
         self.title = "Фотографии"
         
     }
-    
     // MARK: расширение NavigationBar
     
     func updateNavigationBar() {
@@ -37,7 +31,7 @@ class ProfileFriendCollectionViewController: UICollectionViewController {
 
 // MARK: dataSource
 
-extension ProfileFriendCollectionViewController {
+extension PhotoFriendCollectionViewController {
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return presenter?.numberOfSections() ?? 0
@@ -48,7 +42,7 @@ extension ProfileFriendCollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProfileFriendCell", for: indexPath) as? ProfileFriendCell,
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoFriendCell", for: indexPath) as? PhotoFriendCell,
             let model = presenter?.modelAtIndex(indexPath: indexPath),
             let photoArray = presenter?.getUrlArray() else {
                 return UICollectionViewCell()
@@ -59,7 +53,7 @@ extension ProfileFriendCollectionViewController {
     }
 }
 
-extension ProfileFriendCollectionViewController: ProfileViewUpdate {
+extension PhotoFriendCollectionViewController: UpdateView {
     func updateView() {
         collectionView.reloadData()
     }

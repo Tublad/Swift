@@ -1,6 +1,13 @@
 import RealmSwift
 
-class GroupsRepository {
+protocol GroupSource {
+    func getAll() throws -> Results<GroupRealm>
+    func addGroups(groups: [Group])
+    func addGroup(group: Group)
+    func getGroup(id: Int) -> GroupRealm?
+}
+
+class GroupsRepository: GroupSource{
     
     func getAll() throws -> Results<GroupRealm> {
         do {

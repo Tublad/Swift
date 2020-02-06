@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import Firebase
 
 @UIApplicationMain
 
@@ -17,10 +18,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        FirebaseApp.configure()
+        
         let config = Realm.Configuration(schemaVersion: 2)
         Realm.Configuration.defaultConfiguration = config
         
-        
+       
         window = UIWindow(frame: CGRect(x: 0,
                                         y: 0,
                                         width: UIScreen.main.bounds.width,
@@ -39,6 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window?.rootViewController = webView
             window?.makeKeyAndVisible()
         }
+        
         return true
     }
 

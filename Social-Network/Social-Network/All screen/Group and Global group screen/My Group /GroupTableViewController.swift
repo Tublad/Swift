@@ -125,10 +125,6 @@ class GroupTableViewController: UITableViewController {
             }*/
         }
     }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        token?.invalidate()
-    }
 }
 
 // MARK: delegate
@@ -208,6 +204,13 @@ extension GroupTableViewController: UISearchResultsUpdating {
         filteredGroup = Array(groupResults).filter({ (group: GroupRealm ) -> Bool in
             return group.name.lowercased().contains(searchText.lowercased())
         })
+        tableView.reloadData()
+    }
+}
+
+
+extension GroupTableViewController: UpdateView {
+    func updateView() {
         tableView.reloadData()
     }
 }

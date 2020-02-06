@@ -26,9 +26,9 @@ class FriendsPresenterImplementation: FriendsPresenter {
     private var friendsResults: Results<FriendRealm>!
     private var sortedFriendsResults = [Section<FriendRealm>]()
     
-    private weak var view: FriendUpdateView?
+    private weak var view: UpdateView?
     
-    init(database: FriendSource, view: FriendUpdateView) {
+    init(database: FriendSource, view: UpdateView) {
         vkApi = VKApi()
         self.database = database
         self.view = view
@@ -47,7 +47,7 @@ class FriendsPresenterImplementation: FriendsPresenter {
         }
         sortedFriendsResults = friendDictionary.map { Section(title: String($0.key), item: $0.value) }
         sortedFriendsResults.sort { $0.title < $1.title }
-        view?.updateTable()
+        view?.updateView()
     }
     
     private func getUsersFromDatabase() {
@@ -59,7 +59,7 @@ class FriendsPresenterImplementation: FriendsPresenter {
             }
             sortedFriendsResults = friendDictionary.map { Section(title: String($0.key), item: $0.value) }
             sortedFriendsResults.sort { $0.title < $1.title }
-            view?.updateTable()
+            view?.updateView()
         } catch {
             print(error)
         }

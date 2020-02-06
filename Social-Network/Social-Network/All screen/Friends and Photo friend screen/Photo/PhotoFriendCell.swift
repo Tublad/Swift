@@ -1,6 +1,6 @@
 import UIKit
 
-class ProfileFriendCell: UICollectionViewCell {
+class PhotoFriendCell: UICollectionViewCell {
     
     @IBOutlet weak var friendPhoto: UIImageView!
     
