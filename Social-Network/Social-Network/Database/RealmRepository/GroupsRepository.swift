@@ -5,6 +5,7 @@ protocol GroupSource {
     func addGroups(groups: [Group])
     func addGroup(group: Group)
     func getGroup(id: Int) -> GroupRealm?
+    func deleteGroup(id: Int)
 }
 
 class GroupsRepository: GroupSource{
@@ -61,5 +62,17 @@ class GroupsRepository: GroupSource{
     func getGroup(id: Int) -> GroupRealm? {
         let realm = try! Realm()
         return realm.objects(GroupRealm.self).filter("id == %@", id).first
+    }
+    
+    func deleteGroup(id: Int) {
+        do {
+            let realm = try Realm()
+            guard let group = getGroup(id: id) else { return }
+            try realm.write {
+                realm.delete(group)
+            }
+        } catch {
+            print(error)
+        }
     }
 }

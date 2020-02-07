@@ -15,7 +15,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
        
-        guard let scene = (scene as? UIWindowScene) else { return }
+    /*    guard let scene = (scene as? UIWindowScene) else { return }
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         window = UIWindow(windowScene: scene)
         
@@ -27,7 +27,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let webView = storyboard.instantiateViewController(withIdentifier: "VkWebViewController")
             window?.rootViewController = webView
             window?.makeKeyAndVisible()
-        }
+        }*/
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

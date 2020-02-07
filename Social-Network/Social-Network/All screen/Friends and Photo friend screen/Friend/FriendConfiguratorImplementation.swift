@@ -12,5 +12,4 @@ class FriendConfiguratorImplementation: FriendConfigurator {
         view.presenter = FriendsPresenterImplementation(database: FriendsRepository(),
                                                         view: view)
     }
-    
 }

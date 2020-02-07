@@ -34,9 +34,6 @@ class FriendTableViewController: UITableViewController {
         presenter?.viewDidLoad()
     }
     
-    
-    // MARK: запрос на список друзей и сортировка по первой букве фамилии
-    
     // MARK: добавление RefreshControllers
     
     func addRefreshController() {
@@ -57,7 +54,6 @@ class FriendTableViewController: UITableViewController {
         backButton.title = ""
         navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
     }
-    
 }
 
 // MARK: delegate
@@ -76,9 +72,7 @@ extension FriendTableViewController {
     
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let deleteAction = UITableViewRowAction(style: .default, title: "Удалить") { (action, index) in
-               // Hmmmmmm fix me =)
-            
-            self.tableView.reloadData()
+            self.presenter?.deleteUser(indexPath: indexPath)
         }
         return [deleteAction]
     }

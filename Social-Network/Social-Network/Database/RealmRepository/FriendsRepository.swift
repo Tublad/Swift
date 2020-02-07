@@ -6,6 +6,7 @@ protocol FriendSource {
     func addFriends(friends: [Friend])
     func addFriend(friend: Friend)
     func getFriend(id: Int) -> FriendRealm?
+    func deleteFriend(id: Int)
 }
 
 class FriendsRepository: FriendSource {
@@ -62,6 +63,18 @@ class FriendsRepository: FriendSource {
     func getFriend(id: Int) -> FriendRealm? {
         let realm = try! Realm()
         return realm.objects(FriendRealm.self).filter("id == %@", id).first
+    }
+    
+    func deleteFriend(id: Int) {
+        do {
+            let realm = try Realm()
+            guard let user = getFriend(id: id) else { return }
+            try realm.write {
+                realm.delete(user)
+            }
+        } catch {
+            print(error)
+        }
     }
     
 }

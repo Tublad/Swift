@@ -8,38 +8,46 @@ protocol GroupsPresenter {
     func searchGroup(name: String)
     
     func numberOfSections() -> Int
-    func numberOfRowsInSection(_ section: Int) -> Int
+    func numberOfRowsInSection() -> Int
     func modelAtIndex(indexPath: IndexPath) -> GroupRealm?
-    
+    func deleteGroup(indexPath: IndexPath)
 }
 
 class GroupsPresenterImplementation: GroupsPresenter {
-    
+
     private var vkApi: VKApi
     private var database: GroupSource
     
+    private weak var view: UpdateView?
+    
     private var groupResults: Results<GroupRealm>!
-    private var sortedFriendsResults: [GroupRealm] = []
+    private var sortedGroupsResults = [GroupRealm]()
     
     func viewDidLoad() {
         getGroupFromDatabase()
         getGroupsApi()
     }
     
-    init(database: GroupSource) {
+    init(database: GroupSource, view: UpdateView) {
         vkApi = VKApi()
         self.database = database
+        self.view = view
     }
     
     func searchGroup(name: String) {
-        sortedFriendsResults = groupResults.filter({ (group: GroupRealm) -> Bool in
-            return group.name.lowercased().contains(name.lowercased())
-        })
+        sortedGroupsResults = Array(groupResults).filter{ (group: GroupRealm) -> Bool in
+            return name.isEmpty ? true : group.name.lowercased().contains(name.lowercased())
+        }
+        view?.updateView()
     }
     
     func getGroupFromDatabase() {
         do {
             groupResults = try database.getAll()
+            sortedGroupsResults = Array(groupResults).sorted { (one, two) in
+                one.name < two.name
+            }
+            view?.updateView()
         } catch {
             print(error)
         }
@@ -65,12 +73,17 @@ extension GroupsPresenterImplementation {
         return 1
     }
     
-    func numberOfRowsInSection(_ section: Int) -> Int {
-        return groupResults.count
+    func numberOfRowsInSection() -> Int {
+        return sortedGroupsResults.count
     }
     
     func modelAtIndex(indexPath: IndexPath) -> GroupRealm? {
-        return groupResults[indexPath.row]
+        return sortedGroupsResults[indexPath.row]
+    }
+    
+    func deleteGroup(indexPath: IndexPath) {
+        database.deleteGroup(id: sortedGroupsResults[indexPath.row].id)
+        getGroupFromDatabase()
     }
 }
 

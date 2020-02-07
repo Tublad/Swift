@@ -16,6 +16,7 @@ protocol FriendsPresenter {
     func willDisplayHeaderView(view: UIView, section: Int)
     func getSortedUser(indexPath: IndexPath) -> FriendRealm?
     func getUser(indexPath: IndexPath) -> FriendRealm?
+    func deleteUser(indexPath: IndexPath)
 }
 
 class FriendsPresenterImplementation: FriendsPresenter {
@@ -116,6 +117,11 @@ extension FriendsPresenterImplementation {
     
     func getUser(indexPath: IndexPath) -> FriendRealm? {
         return friendsResults[indexPath.row]
+    }
+    
+    func deleteUser(indexPath: IndexPath) {
+        database.deleteFriend(id: sortedFriendsResults[indexPath.section].item[indexPath.row].id)
+        getUsersFromDatabase()
     }
     
 }

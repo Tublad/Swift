@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                         width: UIScreen.main.bounds.width,
                                         height: UIScreen.main.bounds.height))
         
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+ /*       let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         // MARK: сохранения данных в keychain через вспомогательную библиотеку SwiftKeychainWrapper             И осуществил переход на другой экран, но он все равно идет на экран авторизации и делает повторную операцию! Как бы понял смысли, но не уверен насколько верно я понял
         
@@ -41,7 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let webView = storyboard.instantiateViewController(withIdentifier: "VkWebViewController")
             window?.rootViewController = webView
             window?.makeKeyAndVisible()
-        }
+        }*/
         
         return true
     }
