@@ -6,11 +6,10 @@ class GlobalGroupTableViewController: UITableViewController {
     
     var customRefreshController = UIRefreshControl()
     
-    var globalGroupList = [Group]()
-    var vkApi = VKApi()
+    var presenter: GlobalGroupsPresenter?
+    var configurator: GlobalGroupsConfiguration?
     
     private let searchController = UISearchController(searchResultsController: nil)
-    private var filteredGroup = [Group]()
     
     private var searchBarIsEmpty: Bool {
         guard let text = searchController.searchBar.text else {
@@ -25,8 +24,14 @@ class GlobalGroupTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        configurator = GlobalGroupsConfigurationImplementation()
+        configurator?.configurator(view: self)
+        
         addSearchBarControl()
         addRefreshController()
+        
+        presenter?.viewDidLoad()
     }
     
     // MARK: настройки и добавление SearchBar
@@ -61,35 +66,30 @@ class GlobalGroupTableViewController: UITableViewController {
 extension GlobalGroupTableViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return presenter?.numberOfSections() ?? 0
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isFiltering {
-            return filteredGroup.count
+            return presenter?.numberOfRowsInSectionSearch() ?? 0
         }
-        return globalGroupList.count
+        return presenter?.numberOfRowsInSection() ?? 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "GlobalGroupCell", for: indexPath) as! GlobalGroupCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "GlobalGroupCell", for: indexPath) as? GlobalGroupCell,
+            let globalList = presenter?.modelAtIndex(indexPath: indexPath),
+            let globalSearchList = presenter?.modelAtIndexSearch(indexPath: indexPath) else { return UITableViewCell() }
         
         var global: Group
         if isFiltering {
-            global = filteredGroup[indexPath.row]
+            global = globalSearchList
         } else {
-            global = globalGroupList[indexPath.row]
+            global = globalList
         }
         
-        cell.globalGroupName.text = global.name
-        
-        if global.imageGroup.isEmpty {
-            cell.imageGlobal.image = UIImage(named: "PhotoProfile")
-        } else {
-            let url = URL(string: String(global.imageGroup))
-            cell.imageGlobal.kf.setImage(with: url)
-        }
+        cell.renderCell(model: global)
         
         return cell
     }
@@ -104,19 +104,12 @@ extension GlobalGroupTableViewController : UISearchResultsUpdating {
     }
     
     private func filterContentForSearchText(_ searchText: String, indexPath: IndexPath) {
-        
-        vkApi.getGroupsSearch(token: Session.shared.token, name: searchText.lowercased()) { [weak self] global in
-            switch global {
-            case .failure(let error):
-                print(error)
-            case .success(let group):
-                self?.globalGroupList = group
-                self?.filteredGroup = group.filter({ (global: Group) -> Bool in
-                    return global.name.lowercased().contains(searchText.lowercased())
-                })
-            }
-            self?.tableView.reloadData()
-        }
+        presenter?.searchGroup(name: searchText)
     }
 }
 
+extension GlobalGroupTableViewController: UpdateView {
+    func updateView() {
+        tableView.reloadData()
+    }
+}

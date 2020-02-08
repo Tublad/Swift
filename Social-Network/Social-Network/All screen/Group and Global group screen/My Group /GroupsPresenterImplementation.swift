@@ -1,5 +1,3 @@
-
-
 import Foundation
 import RealmSwift
 
@@ -11,10 +9,12 @@ protocol GroupsPresenter {
     func numberOfRowsInSection() -> Int
     func modelAtIndex(indexPath: IndexPath) -> GroupRealm?
     func deleteGroup(indexPath: IndexPath)
+    func checkGroup(id: Int) -> Bool
+    func addGroup(group: Group)
 }
 
 class GroupsPresenterImplementation: GroupsPresenter {
-
+    
     private var vkApi: VKApi
     private var database: GroupSource
     
@@ -41,7 +41,7 @@ class GroupsPresenterImplementation: GroupsPresenter {
         view?.updateView()
     }
     
-    func getGroupFromDatabase() {
+    private func getGroupFromDatabase() {
         do {
             groupResults = try database.getAll()
             sortedGroupsResults = Array(groupResults).sorted { (one, two) in
@@ -53,7 +53,7 @@ class GroupsPresenterImplementation: GroupsPresenter {
         }
     }
     
-    func getGroupsApi() {
+    private func getGroupsApi() {
         vkApi.getGroups(token: Session.shared.token) { [weak self] groups in
             switch groups {
             case .failure(let error):
@@ -83,6 +83,20 @@ extension GroupsPresenterImplementation {
     
     func deleteGroup(indexPath: IndexPath) {
         database.deleteGroup(id: sortedGroupsResults[indexPath.row].id)
+        getGroupFromDatabase()
+    }
+    
+    func checkGroup(id: Int) -> Bool {
+        let group = database.getGroup(id: id)
+        if group == nil{
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    func addGroup(group: Group) {
+        database.addGroup(group: group)
         getGroupFromDatabase()
     }
 }

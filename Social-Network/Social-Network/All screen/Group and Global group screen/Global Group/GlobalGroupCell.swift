@@ -16,4 +16,15 @@ class GlobalGroupCell: UITableViewCell {
         
     }
     
+    func renderCell(model: Group) {
+        globalGroupName.text = model.name
+        
+        if model.imageGroup.isEmpty {
+            imageGlobal.image = UIImage(named: "PhotoProfile")
+        } else {
+            let url = URL(string: String(model.imageGroup))
+            imageGlobal.kf.setImage(with: url)
+        }
+    }
+    
 }

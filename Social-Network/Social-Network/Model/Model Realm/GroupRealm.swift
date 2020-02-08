@@ -10,7 +10,7 @@ class GroupRealm: Object {
     @objc dynamic var participant = 0
     @objc dynamic var imageGroup = ""
     
-    let groups = List<Group>()  // если за комментить то все уходит и ничего не показывает 
+    let groups = List<Group>() 
     
     override class func primaryKey() -> String? {
         return "id"

@@ -28,6 +28,8 @@
 		A95EB95323DC7D920074E99E /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95EB95223DC7D920074E99E /* PhotoCollectionViewCell.swift */; };
 		A95EB95523DC88220074E99E /* PhotoCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A95EB95423DC88220074E99E /* PhotoCollectionCell.xib */; };
 		A95EB95723DC98E50074E99E /* CustomCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95EB95623DC98E50074E99E /* CustomCollectionViewLayout.swift */; };
+		A97A209A23EE9D50009C6449 /* GlobalGroupsPresenterImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97A209923EE9D50009C6449 /* GlobalGroupsPresenterImplementation.swift */; };
+		A97A209D23EE9E72009C6449 /* GlobalGroupsConfigurationImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97A209C23EE9E72009C6449 /* GlobalGroupsConfigurationImplementation.swift */; };
 		A9951C8023CDC4F2001648A8 /* VkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9951C7F23CDC4F2001648A8 /* VkService.swift */; };
 		A9951C8323CDC5F8001648A8 /* VkWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9951C8223CDC5F8001648A8 /* VkWebViewController.swift */; };
 		A996BD4723E035990043498D /* FriendsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A996BD4623E035990043498D /* FriendsRepository.swift */; };
@@ -83,6 +85,8 @@
 		A95EB95223DC7D920074E99E /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		A95EB95423DC88220074E99E /* PhotoCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoCollectionCell.xib; sourceTree = "<group>"; };
 		A95EB95623DC98E50074E99E /* CustomCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewLayout.swift; sourceTree = "<group>"; };
+		A97A209923EE9D50009C6449 /* GlobalGroupsPresenterImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalGroupsPresenterImplementation.swift; sourceTree = "<group>"; };
+		A97A209C23EE9E72009C6449 /* GlobalGroupsConfigurationImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalGroupsConfigurationImplementation.swift; sourceTree = "<group>"; };
 		A9951C7F23CDC4F2001648A8 /* VkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VkService.swift; sourceTree = "<group>"; };
 		A9951C8223CDC5F8001648A8 /* VkWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VkWebViewController.swift; sourceTree = "<group>"; };
 		A996BD4623E035990043498D /* FriendsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsRepository.swift; sourceTree = "<group>"; };
@@ -187,6 +191,8 @@
 			children = (
 				A9D5D333238EB02B00581A9B /* GlobalGroupTableViewController.swift */,
 				A9AD66C42392E6410059A046 /* GlobalGroupCell.swift */,
+				A97A209923EE9D50009C6449 /* GlobalGroupsPresenterImplementation.swift */,
+				A97A209C23EE9E72009C6449 /* GlobalGroupsConfigurationImplementation.swift */,
 			);
 			path = "Global Group";
 			sourceTree = "<group>";
@@ -524,6 +530,7 @@
 				A95EB95323DC7D920074E99E /* PhotoCollectionViewCell.swift in Sources */,
 				A996BD4723E035990043498D /* FriendsRepository.swift in Sources */,
 				A91FADD223EAE9CB00BB818E /* GroupsConfiguratorImplementation.swift in Sources */,
+				A97A209D23EE9E72009C6449 /* GlobalGroupsConfigurationImplementation.swift in Sources */,
 				A9BE209B23B4C15A00BD8C57 /* IndicatorLoad.swift in Sources */,
 				A94E7C6723A280EB00D0DB89 /* CustomCommentButton.swift in Sources */,
 				A9269D3A23E55F9000435C61 /* GenericRepository.swift in Sources */,
@@ -539,6 +546,7 @@
 				A95EB95723DC98E50074E99E /* CustomCollectionViewLayout.swift in Sources */,
 				A9AD11F0239E8CC200F28D0E /* Friend.swift in Sources */,
 				A9269D3E23E5653800435C61 /* FriendsPresenterImplementation.swift in Sources */,
+				A97A209A23EE9D50009C6449 /* GlobalGroupsPresenterImplementation.swift in Sources */,
 				A9AD11DF239BF69F00F28D0E /* CustomLikeButton.swift in Sources */,
 				A996BD4B23E052A90043498D /* PhotosRepository.swift in Sources */,
 				A9AD11E8239E832F00F28D0E /* FriendTableViewController.swift in Sources */,

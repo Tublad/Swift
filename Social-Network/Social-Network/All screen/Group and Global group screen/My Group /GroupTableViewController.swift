@@ -44,23 +44,16 @@ class GroupTableViewController: UITableViewController {
     
     @IBAction func addGroup(segue: UIStoryboardSegue) {
         if segue.identifier == "addGroup" {
-          /*
             guard let globalGroupController = segue.source as? GlobalGroupTableViewController else {
                 return
             }
             if let indexPath = globalGroupController.tableView.indexPathForSelectedRow {
                 
-                let group: Group = globalGroupController.globalGroupList[indexPath.row]
-                if !groupResults.contains(where: { (element) -> Bool in
-                    if group.name == element.name {
-                        return true
-                    } else {
-                        return false
-                    }}){
-                    groupResults.realm?.add(group)
-                    tableView.reloadData()
+                guard let group: Group = globalGroupController.presenter?.modelAtIndexSearch(indexPath: indexPath) else { return }
+                if (presenter?.checkGroup(id: group.id))! {
+                    presenter?.addGroup(group: group)
                 }
-            }*/
+            }
         }
     }
 }
