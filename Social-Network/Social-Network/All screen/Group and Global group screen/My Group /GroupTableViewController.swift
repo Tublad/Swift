@@ -20,14 +20,20 @@ class GroupTableViewController: UITableViewController {
         
         searchBar.delegate = self
         addRefreshController()
+        settingFooter()
         presenter?.viewDidLoad()
     }
     
-    // MARK: настройки и добавление SearchBar
+    private func settingFooter() {
+        let footerView = UIView()
+        footerView.frame = CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 1)
+        footerView.backgroundColor = UIColor.clear
+        tableView.tableFooterView = footerView
+    }
     
     // MARK: настройки и добавление RefreshController
     
-    func addRefreshController() {
+    private func addRefreshController() {
         customRefreshController.tintColor = .white
         customRefreshController.addTarget(self, action: #selector(refreshTable), for: .valueChanged)
         tableView.addSubview(customRefreshController)

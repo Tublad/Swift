@@ -107,7 +107,7 @@ extension FriendsPresenterImplementation {
         guard let header = view as? UITableViewHeaderFooterView else {
             return
         }
-        header.textLabel?.textColor = UIColor.darkGray
+        header.textLabel?.textColor = UIColor.lightGray
         header.textLabel?.font = UIFont.systemFont(ofSize: 14, weight: .medium)
     }
     

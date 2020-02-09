@@ -59,7 +59,7 @@ class GlobalGroupsPresenterImplementation: GlobalGroupsPresenter {
             }
             self?.view?.updateView()
         }
-    
+        
     }
     
 }

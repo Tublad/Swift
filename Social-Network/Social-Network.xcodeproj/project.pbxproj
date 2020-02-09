@@ -30,6 +30,19 @@
 		A95EB95723DC98E50074E99E /* CustomCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95EB95623DC98E50074E99E /* CustomCollectionViewLayout.swift */; };
 		A97A209A23EE9D50009C6449 /* GlobalGroupsPresenterImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97A209923EE9D50009C6449 /* GlobalGroupsPresenterImplementation.swift */; };
 		A97A209D23EE9E72009C6449 /* GlobalGroupsConfigurationImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97A209C23EE9E72009C6449 /* GlobalGroupsConfigurationImplementation.swift */; };
+		A97A20A123EEC61B009C6449 /* AboutProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97A20A023EEC61B009C6449 /* AboutProfileTableViewController.swift */; };
+		A97A20A523EECACD009C6449 /* SectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97A20A423EECACD009C6449 /* SectionItem.swift */; };
+		A97A20A723EECC0E009C6449 /* MainSectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97A20A623EECC0E009C6449 /* MainSectionItem.swift */; };
+		A97A20A923EED1F8009C6449 /* ProfileTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A97A20A823EED1F8009C6449 /* ProfileTableCell.xib */; };
+		A97A20AB23EED20D009C6449 /* ProfileTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97A20AA23EED20D009C6449 /* ProfileTableCell.swift */; };
+		A97A20AD23EED24C009C6449 /* MainSectionTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A97A20AC23EED24C009C6449 /* MainSectionTableCell.xib */; };
+		A97A20AF23EED260009C6449 /* MainSectionTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97A20AE23EED260009C6449 /* MainSectionTableCell.swift */; };
+		A97A20B123EEDF13009C6449 /* VKPayTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A97A20B023EEDF13009C6449 /* VKPayTableCell.xib */; };
+		A97A20B323EEDF28009C6449 /* VKPayTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97A20B223EEDF28009C6449 /* VKPayTableCell.swift */; };
+		A97A20B623EFF798009C6449 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97A20B523EFF798009C6449 /* SettingTableViewController.swift */; };
+		A97A20C923EFF991009C6449 /* QuitTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A97A20C823EFF991009C6449 /* QuitTableCell.xib */; };
+		A97A20CB23EFF99E009C6449 /* QuitTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97A20CA23EFF99E009C6449 /* QuitTableCell.swift */; };
+		A97A20CD23EFFA2A009C6449 /* SettingSectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97A20CC23EFFA2A009C6449 /* SettingSectionItem.swift */; };
 		A9951C8023CDC4F2001648A8 /* VkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9951C7F23CDC4F2001648A8 /* VkService.swift */; };
 		A9951C8323CDC5F8001648A8 /* VkWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9951C8223CDC5F8001648A8 /* VkWebViewController.swift */; };
 		A996BD4723E035990043498D /* FriendsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A996BD4623E035990043498D /* FriendsRepository.swift */; };
@@ -87,6 +100,19 @@
 		A95EB95623DC98E50074E99E /* CustomCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewLayout.swift; sourceTree = "<group>"; };
 		A97A209923EE9D50009C6449 /* GlobalGroupsPresenterImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalGroupsPresenterImplementation.swift; sourceTree = "<group>"; };
 		A97A209C23EE9E72009C6449 /* GlobalGroupsConfigurationImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalGroupsConfigurationImplementation.swift; sourceTree = "<group>"; };
+		A97A20A023EEC61B009C6449 /* AboutProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutProfileTableViewController.swift; sourceTree = "<group>"; };
+		A97A20A423EECACD009C6449 /* SectionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionItem.swift; sourceTree = "<group>"; };
+		A97A20A623EECC0E009C6449 /* MainSectionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSectionItem.swift; sourceTree = "<group>"; };
+		A97A20A823EED1F8009C6449 /* ProfileTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileTableCell.xib; sourceTree = "<group>"; };
+		A97A20AA23EED20D009C6449 /* ProfileTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableCell.swift; sourceTree = "<group>"; };
+		A97A20AC23EED24C009C6449 /* MainSectionTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainSectionTableCell.xib; sourceTree = "<group>"; };
+		A97A20AE23EED260009C6449 /* MainSectionTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSectionTableCell.swift; sourceTree = "<group>"; };
+		A97A20B023EEDF13009C6449 /* VKPayTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VKPayTableCell.xib; sourceTree = "<group>"; };
+		A97A20B223EEDF28009C6449 /* VKPayTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKPayTableCell.swift; sourceTree = "<group>"; };
+		A97A20B523EFF798009C6449 /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
+		A97A20C823EFF991009C6449 /* QuitTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuitTableCell.xib; sourceTree = "<group>"; };
+		A97A20CA23EFF99E009C6449 /* QuitTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitTableCell.swift; sourceTree = "<group>"; };
+		A97A20CC23EFFA2A009C6449 /* SettingSectionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingSectionItem.swift; sourceTree = "<group>"; };
 		A9951C7F23CDC4F2001648A8 /* VkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VkService.swift; sourceTree = "<group>"; };
 		A9951C8223CDC5F8001648A8 /* VkWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VkWebViewController.swift; sourceTree = "<group>"; };
 		A996BD4623E035990043498D /* FriendsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsRepository.swift; sourceTree = "<group>"; };
@@ -235,6 +261,56 @@
 			path = "Photo Present Collection";
 			sourceTree = "<group>";
 		};
+		A97A209F23EEC5AD009C6449 /* About Profile Screen */ = {
+			isa = PBXGroup;
+			children = (
+				A97A20A023EEC61B009C6449 /* AboutProfileTableViewController.swift */,
+				A97A20A223EEC777009C6449 /* AboutProfileTableCell */,
+			);
+			path = "About Profile Screen";
+			sourceTree = "<group>";
+		};
+		A97A20A223EEC777009C6449 /* AboutProfileTableCell */ = {
+			isa = PBXGroup;
+			children = (
+				A97A20A623EECC0E009C6449 /* MainSectionItem.swift */,
+				A97A20A823EED1F8009C6449 /* ProfileTableCell.xib */,
+				A97A20AA23EED20D009C6449 /* ProfileTableCell.swift */,
+				A97A20AC23EED24C009C6449 /* MainSectionTableCell.xib */,
+				A97A20AE23EED260009C6449 /* MainSectionTableCell.swift */,
+				A97A20B023EEDF13009C6449 /* VKPayTableCell.xib */,
+				A97A20B223EEDF28009C6449 /* VKPayTableCell.swift */,
+			);
+			path = AboutProfileTableCell;
+			sourceTree = "<group>";
+		};
+		A97A20A323EECA99009C6449 /* Model for About profile cell */ = {
+			isa = PBXGroup;
+			children = (
+				A97A20A423EECACD009C6449 /* SectionItem.swift */,
+			);
+			path = "Model for About profile cell";
+			sourceTree = "<group>";
+		};
+		A97A20B423EFF646009C6449 /* Setting User Screen */ = {
+			isa = PBXGroup;
+			children = (
+				A97A20B523EFF798009C6449 /* SettingTableViewController.swift */,
+				A97A20B723EFF79E009C6449 /* Setting Table Cell */,
+			);
+			path = "Setting User Screen";
+			sourceTree = "<group>";
+		};
+		A97A20B723EFF79E009C6449 /* Setting Table Cell */ = {
+			isa = PBXGroup;
+			children = (
+				A97A20CC23EFFA2A009C6449 /* SettingSectionItem.swift */,
+				A97A20C823EFF991009C6449 /* QuitTableCell.xib */,
+				A97A20CA23EFF99E009C6449 /* QuitTableCell.swift */,
+			);
+			path = "Setting Table Cell";
+			sourceTree = "<group>";
+		};
 		A9951C7E23CDC4C9001648A8 /* Service */ = {
 			isa = PBXGroup;
 			children = (
@@ -254,6 +330,8 @@
 		A996BD4323DF5D250043498D /* All screen */ = {
 			isa = PBXGroup;
 			children = (
+				A97A20B423EFF646009C6449 /* Setting User Screen */,
+				A97A209F23EEC5AD009C6449 /* About Profile Screen */,
 				A9951C8123CDC5DD001648A8 /* VkWebScreen  */,
 				A9C729A02397ABCA00363C2D /* Friends and Photo friend screen */,
 				A9C729A12397ABFA00363C2D /* Group and Global group screen */,
@@ -297,6 +375,7 @@
 		A9AD11EA239E8C7100F28D0E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A97A20A323EECA99009C6449 /* Model for About profile cell */,
 				A9FA9D7E23D6DEBC002172DC /* Model Realm */,
 				A996BD4C23E15D810043498D /* CommonResponse.swift */,
 				A91ED0F123C850E400D9D4B7 /* Session.swift */,
@@ -457,7 +536,11 @@
 				A94E7C6123A2563000D0DB89 /* NewsCell.xib in Resources */,
 				A9BE209923B4BED900BD8C57 /* Indicator.xib in Resources */,
 				A9C8EEE823894F3700276B94 /* Assets.xcassets in Resources */,
+				A97A20C923EFF991009C6449 /* QuitTableCell.xib in Resources */,
 				A9C8EEE623894F3500276B94 /* Main.storyboard in Resources */,
+				A97A20AD23EED24C009C6449 /* MainSectionTableCell.xib in Resources */,
+				A97A20A923EED1F8009C6449 /* ProfileTableCell.xib in Resources */,
+				A97A20B123EEDF13009C6449 /* VKPayTableCell.xib in Resources */,
 				A925262223EC256A00A4F38C /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -515,6 +598,7 @@
 				A9AD11EC239E8C8700F28D0E /* Photo.swift in Sources */,
 				A9269D3823E557D800435C61 /* SettingsRepository.swift in Sources */,
 				A9951C8323CDC5F8001648A8 /* VkWebViewController.swift in Sources */,
+				A97A20AB23EED20D009C6449 /* ProfileTableCell.swift in Sources */,
 				A91ED0F223C850E400D9D4B7 /* Session.swift in Sources */,
 				A91FADD023EAE51700BB818E /* GroupsPresenterImplementation.swift in Sources */,
 				A9AD66C52392E6410059A046 /* GlobalGroupCell.swift in Sources */,
@@ -523,10 +607,15 @@
 				A996BD4923E052910043498D /* GroupsRepository.swift in Sources */,
 				A94E7C6323A26D0700D0DB89 /* NewViewController.swift in Sources */,
 				A9C8EEE323894F3500276B94 /* LoginViewController.swift in Sources */,
+				A97A20AF23EED260009C6449 /* MainSectionTableCell.swift in Sources */,
 				A9334D1A238FA3F100FE75F3 /* PhotoFriendCollectionViewController.swift in Sources */,
 				A9FA9D8223D6DF45002172DC /* GroupRealm.swift in Sources */,
+				A97A20CB23EFF99E009C6449 /* QuitTableCell.swift in Sources */,
+				A97A20CD23EFFA2A009C6449 /* SettingSectionItem.swift in Sources */,
 				A9D5D332238E968300581A9B /* GroupTableViewController.swift in Sources */,
 				A996BD4D23E15D810043498D /* CommonResponse.swift in Sources */,
+				A97A20B623EFF798009C6449 /* SettingTableViewController.swift in Sources */,
+				A97A20A123EEC61B009C6449 /* AboutProfileTableViewController.swift in Sources */,
 				A95EB95323DC7D920074E99E /* PhotoCollectionViewCell.swift in Sources */,
 				A996BD4723E035990043498D /* FriendsRepository.swift in Sources */,
 				A91FADD223EAE9CB00BB818E /* GroupsConfiguratorImplementation.swift in Sources */,
@@ -535,6 +624,7 @@
 				A94E7C6723A280EB00D0DB89 /* CustomCommentButton.swift in Sources */,
 				A9269D3A23E55F9000435C61 /* GenericRepository.swift in Sources */,
 				A9C8EEDF23894F3500276B94 /* AppDelegate.swift in Sources */,
+				A97A20A523EECACD009C6449 /* SectionItem.swift in Sources */,
 				A9D5D334238EB02B00581A9B /* GlobalGroupTableViewController.swift in Sources */,
 				A9AD11EE239E8CA200F28D0E /* Group.swift in Sources */,
 				A9C8EEE123894F3500276B94 /* SceneDelegate.swift in Sources */,
@@ -545,6 +635,7 @@
 				A9FA9D8423D6DF5A002172DC /* FriendRealm.swift in Sources */,
 				A95EB95723DC98E50074E99E /* CustomCollectionViewLayout.swift in Sources */,
 				A9AD11F0239E8CC200F28D0E /* Friend.swift in Sources */,
+				A97A20A723EECC0E009C6449 /* MainSectionItem.swift in Sources */,
 				A9269D3E23E5653800435C61 /* FriendsPresenterImplementation.swift in Sources */,
 				A97A209A23EE9D50009C6449 /* GlobalGroupsPresenterImplementation.swift in Sources */,
 				A9AD11DF239BF69F00F28D0E /* CustomLikeButton.swift in Sources */,
@@ -552,6 +643,7 @@
 				A9AD11E8239E832F00F28D0E /* FriendTableViewController.swift in Sources */,
 				A9951C8023CDC4F2001648A8 /* VkService.swift in Sources */,
 				A9DE6DDE239270C800EFAA81 /* GroupCell.swift in Sources */,
+				A97A20B323EEDF28009C6449 /* VKPayTableCell.swift in Sources */,
 				A95EB94E23DC7D080074E99E /* PhotoCollectionView.swift in Sources */,
 				A9269D4023E5655400435C61 /* FriendConfiguratorImplementation.swift in Sources */,
 				A94E7C6023A2563000D0DB89 /* NewsCell.swift in Sources */,

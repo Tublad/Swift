@@ -4,7 +4,6 @@ import UIKit
 class GroupCell: UITableViewCell {
     @IBOutlet weak var groupName: UILabel!
     @IBOutlet weak var content: UILabel!
-    @IBOutlet weak var participant: UILabel!
     @IBOutlet weak var imageGroup: UIImageView!
     
     
@@ -26,12 +25,6 @@ class GroupCell: UITableViewCell {
         
         groupName.text = model.name
         content.text = model.content
-        
-        if model.content == "Открытая группа" {
-            participant.text = String(model.participant) + " участника"
-        } else {
-            participant.text = String(model.participant) + " подписчика"
-        }
     }
 
 }

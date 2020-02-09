@@ -16,7 +16,7 @@ protocol UpdateView: class {
 class FriendTableViewController: UITableViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
-
+    
     var presenter: FriendsPresenter?
     var configurator: FriendConfigurator?
     var repository: FriendSource?
@@ -30,13 +30,21 @@ class FriendTableViewController: UITableViewController {
         searchBar.delegate = self
         updateNavigationBar()
         addRefreshController()
+        settingFooter()
         //MVP
         presenter?.viewDidLoad()
     }
     
+    private  func settingFooter() {
+        let footerView = UIView()
+        footerView.frame = CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 1)
+        footerView.backgroundColor = UIColor.clear
+        tableView.tableFooterView = footerView
+    }
+    
     // MARK: добавление RefreshControllers
     
-    func addRefreshController() {
+    private func addRefreshController() {
         customRefreshController.tintColor = .white
         customRefreshController.addTarget(self, action: #selector(refreshTable), for: .valueChanged)
         tableView.addSubview(customRefreshController)
@@ -49,7 +57,7 @@ class FriendTableViewController: UITableViewController {
         }
     }
     // MARK: коррекция NavigationBar
-    func updateNavigationBar() {
+    private  func updateNavigationBar() {
         let backButton = UIBarButtonItem()
         backButton.title = ""
         navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
