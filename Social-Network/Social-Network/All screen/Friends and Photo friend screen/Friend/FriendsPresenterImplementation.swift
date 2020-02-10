@@ -123,5 +123,4 @@ extension FriendsPresenterImplementation {
         database.deleteFriend(id: sortedFriendsResults[indexPath.section].item[indexPath.row].id)
         getUsersFromDatabase()
     }
-    
 }

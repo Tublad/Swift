@@ -1,7 +1,6 @@
 
 import UIKit
 
-
 class LiKeButton: UIButton {
     
     var liked: Bool = false {

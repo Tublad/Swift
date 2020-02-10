@@ -30,6 +30,8 @@ extension PhotoCollectionView: UICollectionViewDelegate, UICollectionViewDataSou
         
         cell.galleryPhoto.image = images[indexPath.row]
         cell.galleryPhoto.setupImageViewer(images: images, initialIndex: indexPath.item, options: [.theme(.dark)])
+        cell.layer.borderColor = UIColor.black.cgColor
+        cell.layer.borderWidth = 0.5
         
         return cell
     }

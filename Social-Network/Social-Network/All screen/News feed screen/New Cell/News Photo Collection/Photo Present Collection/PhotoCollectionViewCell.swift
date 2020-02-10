@@ -10,4 +10,7 @@ class PhotoCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var galleryPhoto: UIImageView!
     
+    override func prepareForReuse() {
+        galleryPhoto.image = nil
+    }
 }

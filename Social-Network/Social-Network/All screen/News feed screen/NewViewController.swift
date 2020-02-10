@@ -32,6 +32,7 @@ class NewsViewController: UITableViewController {
         tableView.register(UINib(nibName: "NewsCell", bundle: nil), forCellReuseIdentifier: "simpleNewsCell")
         tableView.estimatedRowHeight = 100.0
         tableView.rowHeight = UITableView.automaticDimension
+        settingHeader()
         addRefreshController()
     }
     
@@ -47,30 +48,49 @@ class NewsViewController: UITableViewController {
         }
     }
     
+    private func settingHeader() {
+        let header = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 10.0))
+        header.backgroundColor = UIColor.black
+        tableView.tableHeaderView = header
+    }
+    
 }
 
 // MARK: dataSource
 
 extension NewsViewController {
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-           return name.count
-       }
-       
-       override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-          guard let cell = tableView.dequeueReusableCell(withIdentifier: "simpleNewsCell", for: indexPath) as? NewsCell  else {
-               return UITableViewCell()
-           }
-           cell.aboutOfNews.text = content[indexPath.row]
-           cell.nameGroup.text = name[indexPath.row]
-           cell.groupImage.image = UIImage(named: imagePost[indexPath.row])
-           cell.time.text = time[indexPath.row]
-           
-           //MARK: передаю массив фотографий на дальнейшее действие и визуализации коллекции
-           
-           cell.photoPost = image[indexPath.row]
-           
-           return cell
-       }
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 10.0
+    }
     
+    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let footer = UIView()
+        footer.backgroundColor = UIColor.clear
+        return footer
+    }
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return self.name.count
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "simpleNewsCell", for: indexPath) as? NewsCell  else {
+            return UITableViewCell()
+        }
+        
+        cell.aboutOfNews.text = content[indexPath.section]
+        cell.nameGroup.text = name[indexPath.section]
+        cell.groupImage.image = UIImage(named: imagePost[indexPath.section])
+        cell.time.text = time[indexPath.section]
+        
+        //MARK: передаю массив фотографий на дальнейшее действие и визуализации коллекции
+        
+        cell.photoPost = image[indexPath.section]
+        
+        return cell
+    }
 }
