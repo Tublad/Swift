@@ -52,7 +52,7 @@ class VKApi {
                       "fields": "city,domain,photo_100"]
         
         requestServer(requestURL: requestURL, method: .post, params: params) { completion($0) }
-        
+
     }
     
     //MARK: запрос на список фотографий данного пользователя
@@ -98,6 +98,32 @@ class VKApi {
                       "v": "5.103"]
         
         requestServer(requestURL: requestURL, method: .post, params: params) { completion($0) }
+    }
+    
+    func getProfile(token: String,
+                    completion: @escaping (Out<[Profile], Error>) -> Void){
+        let requestURL = vkURL + "users.get"
+        let params = ["access_token" : token,
+                      "fields": "photo_200,city,counters,bdate",
+                      "name_case": "Nom",
+                      "v": "5.103"]
+ 
+        Alamofire.request(requestURL,
+                          method: .get,
+                          parameters: params).responseData { (response) in
+                            
+                            switch response.result {
+                            case .failure(let error):
+                                completion(.failure(RequestError.failedError(message: error.localizedDescription)))
+                            case .success(let data):
+                                do {
+                                    let responses = try JSONDecoder().decode(ProfileResponse.self, from: data)
+                                    completion(.success(responses.response))
+                                } catch let error {
+                                    completion(.failure(error))
+                                }
+                            }
+        }
     }
 }
 

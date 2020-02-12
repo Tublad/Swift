@@ -69,8 +69,9 @@ extension NewsViewController {
         footer.backgroundColor = UIColor.clear
         return footer
     }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return self.name.count
+        return name.count
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

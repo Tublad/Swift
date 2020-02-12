@@ -77,7 +77,6 @@ class FriendsPresenterImplementation: FriendsPresenter {
             }
         }
     }
-    
 }
 
 extension FriendsPresenterImplementation {

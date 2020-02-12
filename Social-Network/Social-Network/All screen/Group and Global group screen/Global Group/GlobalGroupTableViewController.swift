@@ -5,22 +5,10 @@ import Kingfisher
 class GlobalGroupTableViewController: UITableViewController {
     
     var customRefreshController = UIRefreshControl()
+    @IBOutlet weak var searchBar: UISearchBar!
     
     var presenter: GlobalGroupsPresenter?
     var configurator: GlobalGroupsConfiguration?
-    
-    private let searchController = UISearchController(searchResultsController: nil)
-    
-    private var searchBarIsEmpty: Bool {
-        guard let text = searchController.searchBar.text else {
-            return false
-        }
-        return text.isEmpty
-    }
-    
-    private var isFiltering: Bool {
-        return searchController.isActive && !searchBarIsEmpty
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,21 +16,10 @@ class GlobalGroupTableViewController: UITableViewController {
         configurator = GlobalGroupsConfigurationImplementation()
         configurator?.configurator(view: self)
         
-        addSearchBarControl()
         addRefreshController()
-        
+        searchBar.delegate = self
+        settingFooter()
         presenter?.viewDidLoad()
-    }
-    
-    // MARK: настройки и добавление SearchBar
-    
-    func addSearchBarControl() {
-        searchController.searchResultsUpdater = self
-        searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Поиск"
-        navigationItem.searchController = searchController
-        definesPresentationContext = true
-        searchController.searchBar.searchTextField.textColor = .white
     }
     
     // MARK: настройки и добавление RefreshController
@@ -59,6 +36,13 @@ class GlobalGroupTableViewController: UITableViewController {
             self.customRefreshController.endRefreshing()
         }
     }
+    
+    private func settingFooter() {
+        let footerView = UIView()
+        footerView.frame = CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 1)
+        footerView.backgroundColor = UIColor.clear
+        tableView.tableFooterView = footerView
+    }
 }
 
 // MARK: dataSource
@@ -70,24 +54,15 @@ extension GlobalGroupTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if isFiltering {
-            return presenter?.numberOfRowsInSectionSearch() ?? 0
-        }
-        return presenter?.numberOfRowsInSection() ?? 0
+        return presenter?.numberOfRowsInSectionSearch() ?? 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "GlobalGroupCell", for: indexPath) as? GlobalGroupCell,
-            let globalList = presenter?.modelAtIndex(indexPath: indexPath),
             let globalSearchList = presenter?.modelAtIndexSearch(indexPath: indexPath) else { return UITableViewCell() }
         
-        var global: Group
-        if isFiltering {
-            global = globalSearchList
-        } else {
-            global = globalList
-        }
+        let global: Group = globalSearchList
         
         cell.renderCell(model: global)
         
@@ -97,15 +72,16 @@ extension GlobalGroupTableViewController {
 
 // MARK: Расширение для SearchBar
 
-extension GlobalGroupTableViewController : UISearchResultsUpdating {
+extension GlobalGroupTableViewController : UISearchBarDelegate {
     
-    func updateSearchResults(for searchController: UISearchController) {
-        filterContentForSearchText(searchController.searchBar.text!, indexPath: IndexPath.init())
-    }
-    
-    private func filterContentForSearchText(_ searchText: String, indexPath: IndexPath) {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         presenter?.searchGroup(name: searchText)
     }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        view.endEditing(true)
+    }
+    
 }
 
 extension GlobalGroupTableViewController: UpdateView {

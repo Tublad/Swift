@@ -32,7 +32,6 @@ class VkWebViewController: UIViewController {
         view = vkWebView
     }
     
-    
 }
 
 extension VkWebViewController: WKNavigationDelegate {

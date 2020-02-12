@@ -1,6 +1,7 @@
 
 import UIKit
 import Foundation
+import RealmSwift
 
 enum CellTypes {
     case profile
@@ -10,21 +11,45 @@ enum CellTypes {
 
 class AboutProfileTableViewController: UITableViewController {
     
+    var vkApi = VKApi()
+    var database = ProfileRepository()
+    
     var shortSection: [CellTypes] = [] // Массив для 2-ой секции и в тоже время Массив для всех разделов
     var models: [[CellTypes]] = [] // Массив Массивов с контентом всей страницы
     var titleHeader = [String]()
     
-    // это убирает Header (большая высота поумолчанию)
-    /*
-     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-     return nil
-     }*/
-    
+    var myProfile: Results<ProfileRealm>!
+   
     override func viewDidLoad() {
+        getProfileServer()
+        getProfileDatabase()
+        
         addContent()
         newCellRegister()
         countSection()
+        
         settingFooter()
+    }
+    
+    private func getProfileServer() {
+        vkApi.getProfile(token: Session.shared.token) { [weak self] user in
+            switch user {
+            case .failure(let error):
+                print(error)
+            case .success(let profile):
+                self?.database.addProfile(profiles: profile)
+                self?.getProfileDatabase()
+            }
+        }
+    }
+    
+    private func getProfileDatabase() {
+        do {
+            myProfile = try database.getProfile()
+            tableView.reloadData()
+        } catch {
+            print(error)
+        }
     }
     
     func settingFooter() {
@@ -111,9 +136,26 @@ extension AboutProfileTableViewController {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCell") as? ProfileTableCell else {
                 return UITableViewCell()
             }
-            cell.profileImage.image = UIImage(named: "MyPhoto")
-            cell.fullName.text = "Женя Шварцкопф"
-            cell.profileAccount.text = "Открытый профиль"
+            
+            let profile = myProfile[indexPath.row]
+            
+            cell.profileImage.image = UIImage(named: profile.avatar)
+            
+            if profile.avatar.isEmpty {
+                cell.profileImage.image = UIImage(named: "PhotoProfile")
+            } else {
+                let url = URL(string: String(profile.avatar))
+                cell.profileImage.kf.setImage(with: url)
+            }
+            
+            cell.fullName.text = profile.firstName + " " + profile.lastName
+            
+            if !profile.isClosed {
+                cell.profileAccount.text = "Открытый профиль"
+            } else {
+                cell.profileAccount.text = "Закрытый профиль"
+            }
+            
             return cell
             
         // second Main Section (на другие контроллеры)

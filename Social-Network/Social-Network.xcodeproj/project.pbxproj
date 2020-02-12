@@ -13,7 +13,7 @@
 		A91FADD223EAE9CB00BB818E /* GroupsConfiguratorImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91FADD123EAE9CB00BB818E /* GroupsConfiguratorImplementation.swift */; };
 		A925262223EC256A00A4F38C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A925262123EC256A00A4F38C /* GoogleService-Info.plist */; };
 		A9269D3823E557D800435C61 /* SettingsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9269D3723E557D800435C61 /* SettingsRepository.swift */; };
-		A9269D3A23E55F9000435C61 /* GenericRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9269D3923E55F9000435C61 /* GenericRepository.swift */; };
+		A9269D3A23E55F9000435C61 /* ProfileRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9269D3923E55F9000435C61 /* ProfileRepository.swift */; };
 		A9269D3E23E5653800435C61 /* FriendsPresenterImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9269D3D23E5653800435C61 /* FriendsPresenterImplementation.swift */; };
 		A9269D4023E5655400435C61 /* FriendConfiguratorImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9269D3F23E5655400435C61 /* FriendConfiguratorImplementation.swift */; };
 		A9269D4223E59AB400435C61 /* PhotoFriendPresenterImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9269D4123E59AB400435C61 /* PhotoFriendPresenterImplementation.swift */; };
@@ -71,6 +71,8 @@
 		A9DE6DDE239270C800EFAA81 /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DE6DDD239270C800EFAA81 /* GroupCell.swift */; };
 		A9DE6DE323928BB600EFAA81 /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DE6DE223928BB600EFAA81 /* FriendCell.swift */; };
 		A9DE6DE523928FCD00EFAA81 /* PhotoFriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DE6DE423928FCD00EFAA81 /* PhotoFriendCell.swift */; };
+		A9EC965423F3F04400D5D39C /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EC965323F3F04400D5D39C /* Profile.swift */; };
+		A9EC965623F3FAE000D5D39C /* ProfileRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EC965523F3FAE000D5D39C /* ProfileRealm.swift */; };
 		A9FA9D8023D6DF35002172DC /* PhotoRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FA9D7F23D6DF35002172DC /* PhotoRealm.swift */; };
 		A9FA9D8223D6DF45002172DC /* GroupRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FA9D8123D6DF45002172DC /* GroupRealm.swift */; };
 		A9FA9D8423D6DF5A002172DC /* FriendRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FA9D8323D6DF5A002172DC /* FriendRealm.swift */; };
@@ -83,7 +85,7 @@
 		A91FADD123EAE9CB00BB818E /* GroupsConfiguratorImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsConfiguratorImplementation.swift; sourceTree = "<group>"; };
 		A925262123EC256A00A4F38C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A9269D3723E557D800435C61 /* SettingsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRepository.swift; sourceTree = "<group>"; };
-		A9269D3923E55F9000435C61 /* GenericRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericRepository.swift; sourceTree = "<group>"; };
+		A9269D3923E55F9000435C61 /* ProfileRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRepository.swift; sourceTree = "<group>"; };
 		A9269D3D23E5653800435C61 /* FriendsPresenterImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsPresenterImplementation.swift; sourceTree = "<group>"; };
 		A9269D3F23E5655400435C61 /* FriendConfiguratorImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendConfiguratorImplementation.swift; sourceTree = "<group>"; };
 		A9269D4123E59AB400435C61 /* PhotoFriendPresenterImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoFriendPresenterImplementation.swift; sourceTree = "<group>"; };
@@ -143,6 +145,8 @@
 		A9DE6DDD239270C800EFAA81 /* GroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
 		A9DE6DE223928BB600EFAA81 /* FriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
 		A9DE6DE423928FCD00EFAA81 /* PhotoFriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoFriendCell.swift; sourceTree = "<group>"; };
+		A9EC965323F3F04400D5D39C /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		A9EC965523F3FAE000D5D39C /* ProfileRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRealm.swift; sourceTree = "<group>"; };
 		A9FA9D7F23D6DF35002172DC /* PhotoRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoRealm.swift; sourceTree = "<group>"; };
 		A9FA9D8123D6DF45002172DC /* GroupRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupRealm.swift; sourceTree = "<group>"; };
 		A9FA9D8323D6DF5A002172DC /* FriendRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendRealm.swift; sourceTree = "<group>"; };
@@ -352,7 +356,7 @@
 		A996BD4523E0353E0043498D /* RealmRepository */ = {
 			isa = PBXGroup;
 			children = (
-				A9269D3923E55F9000435C61 /* GenericRepository.swift */,
+				A9269D3923E55F9000435C61 /* ProfileRepository.swift */,
 				A996BD4623E035990043498D /* FriendsRepository.swift */,
 				A996BD4823E052910043498D /* GroupsRepository.swift */,
 				A996BD4A23E052A90043498D /* PhotosRepository.swift */,
@@ -364,6 +368,7 @@
 		A9AD11D32397F81A00F28D0E /* UICustom */ = {
 			isa = PBXGroup;
 			children = (
+				A9BE209723B4BCA800BD8C57 /* Indicator */,
 				A9AD11D623980ADD00F28D0E /* CustomPhoto.swift */,
 				A9AD11DE239BF69F00F28D0E /* CustomLikeButton.swift */,
 				A94E7C6423A2806B00D0DB89 /* CustomRepostButton.swift */,
@@ -382,6 +387,7 @@
 				A9AD11EF239E8CC200F28D0E /* Friend.swift */,
 				A9AD11EB239E8C8700F28D0E /* Photo.swift */,
 				A9AD11ED239E8CA200F28D0E /* Group.swift */,
+				A9EC965323F3F04400D5D39C /* Profile.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -446,7 +452,6 @@
 			children = (
 				A9951C7E23CDC4C9001648A8 /* Service */,
 				A996BD4423E0350A0043498D /* Database */,
-				A9BE209723B4BCA800BD8C57 /* Indicator */,
 				A9AD11EA239E8C7100F28D0E /* Model */,
 				A9AD11D32397F81A00F28D0E /* UICustom */,
 				A996BD4323DF5D250043498D /* All screen */,
@@ -467,6 +472,7 @@
 				A9FA9D7F23D6DF35002172DC /* PhotoRealm.swift */,
 				A9FA9D8123D6DF45002172DC /* GroupRealm.swift */,
 				A9FA9D8323D6DF5A002172DC /* FriendRealm.swift */,
+				A9EC965523F3FAE000D5D39C /* ProfileRealm.swift */,
 			);
 			path = "Model Realm";
 			sourceTree = "<group>";
@@ -611,6 +617,7 @@
 				A9334D1A238FA3F100FE75F3 /* PhotoFriendCollectionViewController.swift in Sources */,
 				A9FA9D8223D6DF45002172DC /* GroupRealm.swift in Sources */,
 				A97A20CB23EFF99E009C6449 /* QuitTableCell.swift in Sources */,
+				A9EC965423F3F04400D5D39C /* Profile.swift in Sources */,
 				A97A20CD23EFFA2A009C6449 /* SettingSectionItem.swift in Sources */,
 				A9D5D332238E968300581A9B /* GroupTableViewController.swift in Sources */,
 				A996BD4D23E15D810043498D /* CommonResponse.swift in Sources */,
@@ -622,7 +629,7 @@
 				A97A209D23EE9E72009C6449 /* GlobalGroupsConfigurationImplementation.swift in Sources */,
 				A9BE209B23B4C15A00BD8C57 /* IndicatorLoad.swift in Sources */,
 				A94E7C6723A280EB00D0DB89 /* CustomCommentButton.swift in Sources */,
-				A9269D3A23E55F9000435C61 /* GenericRepository.swift in Sources */,
+				A9269D3A23E55F9000435C61 /* ProfileRepository.swift in Sources */,
 				A9C8EEDF23894F3500276B94 /* AppDelegate.swift in Sources */,
 				A97A20A523EECACD009C6449 /* SectionItem.swift in Sources */,
 				A9D5D334238EB02B00581A9B /* GlobalGroupTableViewController.swift in Sources */,
@@ -632,6 +639,7 @@
 				A9BE209623B4BC9300BD8C57 /* CustomIndicator.swift in Sources */,
 				A9AD66C723939DFA0059A046 /* GreatPasswordController.swift in Sources */,
 				A9DE6DE523928FCD00EFAA81 /* PhotoFriendCell.swift in Sources */,
+				A9EC965623F3FAE000D5D39C /* ProfileRealm.swift in Sources */,
 				A9FA9D8423D6DF5A002172DC /* FriendRealm.swift in Sources */,
 				A95EB95723DC98E50074E99E /* CustomCollectionViewLayout.swift in Sources */,
 				A9AD11F0239E8CC200F28D0E /* Friend.swift in Sources */,

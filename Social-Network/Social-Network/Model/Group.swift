@@ -22,16 +22,19 @@ class Group: Object, Decodable {
         let groupConteiner = try decoder.container(keyedBy: GroupKeys.self)
         self.id = try groupConteiner.decode(Int.self, forKey: .id)
         self.name = try groupConteiner.decode(String.self, forKey: .name)
+        
         if groupConteiner.contains(.content) {
             self.content = try groupConteiner.decode(String.self, forKey: .content)
         } else {
             self.content = ""
         }
+        
         if groupConteiner.contains(.participant) {
             self.participant = try groupConteiner.decode(Int.self, forKey: .participant)
         } else {
             self.participant = 0
         }
+        
         if groupConteiner.contains(.imageGroup) {
             self.imageGroup = try groupConteiner.decode(String.self, forKey: .imageGroup)
         } else {
