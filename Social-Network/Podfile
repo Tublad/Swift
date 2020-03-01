@@ -1,0 +1,11 @@
+platform :ios, '10.0'
+use_frameworks!
+
+target 'Social-Network' do
+     pod 'Kingfisher', '~> 5.13.0'
+     pod 'ImageViewer.swift', '~> 3.0'
+     pod 'Alamofire'
+     pod 'RealmSwift'
+     pod 'SwiftKeychainWrapper'
+     pod 'Firebase/Analytics'
+end
